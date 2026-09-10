@@ -1,35 +1,598 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سوله سنتر | محاسبه‌گر سوله</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سوله سنتر | محاسبه‌گر وزن سوله</title>
 
 <style>
 *{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:Tahoma,Arial,sans-serif
+}
 body{
-  margin:0;padding:20px 12px 40px;
-  background:linear-gradient(160deg,#eef2f6,#fafafa);
-  font-family:Tahoma,Arial,sans-serif;color:#17212b
+  background:linear-gradient(145deg,#081321,#122743 55%,#3b1117);
+  color:#fff
 }
-.wrap{max-width:520px;margin:auto}
-.brand{text-align:center;margin-bottom:18px}
-.brand-title{
-  display:inline-block;padding:11px 22px;border-radius:15px;
-  background:linear-gradient(135deg,#101a2b,#293b56);
-  color:white;font-size:23px;font-weight:bold
+.wrap{
+  max-width:680px;
+  margin:auto;
+  padding:18px 14px 28px
 }
-.brand-sub{font-size:12px;color:#687482;margin-top:7px}
+.brand{
+  text-align:center;
+  margin-bottom:18px
+}
+.brandName{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:2px
+}
+.brandSub{
+  font-size:11px;
+  letter-spacing:3px;
+  color:#e2b34f;
+  font-weight:900;
+  margin:3px 0 8px
+}
+.brandTitle{
+  font-size:32px;
+  font-weight:950;
+  margin:8px 0 4px
+}
+.designer{
+  font-size:17px;
+  font-weight:900;
+  margin:0
+}
+.mainPhone{
+  display:inline-block;
+  margin-top:6px;
+  padding:8px 15px;
+  border-radius:12px;
+  color:#ffd36b;
+  background:#ffffff12;
+  border:1px solid #d9a44177;
+  text-decoration:none;
+  font-size:23px;
+  font-weight:950;
+  direction:ltr
+}
 .card{
-  background:white;border:1px solid #dfe4ea;border-radius:18px;
-  padding:17px;margin-bottom:14px;
-  box-shadow:0 8px 24px rgba(0,0,0,.06)
+  background:#fff;
+  color:#152033;
+  border-radius:24px;
+  padding:19px;
+  box-shadow:0 20px 60px #0009
 }
-.section{font-size:13px;font-weight:bold;color:#101a2b;margin-bottom:13px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-label{display:block;font-size:12px;color:#687482;margin-bottom:6px;font-weight:bold}
+.title{
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:14px
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px
+}
+label{
+  display:block;
+  font-size:13px;
+  font-weight:900;
+  color:#334155;
+  margin-bottom:6px
+}
 input,select{
-  width:100%;height:48px;border:1px solid #dfe4ea;border-radius:12px;
-  padding:0 12px;font-size:18px;font-weight:bold;background:#fbfcfd
+  width:100%;
+  height:50px;
+  border:1px solid #d8e0e9;
+  border-radius:13px;
+  background:#f8fafc;
+  padding:0 12px;
+  font-size:17px;
+  color:#111827;
+  outline:none
 }
-.unit{font-size:10px;color:#8b96a2
+input:focus,select:focus{
+  border-color:#d71920;
+  box-shadow:0 0 0 3px #d7192020
+}
+.btn{
+  width:100%;
+  height:54px;
+  margin-top:16px;
+  border:0;
+  border-radius:15px;
+  background:linear-gradient(135deg,#d71920,#a80e15);
+  color:white;
+  font-size:17px;
+  font-weight:950;
+  cursor:pointer
+}
+.result{
+  display:none;
+  margin-top:20px
+}
+.tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px
+}
+.tab{
+  height:48px;
+  border:1px solid #dce3eb;
+  border-radius:13px;
+  background:#f1f5f9;
+  color:#334155;
+  font-weight:900;
+  font-size:14px;
+  cursor:pointer
+}
+.tab.active{
+  background:#132744;
+  color:#fff
+}
+.panel{
+  display:none;
+  margin-top:10px;
+  background:#f3f6fa;
+  border:1px solid #e3e8ef;
+  border-radius:18px;
+  padding:22px 10px;
+  text-align:center
+}
+.panel.active{
+  display:block
+}
+.icon{
+  font-size:29px
+}
+.caption{
+  font-size:14px;
+  color:#64748b;
+  font-weight:900;
+  margin-top:5px
+}
+.number{
+  font-size:32px;
+  color:#d71920;
+  font-weight:950;
+  margin-top:3px
+}
+.unit{
+  font-size:14px;
+  color:#475569
+}
+.error{
+  background:#fff1f0;
+  color:#b42318;
+  border:1px solid #ffd0cc;
+  border-radius:12px;
+  padding:12px;
+  font-weight:800
+}
+.footer{
+  text-align:center;
+  color:#aeb9c9;
+  font-size:13px;
+  line-height:2;
+  margin-top:17px
+}
+.footerTitle{
+  color:#fff;
+  font-weight:900
+}
+.footer a{
+  color:#e2b34f;
+  text-decoration:none
+}
+.smallPhone{
+  font-size:19px;
+  font-weight:950;
+  direction:ltr;
+  display:inline-block;
+  color:#d9e2ee;
+  text-decoration:none
+}
+.sep{
+  opacity:.45;
+  margin:0 7px
+}
+@media(max-width:500px){
+  .grid{
+    grid-template-columns:1fr
+  }
+  .brandName{
+    font-size:24px
+  }
+  .brandTitle{
+    font-size:29px
+  }
+  .mainPhone{
+    font-size:21px
+  }
+  .number{
+    font-size:28px
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="brand">
+  <div class="brandName">MOHAMMADI</div>
+  <div class="brandSub">STEEL STRUCTURES</div>
+  <div class="brandTitle">سوله سنتر</div>
+  <p class="designer">طراح: مهندس محمدی</p>
+  <a class="mainPhone" href="tel:+989125285841">۰۹۱۲۵۲۸۵۸۴۱</a>
+</header>
+
+<main class="card">
+
+  <div class="title">📐 مشخصات سوله</div>
+
+  <form id="calcForm" onsubmit="return calculate();">
+
+    <div class="grid">
+
+      <div>
+        <label for="span">↔️ دهانه (متر)</label>
+        <input
+          id="span"
+          type="text"
+          inputmode="decimal"
+          placeholder="مثلاً ۲۰">
+      </div>
+
+      <div>
+        <label for="len">📏 طول (متر)</label>
+        <input
+          id="len"
+          type="text"
+          inputmode="decimal"
+          placeholder="مثلاً ۴۸">
+      </div>
+
+      <div>
+        <label for="height">↕️ ارتفاع (متر)</label>
+        <input
+          id="height"
+          type="text"
+          inputmode="decimal"
+          placeholder="مثلاً ۸">
+      </div>
+
+      <div>
+        <label for="crane">🏗️ جرثقیل</label>
+        <select id="crane">
+          <option value="0">بدون جرثقیل</option>
+          <option value="5">۵ تن</option>
+          <option value="10">۱۰ تن</option>
+          <option value="15">۱۵ تن</option>
+          <option value="20">۲۰ تن</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button class="btn" type="submit">
+      🧮 محاسبه و نمایش نتیجه
+    </button>
+
+  </form>
+
+  <section id="result" class="result">
+
+    <div class="tabs">
+
+      <button
+        type="button"
+        class="tab active"
+        onclick="showTab('weightPanel',this)">
+        ⚖️ وزن سوله
+      </button>
+
+      <button
+        type="button"
+        class="tab"
+        onclick="showTab('coverPanel',this)">
+        🏠 متراژ پوشش سقف
+      </button>
+
+    </div>
+
+    <div id="weightPanel" class="panel active"></div>
+
+    <div id="coverPanel" class="panel"></div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+
+  <div class="footerTitle">📞 تلفن و واتساپ</div>
+
+  <a class="smallPhone" href="tel:+989105289068">
+    ۰۹۱۰۵۲۸۹۰۶۸
+  </a>
+
+  <span class="sep">|</span>
+
+  <a class="smallPhone" href="tel:+989199528860">
+    ۰۹۱۹۹۵۲۸۸۶۰
+  </a>
+
+  <div>
+    📸
+    <a href="https://instagram.com/Sooleh.Center"
+       target="_blank"
+       rel="noopener">
+       Sooleh.Center
+    </a>
+  </div>
+
+  <div>
+    ✈️
+    <a href="https://t.me/poladsazeh"
+       target="_blank"
+       rel="noopener">
+       https://t.me/poladsazeh
+    </a>
+  </div>
+
+</footer>
+
+</div>
+
+<script>
+
+var SPAN_DATA = [
+  [12,25],
+  [15,28],
+  [18,29],
+  [20,32],
+  [25,38],
+  [30,43]
+];
+
+var CRANE_DATA = {
+  0:0,
+  5:5,
+  10:7.5,
+  15:12,
+  20:15
+};
+
+function normalizeNumber(value){
+
+  var s = String(value == null ? '' : value);
+
+  var fa = '۰۱۲۳۴۵۶۷۸۹';
+  var ar = '٠١٢٣٤٥٦٧٨٩';
+
+  for(var i=0;i<10;i++){
+
+    s = s
+      .split(fa.charAt(i))
+      .join(String(i));
+
+    s = s
+      .split(ar.charAt(i))
+      .join(String(i));
+
+  }
+
+  return s
+    .replace(/٫/g,'.')
+    .replace(/[٬,]/g,'')
+    .trim();
+}
+
+function num(id){
+
+  return parseFloat(
+    normalizeNumber(
+      document.getElementById(id).value
+    )
+  );
+
+}
+
+function baseWeight(x){
+
+  for(var i=0;i<SPAN_DATA.length-1;i++){
+
+    var a = SPAN_DATA[i];
+    var b = SPAN_DATA[i+1];
+
+    if(x >= a[0] && x <= b[0]){
+
+      return a[1] +
+        (x-a[0]) *
+        (b[1]-a[1]) /
+        (b[0]-a[0]);
+
+    }
+
+  }
+
+  if(x < 12){
+
+    return 25 +
+      (x-12) *
+      (28-25) /
+      (15-12);
+
+  }
+
+  return 38 +
+    (x-25) *
+    (43-38) /
+    (30-25);
+
+}
+
+function faNumber(n){
+
+  return n.toLocaleString(
+    'fa-IR',
+    {
+      maximumFractionDigits:2
+    }
+  );
+
+}
+
+function showError(msg){
+
+  var r = document.getElementById('result');
+
+  r.style.display = 'block';
+
+  document.getElementById('weightPanel').innerHTML =
+    '<div class="error">'+msg+'</div>';
+
+  document.getElementById('coverPanel').innerHTML = '';
+
+}
+
+function calculate(){
+
+  try{
+
+    var B = num('span');
+    var L = num('len');
+    var H = num('height');
+
+    var C =
+      document.getElementById('crane').value;
+
+    if(
+      !isFinite(B) ||
+      !isFinite(L) ||
+      !isFinite(H) ||
+      B <= 0 ||
+      L <= 0 ||
+      H <= 0
+    ){
+
+      showError(
+        'لطفاً دهانه، طول و ارتفاع را به‌صورت صحیح وارد کنید.'
+      );
+
+      return false;
+    }
+
+    /* محاسبه وزن سوله */
+
+    var steelArea =
+      (B + 2) *
+      (L + 2);
+
+    var kgm2 =
+      baseWeight(B) +
+      (H - 6) * 1.5 +
+      (CRANE_DATA[C] || 0);
+
+    var tons =
+      steelArea *
+      kgm2 /
+      1000;
+
+
+    /* محاسبه پوشش سقف
+       دهانه + ۳
+       طول + ۲
+       به اضافه نصف طولِ اصلاح‌شده
+    */
+
+    var cover =
+      (B + 3) *
+      (L + 2) +
+      ((L + 2) / 2);
+
+
+    document.getElementById('weightPanel').innerHTML =
+
+      '<div class="icon">⚖️</div>' +
+
+      '<div class="caption">وزن سوله</div>' +
+
+      '<div class="number">' +
+      faNumber(tons) +
+      ' <span class="unit">تن</span>' +
+      '</div>';
+
+
+    document.getElementById('coverPanel').innerHTML =
+
+      '<div class="icon">🏠</div>' +
+
+      '<div class="caption">متراژ پوشش سقف</div>' +
+
+      '<div class="number">' +
+      faNumber(cover) +
+      ' <span class="unit">مترمربع</span>' +
+      '</div>';
+
+
+    document.getElementById('result').style.display =
+      'block';
+
+    return false;
+
+  }
+
+  catch(e){
+
+    showError(
+      'خطا در محاسبه. لطفاً مقادیر را دوباره وارد کنید.'
+    );
+
+    return false;
+
+  }
+
+}
+
+function showTab(id,button){
+
+  var tabs =
+    document.getElementsByClassName('tab');
+
+  var panels =
+    document.getElementsByClassName('panel');
+
+
+  for(var i=0;i<tabs.length;i++){
+
+    tabs[i].classList.remove('active');
+
+  }
+
+
+  for(var j=0;j<panels.length;j++){
+
+    panels[j].classList.remove('active');
+
+  }
+
+
+  button.classList.add('active');
+
+  document
+    .getElementById(id)
+    .classList.add('active');
+
+}
+
+</script>
+
+</body>
+</html>
