@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -8,16 +7,19 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Tahoma,Arial,sans-serif;
   background:linear-gradient(135deg,#111,#252525);
   color:#fff;
 }
+
 .container{
   width:min(700px,94%);
   margin:25px auto;
 }
+
 .card{
   position:relative;
   background:#181818;
@@ -26,6 +28,7 @@ body{
   padding:25px;
   box-shadow:0 10px 40px rgba(0,0,0,.45);
 }
+
 .logo{
   position:absolute;
   top:12px;
@@ -36,37 +39,40 @@ body{
   border-radius:12px;
   border:1px solid #777;
 }
+
 .brand{
   text-align:center;
   margin-bottom:25px;
   padding-top:5px;
 }
+
 .brand .en{
   font-size:24px;
   font-weight:bold;
   letter-spacing:1px;
 }
+
 .brand .sub{
   font-size:14px;
   color:#d7b35a;
   margin-top:5px;
 }
+
 .brand .fa{
   font-size:14px;
   color:#ddd;
   margin-top:8px;
 }
+
 label{
   display:block;
   margin:13px 0 7px;
   font-size:14px;
   color:#ddd;
-}<img class="logo" 
-         src="your-image-filename.jpg" 
-         alt="Mohammadi Steel Structures" 
-         style="width: 78px; height: 78px; object-fit: cover; border-radius: 12px; border: 1px solid #777;">
+}
 
-select,input{
+select,
+input{
   width:100%;
   padding:13px;
   border-radius:11px;
@@ -76,14 +82,18 @@ select,input{
   font-size:15px;
   outline:none;
 }
-select:focus,input:focus{
+
+select:focus,
+input:focus{
   border-color:#d7b35a;
 }
+
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
 }
+
 button{
   width:100%;
   margin-top:20px;
@@ -96,9 +106,11 @@ button{
   font-weight:bold;
   cursor:pointer;
 }
+
 button:active{
   transform:scale(.99);
 }
+
 .result{
   display:none;
   margin-top:22px;
@@ -107,25 +119,30 @@ button:active{
   background:#222;
   border:1px solid #555;
 }
+
 .result h3{
   margin:0 0 15px;
   color:#d7b35a;
   text-align:center;
 }
+
 .result-row{
   display:flex;
   justify-content:space-between;
   padding:10px 0;
   border-bottom:1px solid #3b3b3b;
 }
+
 .result-row:last-child{
   border-bottom:0;
 }
+
 .big{
   font-size:24px;
   font-weight:bold;
   color:#d7b35a;
 }
+
 .info{
   margin-top:15px;
   font-size:12px;
@@ -133,6 +150,7 @@ button:active{
   color:#aaa;
   text-align:center;
 }
+
 .footer{
   margin-top:20px;
   text-align:center;
@@ -140,10 +158,12 @@ button:active{
   color:#aaa;
   line-height:2;
 }
+
 .footer a{
   color:#d7b35a;
   text-decoration:none;
 }
+
 .modal{
   display:none;
   position:fixed;
@@ -153,6 +173,7 @@ button:active{
   justify-content:center;
   z-index:1000;
 }
+
 .modal-box{
   width:min(390px,90%);
   background:#202020;
@@ -160,10 +181,12 @@ button:active{
   border-radius:18px;
   padding:22px;
 }
+
 .modal-box h3{
   margin-top:0;
   text-align:center;
 }
+
 .modal-box a{
   display:block;
   text-decoration:none;
@@ -174,20 +197,26 @@ button:active{
   background:#303030;
   color:#fff;
 }
+
 .close{
   background:#444!important;
 }
+
 @media(max-width:520px){
+
   .grid{
     grid-template-columns:1fr;
   }
+
   .logo{
     width:65px;
     height:65px;
   }
+
   .brand .en{
     font-size:20px;
   }
+
 }
 </style>
 </head>
@@ -197,16 +226,8 @@ button:active{
 <div class="container">
 <div class="card">
 
-<!-- لوگوی واقعی برند داخل خود فایل قرار می‌گیرد -->
 <img class="logo"
-src="data:image/jpeg;base64,
-
-width:78px;
-    height:78px;
-    object-fit:cover;
-    border-radius:12px;
-    border:1px solid #777;
-"
+src="logo.jpg"
 alt="Mohammadi Steel Structures">
 
 <div class="brand">
@@ -217,6 +238,7 @@ alt="Mohammadi Steel Structures">
 </div>
 
 <label>استان</label>
+
 <select id="province">
   <option value="">انتخاب استان</option>
   <option value="آذربایجان شرقی">آذربایجان شرقی</option>
@@ -228,7 +250,7 @@ alt="Mohammadi Steel Structures">
   <option value="بوشهر">بوشهر</option>
   <option value="تهران">تهران</option>
   <option value="چهارمحال و بختیاری">چهارمحال و بختیاری</option>
-  <option value="خراسان جنوبی">خراسان جنوبی</option>
+<option value="خراسان جنوبی">خراسان جنوبی</option>
   <option value="خراسان رضوی">خراسان رضوی</option>
   <option value="خراسان شمالی">خراسان شمالی</option>
   <option value="خوزستان">خوزستان</option>
@@ -253,6 +275,7 @@ alt="Mohammadi Steel Structures">
 </select>
 
 <label>شهر</label>
+
 <select id="city">
   <option value="">ابتدا استان را انتخاب کنید</option>
 </select>
@@ -261,21 +284,37 @@ alt="Mohammadi Steel Structures">
 
   <div>
     <label>دهانه سوله (متر)</label>
-    <input id="span" type="number" min="1" step="0.1" placeholder="مثلاً 20">
+    <input
+      id="span"
+      type="number"
+      min="1"
+      step="0.1"
+      placeholder="مثلاً 20">
   </div>
 
   <div>
     <label>طول سوله (متر)</label>
-    <input id="length" type="number" min="1" step="0.1" placeholder="مثلاً 48">
+    <input
+      id="length"
+      type="number"
+      min="1"
+      step="0.1"
+      placeholder="مثلاً 48">
   </div>
 
   <div>
     <label>ارتفاع سوله (متر)</label>
-    <input id="height" type="number" min="1" step="0.1" value="6">
+    <input
+      id="height"
+      type="number"
+      min="1"
+      step="0.1"
+      value="6">
   </div>
 
   <div>
     <label>جرثقیل سقفی</label>
+
     <select id="crane">
       <option value="0">بدون جرثقیل</option>
       <option value="5">۵ تن</option>
@@ -287,7 +326,9 @@ alt="Mohammadi Steel Structures">
 
 </div>
 
-<button onclick="calculate()">محاسبه وزن سوله</button>
+<button onclick="calculate()">
+  محاسبه وزن سوله
+</button>
 
 <div class="result" id="result">
 
@@ -310,28 +351,38 @@ alt="Mohammadi Steel Structures">
 
 </div>
 
-<button onclick="openPhoneModal()">📞 تماس با مهندس محمدی</button>
+<button onclick="openPhoneModal()">
+  📞 تماس با مهندس محمدی
+</button>
 
 <div class="footer">
+
   📱 ۰۹۱۲۵۲۸۵۸۴۱<br>
   📱 ۰۹۱۰۵۲۸۹۰۶۸<br><br>
 
   Instagram:
-  <a href="https://instagram.com/Sooleh.Center" target="_blank">
+  <a
+    href="https://instagram.com/Sooleh.Center"
+    target="_blank">
     Sooleh.Center
   </a>
+
   <br>
 
   Telegram:
-  <a href="https://t.me/poladsazeh" target="_blank">
+  <a
+    href="https://t.me/poladsazeh"
+    target="_blank">
     @poladsazeh
   </a>
+
 </div>
 
 </div>
 </div>
 
 <div class="modal" id="phoneModal">
+
   <div class="modal-box">
 
     <h3>راه ارتباطی را انتخاب کنید</h3>
@@ -340,221 +391,569 @@ alt="Mohammadi Steel Structures">
       📞 تماس تلفنی
     </a>
 
-    <a href="https://wa.me/989125285841" target="_blank">
+    <a
+      href="https://wa.me/989125285841"
+      target="_blank">
       💬 واتساپ
     </a>
 
-    <a href="#" class="close" onclick="closePhoneModal();return false;">
+    <a
+      href="#"
+      class="close"
+      onclick="closePhoneModal();return false;">
       بستن
     </a>
 
   </div>
+
 </div>
+
 <script>
+
 const provinces = {
+
 "آذربایجان شرقی": {
- weight:35,
- cities:["تبریز","مراغه","مرند","میانه","اهر","بناب","سراب","جلفا"]
+  weight:35,
+  cities:[
+    "تبریز",
+    "مراغه",
+    "مرند",
+    "میانه",
+    "اهر",
+    "بناب",
+    "سراب",
+    "جلفا"
+  ]
 },
+
 "آذربایجان غربی": {
- weight:35,
- cities:["ارومیه","خوی","مهاباد","میاندوآب","بوکان","سلماس","پیرانشهر"]
+  weight:35,
+  cities:[
+    "ارومیه",
+    "خوی",
+    "مهاباد",
+    "میاندوآب",
+    "بوکان",
+    "سلماس",
+    "پیرانشهر"
+  ]
 },
+
 "اردبیل": {
- weight:35,
- cities:["اردبیل","پارس‌آباد","مشگین‌شهر","خلخال","گرمی"]
+  weight:35,
+  cities:[
+    "اردبیل",
+    "پارس‌آباد",
+    "مشگین‌شهر",
+    "خلخال",
+    "گرمی"
+  ]
 },
+
 "اصفهان": {
- weight:32,
- cities:["اصفهان","کاشان","خمینی‌شهر","نجف‌آباد","شاهین‌شهر","شهرضا","مبارکه","فلاورجان"]
+  weight:32,
+  cities:[
+    "اصفهان",
+    "کاشان",
+    "خمینی‌شهر",
+    "نجف‌آباد",
+    "شاهین‌شهر",
+    "شهرضا",
+    "مبارکه",
+    "فلاورجان"
+  ]
 },
+
 "البرز": {
- weight:32,
- cities:["کرج","فردیس","نظرآباد","هشتگرد","محمدشهر"]
+  weight:32,
+  cities:[
+    "کرج",
+    "فردیس",
+    "نظرآباد",
+    "هشتگرد",
+    "محمدشهر"
+  ]
 },
+
 "ایلام": {
- weight:33.5,
- cities:["ایلام","دهلران","آبدانان","ایوان","مهران"]
+  weight:33.5,
+  cities:[
+    "ایلام",
+    "دهلران",
+    "آبدانان",
+    "ایوان",
+    "مهران"
+  ]
 },
 "بوشهر": {
- weight:28,
- cities:["بوشهر","برازجان","عسلویه","کنگان","گناوه","دیلم","خورموج"]
+  weight:28,
+  cities:[
+    "بوشهر",
+    "برازجان",
+    "عسلویه",
+    "کنگان",
+    "گناوه",
+    "دیلم",
+    "خورموج"
+  ]
 },
+
 "تهران": {
- weight:32,
- cities:["تهران","اسلامشهر","شهریار","شهرری","قدس","رباط‌کریم","پاکدشت","ورامین"]
+  weight:32,
+  cities:[
+    "تهران",
+    "اسلامشهر",
+    "شهریار",
+    "شهرری",
+    "قدس",
+    "رباط‌کریم",
+    "پاکدشت",
+    "ورامین"
+  ]
 },
+
 "چهارمحال و بختیاری": {
- weight:35,
- cities:["شهرکرد","بروجن","فارسان","لردگان","فرخ‌شهر"]
+  weight:35,
+  cities:[
+    "شهرکرد",
+    "بروجن",
+    "فارسان",
+    "لردگان",
+    "فرخ‌شهر"
+  ]
 },
+
 "خراسان جنوبی": {
- weight:30,
- cities:["بیرجند","قاین","طبس","فردوس","نهبندان"]
+  weight:30,
+  cities:[
+    "بیرجند",
+    "قاین",
+    "طبس",
+    "فردوس",
+    "نهبندان"
+  ]
 },
+
 "خراسان رضوی": {
- weight:31,
- cities:["مشهد","نیشابور","سبزوار","تربت‌حیدریه","کاشمر","قوچان","تربت‌جام","گناباد"]
+  weight:31,
+  cities:[
+    "مشهد",
+    "نیشابور",
+    "سبزوار",
+    "تربت‌حیدریه",
+    "کاشمر",
+    "قوچان",
+    "تربت‌جام",
+    "گناباد"
+  ]
 },
+
 "خراسان شمالی": {
- weight:32,
- cities:["بجنورد","شیروان","اسفراین","جاجرم","آشخانه"]
+  weight:32,
+  cities:[
+    "بجنورد",
+    "شیروان",
+    "اسفراین",
+    "جاجرم",
+    "آشخانه"
+  ]
 },
+
 "خوزستان": {
- weight:27,
- cities:["اهواز","دزفول","آبادان","خرمشهر","ماهشهر","بندر امام خمینی","شوش","شوشتر","بهبهان"]
+  weight:27,
+  cities:[
+    "اهواز",
+    "دزفول",
+    "آبادان",
+    "خرمشهر",
+    "ماهشهر",
+    "بندر امام خمینی",
+    "شوش",
+    "شوشتر",
+    "بهبهان"
+  ]
 },
+
 "زنجان": {
- weight:32,
- cities:["زنجان","ابهر","خرمدره","قیدار","ماهنشان"]
+  weight:32,
+  cities:[
+    "زنجان",
+    "ابهر",
+    "خرمدره",
+    "قیدار",
+    "ماهنشان"
+  ]
 },
+
 "سمنان": {
- weight:32,
- cities:["سمنان","شاهرود","دامغان","گرمسار","مهدی‌شهر"]
+  weight:32,
+  cities:[
+    "سمنان",
+    "شاهرود",
+    "دامغان",
+    "گرمسار",
+    "مهدی‌شهر"
+  ]
 },
+
 "سیستان و بلوچستان": {
- weight:28,
- cities:["زاهدان","زابل","چابهار","ایرانشهر","سراوان","خاش","کنارک"]
+  weight:28,
+  cities:[
+    "زاهدان",
+    "زابل",
+    "چابهار",
+    "ایرانشهر",
+    "سراوان",
+    "خاش",
+    "کنارک"
+  ]
 },
+
 "فارس": {
- weight:30,
- cities:["شیراز","مرودشت","جهرم","فسا","کازرون","لار","داراب","آباده","فیروزآباد"]
+  weight:30,
+  cities:[
+    "شیراز",
+    "مرودشت",
+    "جهرم",
+    "فسا",
+    "کازرون",
+    "لار",
+    "داراب",
+    "آباده",
+    "فیروزآباد"
+  ]
 },
+
 "قزوین": {
- weight:33.5,
- cities:["قزوین","تاکستان","آبیک","الوند","بوئین‌زهرا"]
+  weight:33.5,
+  cities:[
+    "قزوین",
+    "تاکستان",
+    "آبیک",
+    "الوند",
+    "بوئین‌زهرا"
+  ]
 },
+
 "قم": {
- weight:30,
- cities:["قم","جعفریه","سلفچگان","کهک"]
+  weight:30,
+  cities:[
+    "قم",
+    "جعفریه",
+    "سلفچگان",
+    "کهک"
+  ]
 },
+
 "کردستان": {
- weight:33.5,
- cities:["سنندج","سقز","مریوان","بانه","قروه","بیجار"]
+  weight:33.5,
+  cities:[
+    "سنندج",
+    "سقز",
+    "مریوان",
+    "بانه",
+    "قروه",
+    "بیجار"
+  ]
 },
+
 "کرمان": {
- weight:29,
- cities:["کرمان","رفسنجان","سیرجان","جیرفت","بم","زرند","شهربابک","کهنوج"]
+  weight:29,
+  cities:[
+    "کرمان",
+    "رفسنجان",
+    "سیرجان",
+    "جیرفت",
+    "بم",
+    "زرند",
+    "شهربابک",
+    "کهنوج"
+  ]
 },
+
 "کرمانشاه": {
- weight:33,
- cities:["کرمانشاه","اسلام‌آباد غرب","کنگاور","هرسین","پاوه","جوانرود","قصرشیرین"]
+  weight:33,
+  cities:[
+    "کرمانشاه",
+    "اسلام‌آباد غرب",
+    "کنگاور",
+    "هرسین",
+    "پاوه",
+    "جوانرود",
+    "قصرشیرین"
+  ]
 },
+
 "کهگیلویه و بویراحمد": {
- weight:32,
- cities:["یاسوج","دهدشت","گچساران","لیکک"]
+  weight:32,
+  cities:[
+    "یاسوج",
+    "دهدشت",
+    "گچساران",
+    "لیکک"
+  ]
 },
+
 "گلستان": {
- weight:33,
- cities:["گرگان","گنبدکاووس","علی‌آباد کتول","بندرترکمن","کردکوی","مینودشت"]
+  weight:33,
+  cities:[
+    "گرگان",
+    "گنبدکاووس",
+    "علی‌آباد کتول",
+    "بندرترکمن",
+    "کردکوی",
+    "مینودشت"
+  ]
 },
+
 "گیلان": {
- weight:33,
- cities:["رشت","انزلی","لاهیجان","لنگرود","آستارا","رودسر","رودبار","فومن"]
+  weight:33,
+  cities:[
+    "رشت",
+    "انزلی",
+    "لاهیجان",
+    "لنگرود",
+    "آستارا",
+    "رودسر",
+    "رودبار",
+    "فومن"
+  ]
 },
+
 "لرستان": {
- weight:32,
- cities:["خرم‌آباد","بروجرد","دورود","الیگودرز","کوهدشت","پلدختر"]
+  weight:32,
+  cities:[
+    "خرم‌آباد",
+    "بروجرد",
+    "دورود",
+    "الیگودرز",
+    "کوهدشت",
+    "پلدختر"
+  ]
 },
+
 "مازندران": {
- weight:33,
- cities:["ساری","بابل","آمل","قائم‌شهر","چالوس","نوشهر","تنکابن","بهشهر"]
+  weight:33,
+  cities:[
+    "ساری",
+    "بابل",
+    "آمل",
+    "قائم‌شهر",
+    "چالوس",
+    "نوشهر",
+    "تنکابن",
+    "بهشهر"
+  ]
 },
+
 "مرکزی": {
- weight:34,
- cities:["اراک","ساوه","خمین","محلات","دلیجان","شازند"]
+  weight:34,
+  cities:[
+    "اراک",
+    "ساوه",
+    "خمین",
+    "محلات",
+    "دلیجان",
+    "شازند"
+  ]
 },
+
 "هرمزگان": {
- weight:28,
- cities:["بندرعباس","بندرلنگه","میناب","قشم","جاسک","رودان","حاجی‌آباد"]
+  weight:28,
+  cities:[
+    "بندرعباس",
+    "بندرلنگه",
+    "میناب",
+    "قشم",
+    "جاسک",
+    "رودان",
+    "حاجی‌آباد"
+  ]
 },
+
 "همدان": {
- weight:32,
- cities:["همدان","ملایر","نهاوند","تویسرکان","کبودرآهنگ","اسدآباد"]
+  weight:32,
+  cities:[
+    "همدان",
+    "ملایر",
+    "نهاوند",
+    "تویسرکان",
+    "کبودرآهنگ",
+    "اسدآباد"
+  ]
 },
+
 "یزد": {
- weight:30,
- cities:["یزد","میبد","اردکان","بافق","مهریز","تفت"]
+  weight:30,
+  cities:[
+    "یزد",
+    "میبد",
+    "اردکان",
+    "بافق",
+    "مهریز",
+    "تفت"
+  ]
 }
+
 };
 
-const provinceSelect = document.getElementById("province");
-const citySelect = document.getElementById("city");
+const provinceSelect =
+  document.getElementById("province");
 
-provinceSelect.addEventListener("change",function(){
+const citySelect =
+  document.getElementById("city");
 
-  const selected = provinces[this.value];
+provinceSelect.addEventListener(
+  "change",
+  function(){
 
-  citySelect.innerHTML =
-    '<option value="">انتخاب شهر</option>';
+    const selected =
+      provinces[this.value];
 
-  if(selected){
-    selected.cities.forEach(city=>{
-      const option=document.createElement("option");
-      option.value=city;
-      option.textContent=city;
-      citySelect.appendChild(option);
-    });
+    citySelect.innerHTML =
+      '<option value="">انتخاب شهر</option>';
+
+    if(selected){
+
+      selected.cities.forEach(
+        city=>{
+
+          const option =
+            document.createElement("option");
+
+          option.value = city;
+          option.textContent = city;
+
+          citySelect.appendChild(option);
+
+        }
+      );
+
+    }
+
   }
+);
 
-});
-  function calculate(){
+function calculate(){
 
-  const province = provinceSelect.value;
-  const city = citySelect.value;
+  const province =
+    provinceSelect.value;
 
-  const span = parseFloat(document.getElementById("span").value);
-  const length = parseFloat(document.getElementById("length").value);
-  const height = parseFloat(document.getElementById("height").value);
-  const crane = parseFloat(document.getElementById("crane").value);
+  const city =
+    citySelect.value;
+const span =
+    parseFloat(
+      document.getElementById("span").value
+    );
 
-  if(!province  !city  !span  !length  !height){
-    alert("لطفاً استان، شهر و تمام ابعاد سوله را وارد کنید.");
+  const length =
+    parseFloat(
+      document.getElementById("length").value
+    );
+
+  const height =
+    parseFloat(
+      document.getElementById("height").value
+    );
+
+  const crane =
+    parseFloat(
+      document.getElementById("crane").value
+    );
+
+  if(
+    !province ||
+    !city ||
+    !span ||
+    !length ||
+    !height
+  ){
+
+    alert(
+      "لطفاً استان، شهر و تمام ابعاد سوله را وارد کنید."
+    );
+
     return;
   }
 
-  const baseWeight = provinces[province].weight;
+  const baseWeight =
+    provinces[province].weight;
 
   // مساحت محاسباتی سازه
-  const area = (span + 2) * (length + 2);
+  const area =
+    (span + 2) * (length + 2);
 
   // اصلاح وزن بر اساس ارتفاع
-  const heightCorrection = (height - 6) * 1.5;
+  const heightCorrection =
+    (height - 6) * 1.5;
 
   // وزن نهایی هر مترمربع
-  const kgPerM2 = baseWeight + heightCorrection + crane;
+  const kgPerM2 =
+    baseWeight +
+    heightCorrection +
+    crane;
 
   // وزن کل بر حسب تن
-  const totalTons = area * kgPerM2 / 1000;
+  const totalTons =
+    area * kgPerM2 / 1000;
 
   // مساحت تقریبی پوشش سقف
   const roofCover =
-    (span + 3) * (length + 2) + (length / 2);
+    (span + 3) *
+    (length + 2) +
+    (length / 2);
 
-  document.getElementById("weightResult").textContent =
-    totalTons.toFixed(2) + " تن";
+  document.getElementById(
+    "weightResult"
+  ).textContent =
+    totalTons.toFixed(2) +
+    " تن";
 
-  document.getElementById("coverResult").textContent =
-    roofCover.toFixed(0) + " مترمربع";
+  document.getElementById(
+    "coverResult"
+  ).textContent =
+    roofCover.toFixed(0) +
+    " مترمربع";
 
-  document.getElementById("result").style.display = "block";
+  document.getElementById(
+    "result"
+  ).style.display = "block";
+
 }
 
 function openPhoneModal(){
-  document.getElementById("phoneModal").style.display = "flex";
+
+  document.getElementById(
+    "phoneModal"
+  ).style.display = "flex";
+
 }
 
 function closePhoneModal(){
-  document.getElementById("phoneModal").style.display = "none";
+
+  document.getElementById(
+    "phoneModal"
+  ).style.display = "none";
+
 }
 
-document.getElementById("phoneModal").addEventListener("click",function(e){
-  if(e.target === this){
-    closePhoneModal();
+document.getElementById(
+  "phoneModal"
+).addEventListener(
+  "click",
+  function(e){
+
+    if(e.target === this){
+
+      closePhoneModal();
+
+    }
+
   }
-});
+);
 
 </script>
 
 </body>
 </html>
+
