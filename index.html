@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -195,7 +196,8 @@ button:active{
 <!-- لوگوی واقعی برند داخل خود فایل قرار می‌گیرد -->
 <img class="logo"
 src="data:image/jpeg;base64,
-      width:78px;
+
+width:78px;
     height:78px;
     object-fit:cover;
     border-radius:12px;
@@ -502,7 +504,7 @@ provinceSelect.addEventListener("change",function(){
   const height = parseFloat(document.getElementById("height").value);
   const crane = parseFloat(document.getElementById("crane").value);
 
-  if(!province || !city || !span || !length || !height){
+  if(!province  !city  !span  !length  !height){
     alert("لطفاً استان، شهر و تمام ابعاد سوله را وارد کنید.");
     return;
   }
