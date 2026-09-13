@@ -1,487 +1,687 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta name="theme-color" content="#111827">
-<title>Sooleh.Center | محاسبه وزن سوله</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>محاسبه‌گر سوله | Sooleh.Center</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f3f4f6;color:#111827;font-family:Tahoma,Arial,sans-serif}
-.wrap{max-width:620px;margin:auto;padding:14px}
-.card{background:#fff;border-radius:22px;box-shadow:0 8px 30px rgba(0,0,0,.10);overflow:hidden}
-.head{background:linear-gradient(135deg,#111827,#263244);color:#fff;text-align:center;padding:20px 15px 18px}
-.logo{width:105px;height:105px;object-fit:contain;border-radius:18px;margin-bottom:8px}
-.bn{font-size:20px;font-weight:900;letter-spacing:1px}
-.bs{font-size:11px;letter-spacing:2px;color:#d1d5db;margin-top:2px}
-.bt{font-size:19px;font-weight:900;color:#fbbf24;margin-top:8px}
-.d{font-size:14px;margin-top:7px;color:#e5e7eb}
-.ph{display:inline-block;margin-top:9px;color:#fbbf24;font-size:18px;font-weight:900;text-decoration:none}
-.main{padding:18px}
-label{display:block;font-size:14px;font-weight:800;margin:13px 0 7px}
-select,input{width:100%;height:50px;border:1px solid #d1d5db;border-radius:14px;background:#fff;padding:0 13px;font-size:16px;outline:none}
-select:focus,input:focus{border-color:#111827;box-shadow:0 0 0 3px rgba(17,24,39,.08)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.full{grid-column:1/-1}
-.btn{width:100%;border:0;border-radius:15px;height:53px;margin-top:18px;background:#111827;color:#fff;font-size:17px;font-weight:900;cursor:pointer}
-.res{display:none;margin-top:18px;border:1px solid #e5e7eb;border-radius:18px;overflow:hidden}
-.tabs{display:flex;background:#f9fafb}
-.tab{flex:1;border:0;background:transparent;padding:13px 5px;font-weight:900;font-size:14px;cursor:pointer}
-.tab.on{background:#111827;color:#fff}
-.panel{display:none;text-align:center;padding:25px 10px}
-.panel.on{display:block}
-.ico{font-size:38px}
-.cap{font-size:15px;color:#6b7280;font-weight:800;margin-top:7px}
-.num{font-size:29px;font-weight:900;color:#111827;margin-top:9px}
-.unit{font-size:15px;color:#6b7280}
-.foot{padding:17px;border-top:1px solid #eee;text-align:center;background:#fafafa}
-.links{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
-.link{padding:9px 12px;border-radius:12px;background:#fff;border:1px solid #e5e7eb;text-decoration:none;color:#111827;font-size:13px;font-weight:800}
-.note{font-size:11px;line-height:2;color:#6b7280;margin-top:13px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px;z-index:99}
-.box{background:#fff;border-radius:20px;padding:20px;width:100%;max-width:360px;text-align:center}
-.box h3{margin:0 0 15px}
-.mb{display:block;text-decoration:none;padding:13px;border-radius:13px;margin-top:9px;font-weight:900}
-.call{background:#111827;color:#fff}
-.wa{background:#25d366;color:#fff}
-.close{margin-top:12px;border:0;background:#eee;padding:10px 25px;border-radius:12px}
-@media(max-width:430px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.num{font-size:25px}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<div class="card">
-<header class="head">
-<img class="logo" src="data:image/jpeg;base64,
-https://ampas10-boop.github.io/soleh-center-calculator/
-<img class="logo" src="logo.jpg" alt="Sooleh.Center">
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sooleh.Center | محاسبه وزن سوله</title>
-
-<style>
-*{
-  box-sizing:border-box;
-}
 
 body{
-  margin:0;
-  font-family:Tahoma,Arial,sans-serif;
-  background:#f2f4f7;
-  color:#222;
+margin:0;
+min-height:100vh;
+font-family:Tahoma,Arial,sans-serif;
+background:
+radial-gradient(circle at top right,#243f63 0,#0c1b2e 38%,#070e18 100%);
+color:#fff;
 }
 
-.container{
-  width:94%;
-  max-width:600px;
-  margin:20px auto;
-}
-
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 4px 18px rgba(0,0,0,.10);
-}
-
-.logo{
-  display:block;
-  width:110px;
-  height:110px;
-  object-fit:contain;
-  margin:0 auto 10px;
+.w{
+max-width:720px;
+margin:auto;
+padding:18px 14px 30px;
 }
 
 .brand{
-  text-align:center;
-  font-size:26px;
-  font-weight:bold;
-  color:#111;
+text-align:center;
+padding:8px 0 14px;
 }
 
-.name{
-  text-align:center;
-  font-size:19px;
-  margin-top:8px;
-  font-weight:bold;
+.bn{
+font-size:15px;
+letter-spacing:4px;
+font-weight:900;
+color:#d8b15a;
 }
 
-.phone{
-  display:block;
-  text-align:center;
-  margin:8px 0 20px;
-  font-size:18px;
-  font-weight:bold;
-  color:#087f5b;
-  text-decoration:none;
+.bs{
+font-size:10px;
+letter-spacing:3px;
+color:#9eabbc;
+margin-top:3px;
 }
 
-h2{
-  text-align:center;
-  font-size:21px;
-  margin:15px 0 20px;
+.bt{
+font-size:34px;
+font-weight:950;
+letter-spacing:.5px;
+margin:7px 0;
+}
+
+.d{
+font-size:15px;
+font-weight:900;
+color:#e8edf5;
+}
+
+.ph{
+display:inline-block;
+margin-top:10px;
+padding:9px 18px;
+border-radius:30px;
+color:#ffd66d;
+background:#ffffff0d;
+border:1px solid #d9b45a88;
+text-decoration:none;
+font-size:20px;
+font-weight:950;
+direction:ltr;
+box-shadow:0 5px 20px #0005;
+}
+
+.card{
+margin-top:8px;
+background:#fff;
+color:#172235;
+border-radius:26px;
+padding:20px;
+box-shadow:0 20px 60px #0009;
+}
+
+.title{
+text-align:center;
+font-size:19px;
+font-weight:950;
+margin-bottom:18px;
+color:#18263a;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:13px;
+}
+
+.full{
+grid-column:1/-1;
 }
 
 label{
-  display:block;
-  margin:12px 0 6px;
-  font-weight:bold;
+display:block;
+font-size:13px;
+font-weight:900;
+margin-bottom:7px;
+color:#435268;
 }
 
-select,
-input{
-  width:100%;
-  padding:13px;
-  border:1px solid #ccc;
-  border-radius:10px;
-  font-size:16px;
-  background:#fff;
+input,select{
+width:100%;
+height:52px;
+border:1px solid #d9e1ea;
+border-radius:14px;
+background:#f8fafc;
+padding:0 13px;
+font-size:17px;
+color:#111827;
+outline:none;
+transition:.2s;
 }
 
-button{
-  width:100%;
-  border:0;
-  border-radius:12px;
-  padding:15px;
-  margin-top:20px;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  background:#111;
-  color:white;
+input:focus,select:focus{
+border-color:#b78a2d;
+box-shadow:0 0 0 3px #d8b15a22;
 }
 
-button:active{
-  transform:scale(.98);
+.btn{
+width:100%;
+height:56px;
+margin-top:18px;
+border:0;
+border-radius:16px;
+background:linear-gradient(135deg,#d71920,#9d1016);
+color:#fff;
+font-size:18px;
+font-weight:950;
+cursor:pointer;
+box-shadow:0 9px 22px #b0000038;
 }
 
-.result{
-  display:none;
-  margin-top:20px;
+.btn:active{
+transform:scale(.99);
 }
 
-.result-box{
-  background:#f7f7f7;
-  border-radius:14px;
-  padding:18px;
-  margin-top:12px;
-  text-align:center;
+.res{
+display:none;
+margin-top:20px;
 }
 
-.result-title{
-  font-size:16px;
-  font-weight:bold;
+.tabs{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:9px;
 }
 
-.result-value{
-  font-size:28px;
-  font-weight:bold;
-  margin-top:8px;
+.tab{
+height:50px;
+border:1px solid #dce3eb;
+border-radius:14px;
+background:#eef2f7;
+font-weight:950;
+font-size:15px;
+cursor:pointer;
+color:#27364b;
 }
 
-.links{
-  margin-top:25px;
-  text-align:center;
+.tab.on{
+background:#172b47;
+color:#fff;
+border-color:#172b47;
 }
 
-.links a{
-  display:block;
-  text-decoration:none;
-  color:#333;
-  padding:8px;
-  font-weight:bold;
+.panel{
+display:none;
+margin-top:11px;
+background:
+linear-gradient(145deg,#f8fafc,#edf2f7);
+border:1px solid #e0e6ed;
+border-radius:20px;
+padding:25px 12px;
+text-align:center;
+box-shadow:inset 0 1px #fff;
 }
 
-.warning{
-  margin-top:22px;
-  padding:14px;
-  background:#fff4d6;
-  border-radius:12px;
-  font-size:13px;
-  line-height:1.9;
-  text-align:justify;
+.panel.on{
+display:block;
 }
 
-.footer{
-  text-align:center;
-  margin-top:18px;
-  font-size:12px;
-  color:#777;
+.ico{
+font-size:34px;
+margin-bottom:6px;
+}
+
+.cap{
+color:#64748b;
+font-weight:900;
+font-size:14px;
+}
+
+.num{
+font-size:34px;
+color:#c9161d;
+font-weight:950;
+margin-top:6px;
+}
+
+.unit{
+font-size:14px;
+color:#475569;
+font-weight:900;
+}
+
+.note{
+margin-top:14px;
+padding:11px;
+border-radius:12px;
+background:#fff8e7;
+border:1px solid #ead29a;
+color:#6b5524;
+font-size:12px;
+line-height:1.8;
+text-align:center;
+}
+
+.foot{
+text-align:center;
+color:#aeb9c9;
+font-size:13px;
+line-height:2;
+margin-top:20px;
+}
+
+.foot b{
+color:#e4c16e;
+font-size:14px;
+}
+
+.foot a{
+color:#e2b34f;
+text-decoration:none;
+font-weight:800;
+}
+
+.foot small{
+display:block;
+margin-top:8px;
+color:#8492a5;
+line-height:1.8;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#000b;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:20;
+}
+
+.box{
+width:min(390px,100%);
+background:#102035;
+border-radius:22px;
+padding:24px;
+text-align:center;
+box-shadow:0 25px 70px #000c;
+}
+
+.box h3{
+margin:0 0 14px;
+font-size:18px;
+}
+
+.mb{
+display:block;
+width:100%;
+padding:14px;
+margin-top:10px;
+border-radius:13px;
+text-decoration:none;
+font-weight:950;
+font-size:16px;
+border:0;
+}
+
+.call{
+background:#d9b45b;
+color:#111;
+}
+
+.wa{
+background:#1f8f54;
+color:#fff;
+}
+
+.close{
+background:#293b52;
+color:#fff;
+cursor:pointer;
+}
+
+@media(max-width:500px){
+.w{
+padding:13px 11px 25px;
+}
+
+.bt{
+font-size:30px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.full{
+grid-column:auto;
+}
+
+.card{
+padding:17px;
+border-radius:22px;
+}
+
+.num{
+font-size:29px;
+}
+
+.ph{
+font-size:18px;
+}
 }
 </style>
 </head>
 
 <body>
+<div class="w">
 
-<div class="container">
-<div class="card">
+<header class="brand">
+<div class="bn">MOHAMMADI</div>
+<div class="bs">STEEL STRUCTURES</div>
+<div class="bt">Sooleh.Center</div>
+<div class="d">طراح و مجری: مهندس علی محمدی</div>
 
-  <img
-    class="logo"
-    src="Logo.jpg.jpg"
-    alt="Sooleh.Center"
-  >
+<a class="ph" href="#" onclick="contact();return false">
+۰۹۱۲۵۲۸۵۸۴۱
+</a>
+</header>
 
-  <div class="brand">Sooleh.Center</div>
+<main class="card">
 
-  <div class="name">مهندس علی محمدی</div>
+<div class="title">
+محاسبه آنلاین وزن سوله و پوشش سقف
+</div>
 
-  <a class="phone" href="tel:09125285841">
-    09125285841
-  </a>
+<div class="grid">
 
-  <h2>محاسبه وزن سوله</h2>
+<div class="full">
+<label>📍 استان محل نصب</label>
+<select id="p" onchange="cities()">
+<option value="">انتخاب استان</option>
+</select>
+</div>
 
-  <label>استان</label>
-  <select id="province">
-    <option value="">استان را انتخاب کنید</option>
-    <option>آذربایجان شرقی</option>
-    <option>آذربایجان غربی</option>
-    <option>اردبیل</option>
-    <option>اصفهان</option>
-    <option>البرز</option>
-    <option>ایلام</option>
-    <option>بوشهر</option>
-    <option>تهران</option>
-    <option>چهارمحال و بختیاری</option>
-    <option>خراسان جنوبی</option>
-    <option>خراسان رضوی</option>
-    <option>خراسان شمالی</option>
-    <option>خوزستان</option>
-    <option>زنجان</option>
-    <option>سمنان</option>
-    <option>سیستان و بلوچستان</option>
-    <option>فارس</option>
-    <option>قزوین</option>
-    <option>قم</option>
-    <option>کردستان</option>
-    <option>کرمان</option>
-    <option>کرمانشاه</option>
-    <option>کهگیلویه و بویراحمد</option>
-    <option>گلستان</option>
-    <option>گیلان</option>
-    <option>لرستان</option>
-    <option>مازندران</option>
-    <option>مرکزی</option>
-    <option>هرمزگان</option>
-    <option>همدان</option>
-    <option>یزد</option>
-  </select>
+<div class="full">
+<label>🏙️ شهر محل نصب</label>
+<select id="c">
+<option>ابتدا استان را انتخاب کنید</option>
+</select>
+</div>
 
-  <label>شهر مهم</label>
-  <select id="city">
-    <option value="">ابتدا استان را انتخاب کنید</option>
-  </select>
+<div>
+<label>↔️ دهانه (متر)</label>
+<input id="b" inputmode="decimal" placeholder="مثلاً ۲۰">
+</div>
 
-  <label>دهانه سوله (متر)</label>
-  <input id="span" type="number" min="1" placeholder="مثلاً 20">
+<div>
+<label>📏 طول (متر)</label>
+<input id="l" inputmode="decimal" placeholder="مثلاً ۴۸">
+</div>
 
-  <label>طول سوله (متر)</label>
-  <input id="length" type="number" min="1" placeholder="مثلاً 48">
+<div>
+<label>↕️ ارتفاع (متر)</label>
+<input id="h" inputmode="decimal" placeholder="مثلاً ۸">
+</div>
 
-  <label>ارتفاع سوله (متر)</label>
-  <input id="height" type="number" min="1" value="6">
-<label>ظرفیت جرثقیل</label>
-  <select id="crane">
-    <option value="0">بدون جرثقیل</option>
-    <option value="5">5 تن</option>
-    <option value="10">10 تن</option>
-    <option value="15">15 تن</option>
-    <option value="20">20 تن</option>
-  </select>
-
-  <button onclick="calculate()">محاسبه</button>
-
-  <div class="result" id="result">
-
-    <div class="result-box">
-      <div class="result-title">وزن تقریبی سوله</div>
-      <div class="result-value">
-        <span id="weight">0</span> تن
-      </div>
-    </div>
-
-    <div class="result-box">
-      <div class="result-title">مساحت تقریبی پوشش سقف</div>
-      <div class="result-value">
-        <span id="cover">0</span> مترمربع
-      </div>
-    </div>
-
-  </div>
-
-  <div class="links">
-
-    <a href="tel:09105289068">
-      📞 09105289068
-    </a>
-
-    <a href="tel:09199528860">
-      📞 09199528860
-    </a>
-
-    <a href="https://instagram.com/Sooleh.Center" target="_blank">
-      📷 Instagram: Sooleh.Center
-    </a>
-
-    <a href="https://t.me/poladsazeh" target="_blank">
-      ✈️ Telegram
-    </a>
-
-  </div>
-
-  <div class="warning">
-    این محاسبه صرفاً جهت برآورد اولیه و استعلام تقریبی انجام می‌شود.
-    قبل از ساخت، طراحی سازه، نقشه‌های اجرایی و محاسبات نهایی باید توسط
-    طراح و مهندس سازه بررسی و تأیید شود.
-  </div>
-
-  <div class="footer">
-    Sooleh.Center
-  </div>
+<div>
+<label>🏗️ جرثقیل</label>
+<select id="cr">
+<option value="0">بدون جرثقیل</option>
+<option value="5">۵ تن</option>
+<option value="10">۱۰ تن</option>
+<option value="15">۱۵ تن</option>
+<option value="20">۲۰ تن</option>
+</select>
+</div>
 
 </div>
+
+<button class="btn" onclick="calc()">
+🧮 محاسبه و نمایش نتیجه
+</button>
+
+<section id="r" class="res">
+
+<div class="tabs">
+<button id="tw" class="tab on" onclick="tab('wp','tw')">
+⚖️ وزن سوله
+</button>
+
+<button id="tc" class="tab" onclick="tab('cp','tc')">
+🏠 متراژ پوشش سقف
+</button>
 </div>
+
+<div id="wp" class="panel on"></div>
+<div id="cp" class="panel"></div>
+
+<div class="note">
+⚠️ این محاسبه صرفاً جهت برآورد اولیه است و جایگزین طراحی،
+نقشه‌کشی و محاسبات نهایی سازه‌ای نمی‌باشد.
+</div>
+
+</section>
+
+</main>
+
+<div class="foot">
+
+<b>📞 تلفن و واتساپ</b>
+<br>
+
+<a href="#" onclick="contact();return false">
+۰۹۱۰۵۲۸۹۰۶۸
+</a>
+
+&nbsp; | &nbsp;
+
+<a href="#" onclick="contact();return false">
+۰۹۱۲۵۲۸۵۸۴۱
+</a>
+
+<br>
+
+📸
+<a href="https://instagram.com/Sooleh.Center" target="_blank">
+Sooleh.Center
+</a>
+
+<br>
+
+✈️
+<a href="https://t.me/poladsazeh" target="_blank">
+poladsazeh
+</a>
+
+<small>
+این ابزار برای برآورد اولیه وزن سوله و متراژ پوشش سقف طراحی شده است.
+</small>
+
+</div>
+
+</div>
+
+
+<div id="m" class="modal">
+
+<div class="box">
+
+<h3>تماس با مهندس علی محمدی</h3>
+
+<a class="mb call" href="tel:+989125285841">
+📞 تماس تلفنی
+</a>
+
+<a class="mb wa" href="https://wa.me/989125285841" target="_blank">
+💬 ارسال پیام در واتساپ
+</a>
+
+<button class="mb close" onclick="closeM()">
+بستن
+</button>
+
+</div>
+
+</div>
+
 
 <script>
 
-const cities = {
-  "تهران":["تهران","ری","شهریار","دماوند"],
-  "اصفهان":["اصفهان","کاشان","خمینی‌شهر","نجف‌آباد"],
-  "خوزستان":["اهواز","دزفول","آبادان","خرمشهر"],
-  "فارس":["شیراز","مرودشت","کازرون","جهرم"],
-  "آذربایجان شرقی":["تبریز","مراغه","مرند","میانه"],
-  "آذربایجان غربی":["ارومیه","خوی","میاندوآب","مهاباد"],
-  "اردبیل":["اردبیل","مشگین‌شهر","پارس‌آباد"],
-  "البرز":["کرج","نظرآباد","ساوجبلاغ"],
-  "ایلام":["ایلام","دهلران","آبدانان"],
-  "بوشهر":["بوشهر","برازجان","کنگان"],
-  "چهارمحال و بختیاری":["شهرکرد","بروجن","فارسان"],
-  "خراسان جنوبی":["بیرجند","قائن","طبس"],
-  "خراسان رضوی":["مشهد","نیشابور","سبزوار","تربت حیدریه"],
-  "خراسان شمالی":["بجنورد","شیروان","اسفراین"],
-  "زنجان":["زنجان","ابهر","خرمدره"],
-  "سمنان":["سمنان","شاهرود","دامغان","گرمسار"],
-  "سیستان و بلوچستان":["زاهدان","چابهار","زابل","ایرانشهر"],
-  "قزوین":["قزوین","تاکستان","آبیک"],
-  "قم":["قم"],
-  "کردستان":["سنندج","سقز","مریوان","بانه"],
-  "کرمان":["کرمان","رفسنجان","سیرجان","جیرفت"],
-  "کرمانشاه":["کرمانشاه","اسلام‌آباد غرب","کنگاور"],
-  "کهگیلویه و بویراحمد":["یاسوج","دهدشت","گچساران"],
-  "گلستان":["گرگان","گنبدکاووس","علی‌آباد کتول"],
-  "گیلان":["رشت","انزلی","لاهیجان","رودسر"],
-  "لرستان":["خرم‌آباد","بروجرد","دورود"],
-  "مازندران":["ساری","آمل","بابل","قائمشهر"],
-  "مرکزی":["اراک","ساوه","خمین"],
-  "هرمزگان":["بندرعباس","بندر لنگه","قشم","میناب"],
-  "همدان":["همدان","ملایر","نهاوند"],
-  "یزد":["یزد","میبد","اردکان","بافق"]
+const D=[
+
+["آذربایجان شرقی",35,["تبریز","مراغه","مرند","میانه","اهر","بناب","سراب","جلفا"]],
+["آذربایجان غربی",35,["ارومیه","خوی","مهاباد","میاندوآب","بوکان","سلماس","پیرانشهر"]],
+["اردبیل",35,["اردبیل","پارس‌آباد","مشگین‌شهر","خلخال","گرمی"]],
+["اصفهان",32,["اصفهان","کاشان","خمینی‌شهر","نجف‌آباد","شاهین‌شهر","شهرضا","مبارکه","فلاورجان"]],
+["البرز",32,["کرج","فردیس","نظرآباد","هشتگرد","محمدشهر"]],
+["ایلام",33.5,["ایلام","دهلران","آبدانان","ایوان","مهران"]],
+["بوشهر",28,["بوشهر","برازجان","عسلویه","کنگان","گناوه","دیلم","خورموج"]],
+["تهران",32,["تهران","اسلامشهر","شهریار","شهرری","قدس","رباط‌کریم","پاکدشت","ورامین"]],
+["چهارمحال و بختیاری",35,["شهرکرد","بروجن","فارسان","لردگان","فرخ‌شهر"]],
+["خراسان جنوبی",30,["بیرجند","قاین","طبس","فردوس","نهبندان"]],
+["خراسان رضوی",31,["مشهد","نیشابور","سبزوار","تربت‌حیدریه","کاشمر","قوچان","تربت‌جام","گناباد"]],
+["خراسان شمالی",32,["بجنورد","شیروان","اسفراین","جاجرم","آشخانه"]],
+["خوزستان",27,["اهواز","دزفول","آبادان","خرمشهر","ماهشهر","بندر امام خمینی","شوش","شوشتر","بهبهان"]],
+["زنجان",32,["زنجان","ابهر","خرمدره","قیدار","ماهنشان"]],
+["سمنان",32,["سمنان","شاهرود","دامغان","گرمسار","مهدی‌شهر"]],
+["سیستان و بلوچستان",28,["زاهدان","زابل","چابهار","ایرانشهر","سراوان","خاش","کنارک"]],
+["فارس",30,["شیراز","مرودشت","جهرم","فسا","کازرون","لار","داراب","آباده","فیروزآباد"]],
+["قزوین",33.5,["قزوین","تاکستان","آبیک","الوند","بوئین‌زهرا"]],
+["قم",30,["قم","جعفریه","سلفچگان","کهک"]],
+["کردستان",33.5,["سنندج","سقز","مریوان","بانه","قروه","بیجار"]],
+["کرمان",29,["کرمان","رفسنجان","سیرجان","جیرفت","بم","زرند","شهربابک","کهنوج"]],
+["کرمانشاه",33,["کرمانشاه","اسلام‌آباد غرب","کنگاور","هرسین","پاوه","جوانرود","قصرشیرین"]],
+["کهگیلویه و بویراحمد",32,["یاسوج","دهدشت","گچساران","لیکک"]],
+["گلستان",33,["گرگان","گنبدکاووس","علی‌آباد کتول","بندرترکمن","کردکوی","مینودشت"]],
+["گیلان",33,["رشت","انزلی","لاهیجان","لنگرود","آستارا","رودسر","رودبار","فومن"]],
+["لرستان",32,["خرم‌آباد","بروجرد","دورود","الیگودرز","کوهدشت","پلدختر"]],
+["مازندران",33,["ساری","بابل","آمل","قائم‌شهر","چالوس","نوشهر","تنکابن","بهشهر"]],
+["مرکزی",34,["اراک","ساوه","خمین","محلات","دلیجان","شازند"]],
+["هرمزگان",28,["بندرعباس","بندرلنگه","میناب","قشم","جاسک","رودان","حاجی‌آباد"]],
+["همدان",32,["همدان","ملایر","نهاوند","تویسرکان","کبودرآهنگ","اسدآباد"]],
+["یزد",30,["یزد","میبد","اردکان","بافق","مهریز","تفت"]]
+
+];
+
+const CD={
+0:0,
+5:5,
+10:7.5,
+15:12,
+20:15
 };
 
-document.getElementById("province").addEventListener("change", function(){
+const P={};
 
-  const cityBox = document.getElementById("city");
-  const selected = this.value;
-
-  cityBox.innerHTML = "";
-
-  if(!selected){
-    cityBox.innerHTML =
-      '<option value="">ابتدا استان را انتخاب کنید</option>';
-    return;
-  }
-
-  const list = cities[selected] || [selected];
-
-  cityBox.innerHTML =
-    '<option value="">شهر را انتخاب کنید</option>';
-
-  list.forEach(function(city){
-    const option = document.createElement("option");
-    option.value = city;
-    option.textContent = city;
-    cityBox.appendChild(option);
-  });
-
+D.forEach(x=>{
+P[x[0]]={
+w:x[1],
+c:x[2]
+};
 });
 
-function getBaseWeight(span){
+const province=document.getElementById("p");
+const city=document.getElementById("c");
+const span=document.getElementById("b");
+const length=document.getElementById("l");
+const height=document.getElementById("h");
+const crane=document.getElementById("cr");
+const result=document.getElementById("r");
+const weightPanel=document.getElementById("wp");
+const coverPanel=document.getElementById("cp");
+const modal=document.getElementById("m");
 
-  if(span <= 12) return 25;
+Object.keys(P).forEach(x=>{
+const o=document.createElement("option");
+o.value=x;
+o.textContent=x;
+province.appendChild(o);
+});
 
-  if(span <= 15) return 28;
+function cities(){
 
-  if(span <= 18) return 29;
+city.innerHTML="";
 
-  if(span <= 20) return 32;
-
-  if(span <= 25) return 38;
-
-  return 43;
+if(!P[province.value]){
+city.innerHTML='<option>ابتدا استان را انتخاب کنید</option>';
+return;
 }
 
-function calculate(){
+P[province.value].c.forEach(x=>{
+const o=document.createElement("option");
+o.value=x;
+o.textContent=x;
+city.appendChild(o);
+});
 
-  const span =
-    parseFloat(document.getElementById("span").value);
-
-  const length =
-    parseFloat(document.getElementById("length").value);
-
-  const height =
-    parseFloat(document.getElementById("height").value);
-
-  const crane =
-    parseFloat(document.getElementById("crane").value);
-
-  if(!span  !length  !height){
-
-    alert("لطفاً همه ابعاد سوله را وارد کنید.");
-
-    return;
-  }
-const calculatedSpan = span + 2;
-  const calculatedLength = length + 2;
-
-  let kgPerM2 = getBaseWeight(calculatedSpan);
-
-  kgPerM2 += (height - 6) * 1.5;
-
-  const craneAdd = {
-    0:0,
-    5:5,
-    10:7.5,
-    15:12,
-    20:15
-  };
-
-  kgPerM2 += craneAdd[crane] || 0;
-
-  const area =
-    calculatedSpan * calculatedLength;
-
-  const weightKg =
-    area * kgPerM2;
-
-  const weightTon =
-    weightKg / 1000;
-
-  const cover =
-    (span + 3) * (length + 2) + (length * 0.5);
-
-  document.getElementById("weight").textContent =
-    weightTon.toFixed(2);
-
-  document.getElementById("cover").textContent =
-    cover.toFixed(0);
-
-  document.getElementById("result").style.display =
-    "block";
 }
+
+function n(x){
+
+return parseFloat(
+String(x)
+.replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+.replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d))
+.replace(/٫/g,".")
+.replace(/[,٬]/g,"")
+);
+
+}
+
+function fa(x){
+
+return x.toLocaleString("fa-IR",{
+maximumFractionDigits:2
+});
+
+}
+
+function calc(){
+
+const B=n(span.value);
+const L=n(length.value);
+const H=n(height.value);
+const C=crane.value;
+
+if(
+!province.value ||
+!city.value ||
+![B,L,H].every(x=>isFinite(x)&&x>0)
+){
+
+alert("لطفاً استان، شهر، دهانه، طول و ارتفاع را به‌درستی وارد کنید.");
+return;
+
+}
+
+const A=(B+2)*(L+2);
+
+const K=
+P[province.value].w+
+(H-6)*1.5+
+(CD[C]||0);
+
+const T=A*K/1000;
+
+const V=
+(B+3)*(L+2)+
+L/2;
+
+weightPanel.innerHTML=
+'<div class="ico">⚖️</div>'+
+'<div class="cap">وزن تقریبی سوله</div>'+
+'<div class="num">'+
+fa(T)+
+' <span class="unit">تن</span>'+
+'</div>';
+
+coverPanel.innerHTML=
+'<div class="ico">🏠</div>'+
+'<div class="cap">متراژ پوشش سقف</div>'+
+'<div class="num">'+
+fa(V)+
+' <span class="unit">مترمربع</span>'+
+'</div>';
+
+result.style.display="block";
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+function tab(x,y){
+
+document.querySelectorAll(".tab,.panel")
+.forEach(z=>z.classList.remove("on"));
+
+document.getElementById(x).classList.add("on");
+document.getElementById(y).classList.add("on");
+
+}
+
+function contact(){
+
+modal.style.display="flex";
+
+}
+
+function closeM(){
+
+modal.style.display="none";
+
+}
+
+modal.onclick=e=>{
+
+if(e.target===modal){
+closeM();
+}
+
+};
 
 </script>
 
