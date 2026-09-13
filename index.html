@@ -685,5 +685,320 @@ closeM();
 
 </script>
 
+["قزوین",33.5,["قزوین","تاکستان","آبیک","الوند","بوئین‌زهرا"]],
+["قم",30,["قم","جعفریه","سلفچگان","کهک"]],
+["کردستان",33.5,["سنندج","سقز","مریوان","بانه","قروه","بیجار"]],
+["کرمان",29,["کرمان","رفسنجان","سیرجان","جیرفت","بم","زرند","شهربابک","کهنوج"]],
+["کرمانشاه",33,["کرمانشاه","اسلام‌آباد غرب","کنگاور","هرسین","پاوه","جوانرود","قصرشیرین"]],
+["کهگیلویه و بویراحمد",32,["یاسوج","دهدشت","گچساران","لیکک"]],
+["گلستان",33,["گرگان","گنبدکاووس","علی‌آباد کتول","بندرترکمن","کردکوی","مینودشت"]],
+["گیلان",33,["رشت","انزلی","لاهیجان","لنگرود","آستارا","رودسر","رودبار","فومن"]],
+["لرستان",32,["خرم‌آباد","بروجرد","دورود","الیگودرز","کوهدشت","پلدختر"]],
+["مازندران",33,["ساری","بابل","آمل","قائم‌شهر","چالوس","نوشهر","تنکابن","بهشهر"]],
+["مرکزی",34,["اراک","ساوه","خمین","محلات","دلیجان","شازند"]],
+["هرمزگان",28,["بندرعباس","بندرلنگه","میناب","قشم","جاسک","رودان","حاجی‌آباد"]],
+["همدان",32,["همدان","ملایر","نهاوند","تویسرکان","کبودرآهنگ","اسدآباد"]],
+["یزد",30,["یزد","میبد","اردکان","بافق","مهریز","تفت"]]
+
+];
+
+const CD={
+0:0,
+5:5,
+10:7.5,
+15:12,
+20:15
+};
+
+const P={};
+
+D.forEach(x=>{
+P[x[0]]={
+w:x[1],
+c:x[2]
+};
+});
+
+const province=document.getElementById("p");
+const city=document.getElementById("c");
+const span=document.getElementById("b");
+const length=document.getElementById("l");
+const height=document.getElementById("h");
+const crane=document.getElementById("cr");
+const result=document.getElementById("r");
+const weightPanel=document.getElementById("wp");
+const coverPanel=document.getElementById("cp");
+const modal=document.getElementById("m");
+
+Object.keys(P).forEach(x=>{
+const o=document.createElement("option");
+o.value=x;
+o.textContent=x;
+province.appendChild(o);
+});
+
+function cities(){
+
+city.innerHTML="";
+
+if(!P[province.value]){
+city.innerHTML='<option>ابتدا استان را انتخاب کنید</option>';
+return;
+}
+
+P[province.value].c.forEach(x=>{
+const o=document.createElement("option");
+o.value=x;
+o.textContent=x;
+city.appendChild(o);
+});
+
+}
+
+function n(x){
+
+return parseFloat(
+String(x)
+.replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+.replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d))
+.replace(/٫/g,".")
+.replace(/[,٬]/g,"")
+);
+
+}
+
+function fa(x){
+
+return x.toLocaleString("fa-IR",{
+maximumFractionDigits:2
+});
+
+}
+
+function calc(){
+
+const B=n(span.value);
+const L=n(length.value);
+const H=n(height.value);
+const C=crane.value;
+
+if(
+!province.value ||
+!city.value ||
+![B,L,H].every(x=>isFinite(x)&&x>0)
+){
+
+alert("لطفاً استان، شهر، دهانه، طول و ارتفاع را به‌درستی وارد کنید.");
+return;
+
+}
+
+const A=(B+2)*(L+2);
+
+const K=
+P[province.value].w+
+(H-6)*1.5+
+(CD[C]||0);
+
+const T=A*K/1000;
+
+const V=
+(B+3)*(L+2)+
+L/2;
+
+weightPanel.innerHTML=
+'<div class="ico">⚖️</div>'+
+'<div class="cap">وزن تقریبی سوله</div>'+
+'<div class="num">'+
+fa(T)+
+' <span class="unit">تن</span>'+
+'</div>';
+
+coverPanel.innerHTML=
+'<div class="ico">🏠</div>'+
+'<div class="cap">متراژ پوشش سقف</div>'+
+'<div class="num">'+
+fa(V)+
+' <span class="unit">مترمربع</span>'+
+'</div>';
+
+result.style.display="block";
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+function tab(x,y){
+
+document.querySelectorAll(".tab,.panel")
+.forEach(z=>z.classList.remove("on"));
+
+document.getElementById(x).classList.add("on");
+document.getElementById(y).classList.add("on");
+
+}
+
+function contact(){
+
+modal.style.display="flex";
+
+}
+
+function closeM(){
+
+modal.style.display="none";
+
+}
+
+modal.onclick=e=>{
+
+if(e.target===modal){
+closeM();
+}
+
+};
+
+</script>
+
 </body>
 </html>
+<script>
+const p = document.getElementById('p');
+const c = document.getElementById('c');
+const b = document.getElementById('b');
+const l = document.getElementById('l');
+const h = document.getElementById('h');
+const cr = document.getElementById('cr');
+const r = document.getElementById('r');
+const wp = document.getElementById('wp');
+const cp = document.getElementById('cp');
+const m = document.getElementById('m');
+
+const CD = {
+  0: 0,
+  5: 5,
+  10: 7.5,
+  15: 12,
+  20: 15
+};
+
+const P = {};
+
+D.forEach(x => {
+  P[x[0]] = {
+    w: x[1],
+    c: x[2]
+  };
+});
+
+Object.keys(P).forEach(x => {
+  p.innerHTML += '<option value="' + x + '">' + x + '</option>';
+});
+
+function cities() {
+  c.innerHTML = '';
+
+  (P[p.value]?.c || []).forEach(x => {
+    c.innerHTML += '<option value="' + x + '">' + x + '</option>';
+  });
+}
+
+function n(x) {
+  return parseFloat(
+    String(x)
+      .replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+      .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
+      .replace(/٫/g, '.')
+      .replace(/[,٬]/g, '')
+  );
+}
+
+function fa(x) {
+  return x.toLocaleString('fa-IR', {
+    maximumFractionDigits: 2
+  });
+}
+
+function calc() {
+
+  const B = n(b.value);
+  const L = n(l.value);
+  const H = n(h.value);
+  const C = cr.value;
+
+  if (
+    !p.value ||
+    !c.value ||
+    !isFinite(B) ||
+    !isFinite(L) ||
+    !isFinite(H) ||
+    B <= 0 ||
+    L <= 0 ||
+    H <= 0
+  ) {
+    alert('لطفاً استان، شهر، دهانه، طول و ارتفاع را به‌درستی وارد کنید.');
+    return;
+  }
+
+  const area = (B + 2) * (L + 2);
+
+  const kgm2 =
+    P[p.value].w +
+    (H - 6) * 1.5 +
+    (CD[C] || 0);
+
+  const weight = area * kgm2 / 1000;
+
+  const cover =
+    (B + 3) * (L + 2) +
+    L / 2;
+
+  wp.innerHTML =
+    '<div class="ico">⚖️</div>' +
+    '<div class="cap">وزن تقریبی سوله</div>' +
+    '<div class="num">' +
+    fa(weight) +
+    ' <span class="unit">تن</span></div>';
+
+  cp.innerHTML =
+    '<div class="ico">🏠</div>' +
+    '<div class="cap">متراژ پوشش سقف</div>' +
+    '<div class="num">' +
+    fa(cover) +
+    ' <span class="unit">مترمربع</span></div>';
+
+  r.style.display = 'block';
+
+  r.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+function tab(x, y) {
+
+  document
+    .querySelectorAll('.tab,.panel')
+    .forEach(z => z.classList.remove('on'));
+
+  document.getElementById(x).classList.add('on');
+  document.getElementById(y).classList.add('on');
+}
+
+function contact() {
+  m.style.display = 'flex';
+}
+
+function closeM() {
+  m.style.display = 'none';
+}
+
+m.onclick = function(e) {
+  if (e.target === m) {
+    closeM();
+  }
+};
+</script>
