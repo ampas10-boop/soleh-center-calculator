@@ -1,1594 +1,286 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>محاسبه‌گر وزن سوله | Sooleh.Center</title>
+/* =========================================================
+   FINAL GLASS BACKGROUND
+   فقط ظاهر را اصلاح می‌کند
+   HTML و JavaScript دست‌نخورده می‌مانند
+========================================================= */
 
-<style>
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
-
-html,body{
-  margin:0;
-  padding:0;
-  min-height:100%;
+html,
+body{
+    min-height:100%;
 }
 
 body{
-  min-height:100vh;
-  font-family:Tahoma,Arial,sans-serif;
-  color:#fff;
-  position:relative;
-  isolation:isolate;
-  overflow-x:hidden;
-  background:#07111d;
+    position:relative;
+    isolation:isolate;
+    overflow-x:hidden;
+
+    background:#07111d;
 }
 
-/* =========================
-   BACKGROUND PHOTO
-   ========================= */
 
+/* عکس اصلی */
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
+    content:"";
 
-  background-image:
-    linear-gradient(
-      rgba(3,10,18,.48),
-      rgba(3,10,18,.55)
-    ),
-    url("./ali.mo.jpg");
+    position:fixed;
+    inset:0;
 
-  background-position:center center;
-  background-repeat:no-repeat;
+    z-index:-2;
 
-  /* مهم: عکس دیگر 2 برابر بزرگ نمی‌شود */
-  background-size:contain;
+    background-image:
+        linear-gradient(
+            rgba(4,12,22,0.30),
+            rgba(4,12,22,0.38)
+        ),
+        url("./ali.mo.jpg");
 
-  filter:blur(1px);
+    background-position:center center;
+
+    /*
+       مهم:
+       عکس دیگر بزرگ‌نمایی نمی‌شود
+    */
+    background-size:contain;
+
+    background-repeat:no-repeat;
+
+    filter:none;
+
+    opacity:1;
+
+    transform:none;
 }
 
-/* لایه بسیار ظریف برای خوانایی */
+
+/* لایه بسیار ظریف روی عکس */
 body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
+    content:"";
 
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(0,150,255,.10),
-      transparent 45%
-    ),
-    linear-gradient(
-      rgba(0,0,0,.08),
-      rgba(0,0,0,.18)
-    );
+    position:fixed;
+    inset:0;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(255,255,255,0.08),
+            transparent 42%
+        ),
+        rgba(2,8,15,0.12);
 }
+
 
 /* =========================
-   MAIN CONTAINER
-   ========================= */
-
-.page{
-  width:100%;
-  min-height:100vh;
-  padding:25px 15px 35px;
-}
-
-/* =========================
-   LOGO
-   ========================= */
-
-.brand-logo{
-  position:fixed;
-  top:14px;
-  left:14px;
-
-  width:78px;
-  height:78px;
-
-  object-fit:contain;
-  z-index:20;
-
-  border-radius:18px;
-
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.30);
-
-  box-shadow:
-    0 8px 30px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.35);
-
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-}
-
-/* =========================
-   BRAND
-   ========================= */
-
-.brand{
-  text-align:center;
-  margin:5px auto 22px;
-  padding:15px 100px 15px 100px;
-
-  max-width:720px;
-
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.20);
-
-  border-radius:24px;
-
-  box-shadow:
-    0 15px 45px rgba(0,0,0,.25),
-    inset 0 1px 0 rgba(255,255,255,.20);
-
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-}
-
-.brand-title{
-  font-size:27px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-.brand-subtitle{
-  margin-top:4px;
-  font-size:13px;
-  opacity:.85;
-  letter-spacing:2px;
-}
-
-.brand-center{
-  margin-top:10px;
-  font-size:16px;
-  font-weight:bold;
-}
-
-.brand-engineer{
-  margin-top:5px;
-  font-size:14px;
-  color:#ffe082;
-  font-weight:bold;
-}
-
-.brand-phone{
-  margin-top:8px;
-  font-size:15px;
-  direction:ltr;
-  font-weight:bold;
-}
-
-/* =========================
-   GLASS CARD
-   ========================= */
+   GLASS MAIN CARD
+========================= */
 
 .card{
-  width:100%;
-  max-width:900px;
-  margin:0 auto;
 
-  padding:22px;
+    color:#fff !important;
 
-  background:rgba(255,255,255,.13);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.17),
+            rgba(255,255,255,0.08)
+        ) !important;
 
-  border:1px solid rgba(255,255,255,.27);
+    border:
+        1px solid
+        rgba(255,255,255,0.30) !important;
 
-  border-radius:28px;
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.25) !important;
 
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.28),
-    inset 0 -1px 0 rgba(255,255,255,.08);
+    backdrop-filter:
+        blur(22px)
+        saturate(140%) !important;
 
-  backdrop-filter:blur(24px) saturate(135%);
-  -webkit-backdrop-filter:blur(24px) saturate(135%);
+    -webkit-backdrop-filter:
+        blur(22px)
+        saturate(140%) !important;
 }
+
 
 /* =========================
-   TITLE
-   ========================= */
-
-.section-title{
-  text-align:center;
-  font-size:23px;
-  font-weight:900;
-  margin-bottom:20px;
-  color:#fff;
-  text-shadow:0 2px 10px rgba(0,0,0,.35);
-}
-
-/* =========================
-   INPUT GRID
-   ========================= */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.field{
-  padding:14px;
-
-  background:rgba(255,255,255,.10);
-
-  border:1px solid rgba(255,255,255,.20);
-
-  border-radius:18px;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.15),
-    0 8px 25px rgba(0,0,0,.12);
-
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
-
-.field label{
-  display:block;
-  margin-bottom:8px;
-
-  font-size:13px;
-  font-weight:bold;
-
-  color:#fff;
-}
+   INPUTS
+========================= */
 
 input,
 select{
-  width:100%;
-  height:48px;
 
-  padding:0 13px;
+    color:#fff !important;
 
-  border:none;
-  outline:none;
+    background:
+        rgba(255,255,255,0.14) !important;
 
-  border-radius:13px;
+    border:
+        1px solid
+        rgba(255,255,255,0.30) !important;
 
-  background:rgba(255,255,255,.20);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.12);
 
-  color:#fff;
+    backdrop-filter:
+        blur(12px);
 
-  border:1px solid rgba(255,255,255,.25);
-
-  font-family:inherit;
-  font-size:15px;
-
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-
-  transition:.2s;
+    -webkit-backdrop-filter:
+        blur(12px);
 }
 
 input::placeholder{
-  color:rgba(255,255,255,.65);
+    color:rgba(255,255,255,0.70);
 }
 
 select option{
-  color:#111;
-  background:#fff;
+    color:#111;
+    background:#fff;
 }
 
 input:focus,
 select:focus{
-  border-color:rgba(255,255,255,.65);
 
-  background:rgba(255,255,255,.27);
+    border-color:
+        rgba(255,255,255,0.70) !important;
 
-  box-shadow:
-    0 0 0 3px rgba(255,255,255,.08);
+    box-shadow:
+        0 0 0 3px
+        rgba(255,255,255,0.10) !important;
 }
+
 
 /* =========================
-   CALCULATE BUTTON
-   ========================= */
+   LABELS
+========================= */
 
-.calculate-btn{
-  width:100%;
-  height:56px;
+label{
+    color:#fff !important;
 
-  margin-top:20px;
-
-  border:1px solid rgba(255,255,255,.30);
-  border-radius:17px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,193,7,.90),
-      rgba(255,152,0,.82)
-    );
-
-  color:#111;
-
-  font-family:inherit;
-  font-size:17px;
-  font-weight:900;
-
-  cursor:pointer;
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.25),
-    inset 0 1px 0 rgba(255,255,255,.55);
-
-  transition:.2s;
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.45);
 }
 
-.calculate-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:
-    0 16px 35px rgba(0,0,0,.30),
-    inset 0 1px 0 rgba(255,255,255,.55);
-}
-
-.calculate-btn:active{
-  transform:translateY(0);
-}
 
 /* =========================
-   RESULTS
-   ========================= */
-
-#results{
-  display:none;
-  margin-top:22px;
-}
-
-.tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-bottom:12px;
-}
+   RESULT TABS
+========================= */
 
 .tab{
-  height:48px;
 
-  border-radius:15px;
+    color:#fff !important;
 
-  border:1px solid rgba(255,255,255,.20);
+    background:
+        rgba(255,255,255,0.12) !important;
 
-  background:rgba(255,255,255,.10);
+    border:
+        1px solid
+        rgba(255,255,255,0.25) !important;
 
-  color:#fff;
+    backdrop-filter:
+        blur(12px);
 
-  font-family:inherit;
-  font-weight:bold;
-  font-size:14px;
-
-  cursor:pointer;
-
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:
+        blur(12px);
 }
 
 .tab.active{
-  background:rgba(255,193,7,.78);
-  color:#111;
 
-  border-color:rgba(255,255,255,.40);
+    background:
+        rgba(217,180,91,0.85) !important;
+
+    color:#111 !important;
+
+    border-color:
+        rgba(255,255,255,0.40) !important;
 }
+
+
+/* =========================
+   RESULT PANELS
+========================= */
 
 .panel{
-  display:none;
 
-  min-height:180px;
+    color:#fff !important;
 
-  padding:25px;
+    background:
+        rgba(255,255,255,0.11) !important;
 
-  text-align:center;
+    border:
+        1px solid
+        rgba(255,255,255,0.25) !important;
 
-  border-radius:22px;
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.18),
+        0 12px 30px
+        rgba(0,0,0,0.15);
 
-  background:rgba(255,255,255,.12);
+    backdrop-filter:
+        blur(18px);
 
-  border:1px solid rgba(255,255,255,.23);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.20),
-    0 15px 35px rgba(0,0,0,.18);
-
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-}
-
-.panel.active{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-
-.icon-result{
-  font-size:38px;
-  margin-bottom:8px;
+    -webkit-backdrop-filter:
+        blur(18px);
 }
 
 .caption{
-  font-size:14px;
-  opacity:.85;
-  margin-bottom:8px;
+    color:
+        rgba(255,255,255,0.82) !important;
 }
 
 .number{
-  font-size:34px;
-  font-weight:900;
-  color:#ffe082;
+    color:#ffd36b !important;
 
-  direction:rtl;
-
-  text-shadow:
-    0 3px 15px rgba(0,0,0,.35);
+    text-shadow:
+        0 3px 12px
+        rgba(0,0,0,0.40);
 }
 
 .unit{
-  font-size:17px;
-  color:#fff;
+    color:
+        rgba(255,255,255,0.82) !important;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
-
-.footer{
-  width:100%;
-  max-width:900px;
-  margin:18px auto 0;
-
-  padding:16px;
-
-  text-align:center;
-
-  background:rgba(255,255,255,.08);
-
-  border:1px solid rgba(255,255,255,.17);
-
-  border-radius:20px;
-
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-
-  font-size:12px;
-  line-height:2;
-}
-
-.footer strong{
-  color:#ffe082;
-}
-
-.footer a{
-  color:#fff;
-  text-decoration:none;
-}
-
-/* =========================
-   PHONE MODAL
-   ========================= */
-
-.phone-modal{
-  display:none;
-
-  position:fixed;
-  inset:0;
-
-  z-index:100;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
-
-  background:rgba(0,0,0,.60);
-
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-}
-
-.phone-box{
-  width:100%;
-  max-width:390px;
-
-  padding:25px;
-
-  border-radius:25px;
-
-  background:rgba(255,255,255,.15);
-
-  border:1px solid rgba(255,255,255,.30);
-
-  box-shadow:0 25px 70px rgba(0,0,0,.45);
-
-  backdrop-filter:blur(25px);
-  -webkit-backdrop-filter:blur(25px);
-
-  text-align:center;
-}
-
-.phone-box h3{
-  margin-top:0;
-  margin-bottom:20px;
-}
-
-.phone-link{
-  display:block;
-
-  padding:14px;
-  margin:10px 0;
-
-  border-radius:14px;
-
-  text-decoration:none;
-
-  background:rgba(255,255,255,.13);
-
-  color:#fff;
-
-  border:1px solid rgba(255,255,255,.20);
-}
-
-.close-btn{
-  margin-top:10px;
-
-  border:none;
-  background:transparent;
-
-  color:#fff;
-
-  font-family:inherit;
-  cursor:pointer;
-
-  opacity:.75;
-}
 
 /* =========================
    MOBILE
-   ========================= */
+========================= */
 
-@media(max-width:650px){
+@media(max-width:500px){
 
-  .page{
-    padding:12px 10px 25px;
-  }
+    body::before{
 
-  body::before{
-    background-size:contain;
-    background-position:center top;
-    filter:blur(.5px);
-  }
+        background-size:contain;
 
-  .brand-logo{
-    width:58px;
-    height:58px;
+        background-position:
+            center center;
 
-    top:9px;
-    left:9px;
+        filter:none;
 
-    border-radius:14px;
-  }
-
-  .brand{
-    margin-top:2px;
-    margin-bottom:15px;
-
-    padding:13px 65px 13px 65px;
-
-    border-radius:20px;
-  }
-
-  .brand-title{
-    font-size:21px;
-  }
-
-  .brand-subtitle{
-    font-size:9px;
-    letter-spacing:1px;
-  }
-
-  .brand-center{
-    font-size:13px;
-  }
-
-  .brand-engineer{
-    font-size:11px;
-  }
-
-  .brand-phone{
-    font-size:12px;
-  }
-
-  .card{
-    padding:14px;
-
-    border-radius:22px;
-  }
-
-  .section-title{
-    font-size:19px;
-    margin-bottom:14px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-
-  .field{
-    padding:11px;
-    border-radius:15px;
-  }
-
-  .field label{
-    font-size:12px;
-  }
-
-  input,
-  select{
-    height:45px;
-    font-size:14px;
-  }
-
-  .calculate-btn{
-    height:52px;
-    font-size:15px;
-    margin-top:14px;
-  }
-
-  .panel{
-    min-height:160px;
-    padding:18px;
-  }
-
-  .number{
-    font-size:28px;
-  }
-
-  .footer{
-    margin-top:12px;
-    padding:12px;
-  }
-}
-
-/* گوشی‌های خیلی کوچک */
-@media(max-width:380px){
-
-  .brand{
-    padding-left:58px;
-    padding-right:58px;
-  }
-
-  .brand-title{
-    font-size:18px;
-  }
-
-  .card{
-    padding:11px;
-  }
-
-  .number{
-    font-size:25px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<img
-  src="./logo.jpg"
-  alt="MOHAMMADI Logo"
-  class="brand-logo"
->
-
-<div class="page">
-
-  <header class="brand">
-
-    <div class="brand-title">
-      MOHAMMADI
-    </div>
-
-    <div class="brand-subtitle">
-      STEEL STRUCTURES
-    </div>
-
-    <div class="brand-center">
-      Sooleh.Center
-    </div>
-
-    <div class="brand-engineer">
-      مهندس علی محمدی
-    </div>
-
-    <div class="brand-phone">
-      ۰۹۱۲۵۲۸۵۸۴۱
-    </div>
-
-  </header>
-
-
-  <main class="card">
-
-    <div class="section-title">
-      محاسبه‌گر وزن سوله
-    </div>
-
-
-    <div class="grid">
-
-      <div class="field">
-        <label for="province">
-          استان
-        </label>
-
-        <select
-          id="province"
-          onchange="loadCities()"
-        >
-          <option value="">
-            انتخاب استان
-          </option>
-        </select>
-      </div>
-
-
-      <div class="field">
-        <label for="city">
-          شهر
-        </label>
-
-        <select id="city">
-          <option value="">
-            انتخاب شهر
-          </option>
-        </select>
-      </div>
-
-
-      <div class="field">
-        <label for="span">
-          دهانه سوله (متر)
-        </label>
-
-        <input
-          id="span"
-          type="text"
-          inputmode="decimal"
-          placeholder="مثلاً ۲۰"
-        >
-      </div>
-
-
-      <div class="field">
-        <label for="length">
-          طول سوله (متر)
-        </label>
-
-        <input
-          id="length"
-          type="text"
-          inputmode="decimal"
-          placeholder="مثلاً ۴۸"
-        >
-      </div>
-
-
-      <div class="field">
-        <label for="height">
-          ارتفاع سوله (متر)
-        </label>
-
-        <input
-          id="height"
-          type="text"
-          inputmode="decimal"
-          placeholder="مثلاً ۸"
-        >
-      </div>
-
-
-      <div class="field">
-        <label for="crane">
-          ظرفیت جرثقیل (تن)
-        </label>
-
-        <select id="crane">
-          <option value="0">بدون جرثقیل</option>
-          <option value="5">۵ تن</option>
-          <option value="10">۱۰ تن</option>
-          <option value="15">۱۵ تن</option>
-          <option value="20">۲۰ تن</option>
-          <option value="25">۲۵ تن</option>
-          <option value="30">۳۰ تن</option>
-          <option value="35">۳۵ تن</option>
-          <option value="40">۴۰ تن</option>
-          <option value="45">۴۵ تن</option>
-          <option value="50">۵۰ تن</option>
-        </select>
-      </div>
-
-    </div>
-
-
-    <button
-      class="calculate-btn"
-      onclick="calculateWeight()"
-    >
-      محاسبه وزن سوله
-    </button>
-
-
-    <section id="results">
-
-      <div class="tabs">
-
-        <button
-          id="weightTab"
-          class="tab active"
-          onclick="showTab('weightPanel','weightTab')"
-        >
-          ⚖️ وزن سوله
-        </button>
-
-        <button
-          id="coverTab"
-          class="tab"
-          onclick="showTab('coverPanel','coverTab')"
-        >
-          🏠 پوشش سقف
-        </button>
-
-      </div>
-
-
-      <div
-        id="weightPanel"
-        class="panel active"
-      >
-      </div>
-
-
-      <div
-        id="coverPanel"
-        class="panel"
-      >
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <footer class="footer">
-
-    <div>
-      <strong>مهندس علی محمدی</strong>
-    </div>
-
-    <div>
-      سازه‌های فلزی، سوله و اسکلت فلزی
-    </div>
-
-    <div>
-      📞 09105289068
-      &nbsp; | &nbsp;
-      📞 09199528860
-    </div>
-
-    <div>
-      Instagram:
-      <strong>@Sooleh.Center</strong>
-    </div>
-
-    <div>
-      Telegram:
-      <strong>@poladsazeh</strong>
-    </div>
-
-  </footer>
-
-</div>
-
-
-<!-- PHONE MODAL -->
-
-<div
-  id="phoneModal"
-  class="phone-modal"
-  onclick="closePhoneModal(event)"
->
-
-  <div class="phone-box">
-
-    <h3>
-      ارتباط با مهندس علی محمدی
-    </h3>
-
-    <a
-      class="phone-link"
-      href="tel:09125285841"
-    >
-      📞 تماس
-      <br>
-      09125285841
-    </a>
-
-    <a
-      class="phone-link"
-      href="https://wa.me/989125285841"
-      target="_blank"
-    >
-      💬 WhatsApp
-    </a>
-
-    <button
-      class="close-btn"
-      onclick="closePhoneModal()"
-    >
-      بستن
-    </button>
-
-  </div>
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   PROVINCES
-   ========================================================= */
-
-const provinces = [
-
-  {
-    name:"آذربایجان شرقی",
-    rate:35,
-    cities:[
-      "تبریز","مراغه","مرند","میانه",
-      "اهر","بناب","سراب","جلفا"
-    ]
-  },
-
-  {
-    name:"آذربایجان غربی",
-    rate:35,
-    cities:[
-      "ارومیه","خوی","مهاباد","میاندوآب",
-      "بوکان","سلماس","پیرانشهر"
-    ]
-  },
-
-  {
-    name:"اردبیل",
-    rate:35,
-    cities:[
-      "اردبیل","پارس‌آباد","مشگین‌شهر",
-      "خلخال","گرمی"
-    ]
-  },
-
-  {
-    name:"اصفهان",
-    rate:32,
-    cities:[
-      "اصفهان","کاشان","خمینی‌شهر",
-      "نجف‌آباد","شاهین‌شهر","شهرضا",
-      "مبارکه","فلاورجان"
-    ]
-  },
-
-  {
-    name:"البرز",
-    rate:32,
-    cities:[
-      "کرج","فردیس","نظرآباد",
-      "هشتگرد","محمدشهر"
-    ]
-  },
-
-  {
-    name:"ایلام",
-    rate:33.5,
-    cities:[
-      "ایلام","دهلران","آبدانان",
-      "ایوان","مهران"
-    ]
-  },
-
-  {
-    name:"بوشهر",
-    rate:28,
-    cities:[
-      "بوشهر","برازجان","عسلویه",
-      "کنگان","گناوه","دیلم","خورموج"
-    ]
-  },
-
-  {
-    name:"تهران",
-    rate:32,
-    cities:[
-      "تهران","اسلامشهر","شهریار",
-      "شهرری","قدس","رباط‌کریم",
-      "پاکدشت","ورامین"
-    ]
-  },
-
-  {
-    name:"چهارمحال و بختیاری",
-    rate:35,
-    cities:[
-      "شهرکرد","بروجن","فارسان",
-      "لردگان","فرخ‌شهر"
-    ]
-  },
-
-  {
-    name:"خراسان جنوبی",
-    rate:30,
-    cities:[
-      "بیرجند","قاین","طبس",
-      "فردوس","نهبندان"
-    ]
-  },
-
-  {
-    name:"خراسان رضوی",
-    rate:31,
-    cities:[
-      "مشهد","نیشابور","سبزوار",
-      "تربت‌حیدریه","کاشمر","قوچان",
-      "تربت‌جام","گناباد"
-    ]
-  },
-
-  {
-    name:"خراسان شمالی",
-    rate:32,
-    cities:[
-      "بجنورد","شیروان","اسفراین",
-      "جاجرم","آشخانه"
-    ]
-  },
-
-  {
-    name:"خوزستان",
-    rate:27,
-    cities:[
-      "اهواز","دزفول","آبادان",
-      "خرمشهر","ماهشهر","بندر امام خمینی",
-      "شوش","شوشتر","بهبهان"
-    ]
-  },
-
-  {
-    name:"زنجان",
-    rate:32,
-    cities:[
-      "زنجان","ابهر","خرمدره",
-      "قیدار","ماهنشان"
-    ]
-  },
-
-  {
-    name:"سمنان",
-    rate:32,
-    cities:[
-      "سمنان","شاهرود","دامغان",
-      "گرمسار","مهدی‌شهر"
-    ]
-  },
-
-  {
-    name:"سیستان و بلوچستان",
-    rate:28,
-    cities:[
-      "زاهدان","زابل","چابهار",
-      "ایرانشهر","سراوان","خاش","کنارک"
-    ]
-  },
-
-  {
-    name:"فارس",
-    rate:30,
-    cities:[
-      "شیراز","مرودشت","جهرم","فسا",
-      "کازرون","لار","داراب","آباده",
-      "فیروزآباد"
-    ]
-  },
-
-  {
-    name:"قزوین",
-    rate:33.5,
-    cities:[
-      "قزوین","تاکستان","آبیک",
-      "الوند","بوئین‌زهرا"
-    ]
-  },
-
-  {
-    name:"قم",
-    rate:30,
-    cities:[
-      "قم","جعفریه","سلفچگان","کهک"
-    ]
-  },
-
-  {
-    name:"کردستان",
-    rate:33.5,
-    cities:[
-      "سنندج","سقز","مریوان",
-      "بانه","قروه","بیجار"
-    ]
-  },
-
-  {
-    name:"کرمان",
-    rate:29,
-    cities:[
-      "کرمان","رفسنجان","سیرجان",
-      "جیرفت","بم","زرند",
-      "شهربابک","کهنوج"
-    ]
-  },
-
-  {
-    name:"کرمانشاه",
-    rate:33,
-    cities:[
-      "کرمانشاه","اسلام‌آباد غرب",
-      "کنگاور","هرسین","پاوه",
-      "جوانرود","قصرشیرین"
-    ]
-  },
-
-  {
-    name:"کهگیلویه و بویراحمد",
-    rate:32,
-    cities:[
-      "یاسوج","دهدشت","گچساران","لیکک"
-    ]
-  },
-
-  {
-    name:"گلستان",
-    rate:33,
-    cities:[
-      "گرگان","گنبدکاووس",
-      "علی‌آباد کتول","بندرترکمن",
-      "کردکوی","مینودشت"
-    ]
-  },
-
-  {
-    name:"گیلان",
-    rate:33,
-    cities:[
-      "رشت","انزلی","لاهیجان",
-      "لنگرود","آستارا","رودسر",
-      "رودبار","فومن"
-    ]
-  },
-
-  {
-    name:"لرستان",
-    rate:32,
-    cities:[
-      "خرم‌آباد","بروجرد","دورود",
-      "الیگودرز","کوهدشت","پلدختر"
-    ]
-  },
-
-  {
-    name:"مازندران",
-    rate:33,
-    cities:[
-      "ساری","بابل","آمل",
-      "قائم‌شهر","چالوس","نوشهر",
-      "تنکابن","بهشهر"
-    ]
-  },
-
-  {
-    name:"مرکزی",
-    rate:34,
-    cities:[
-      "اراک","ساوه","خمین",
-      "محلات","دلیجان","شازند"
-    ]
-  },
-
-  {
-    name:"هرمزگان",
-    rate:28,
-    cities:[
-      "بندرعباس","بندرلنگه","میناب",
-      "قشم","جاسک","رودان","حاجی‌آباد"
-    ]
-  },
-
-  {
-    name:"همدان",
-    rate:32,
-    cities:[
-      "همدان","ملایر","نهاوند",
-      "تویسرکان","کبودرآهنگ","اسدآباد"
-    ]
-  },
-
-  {
-    name:"یزد",
-    rate:30,
-    cities:[
-      "یزد","میبد","اردکان",
-      "بافق","مهریز","تفت"
-    ]
-  }
-
-];
-
-
-/* =========================================================
-   CRANE ADDITION
-   ========================================================= */
-
-const craneAddition = {
-  0:0,
-  5:5,
-  10:7.5,
-  15:12,
-  20:15,
-  25:20,
-  30:25,
-  35:30,
-  40:35,
-  45:40,
-  50:45
-};
-
-
-/* =========================================================
-   SPAN BASE
-   ========================================================= */
-
-function spanBase(span){
-
-  const table = [
-    [12,25],
-    [15,28],
-    [18,29],
-    [20,32],
-    [25,38],
-    [30,43],
-    [50,57.54]
-  ];
-
-  if(span < 12 || span > 50){
-    return NaN;
-  }
-
-  for(let i=0;i<table.length-1;i++){
-
-    if(span <= table[i+1][0]){
-
-      const x1 = table[i][0];
-      const y1 = table[i][1];
-
-      const x2 = table[i+1][0];
-      const y2 = table[i+1][1];
-
-      return y1 +
-        (span-x1) *
-        (y2-y1) /
-        (x2-x1);
+        transform:none;
     }
-  }
 
-  return 57.54;
-}
+    .card{
 
+        background:
+            linear-gradient(
+                135deg,
+                rgba(255,255,255,0.16),
+                rgba(255,255,255,0.07)
+            ) !important;
 
-/* =========================================================
-   NUMBER CONVERSION
-   ========================================================= */
+        backdrop-filter:
+            blur(18px)
+            saturate(135%) !important;
 
-function toNumber(value){
-
-  let text = String(value);
-
-  text = text.replace(
-    /[۰-۹]/g,
-    d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
-  );
-
-  text = text.replace(
-    /[٠-٩]/g,
-    d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)
-  );
-
-  text = text
-    .replace(/٫/g,".")
-    .replace(/[,٬]/g,"");
-
-  return parseFloat(text);
-}
-
-
-function persianNumber(value){
-
-  return value.toLocaleString(
-    "fa-IR",
-    {
-      maximumFractionDigits:2
+        -webkit-backdrop-filter:
+            blur(18px)
+            saturate(135%) !important;
     }
-  );
+
 }
-
-
-/* =========================================================
-   LOAD PROVINCES
-   ========================================================= */
-
-const provinceSelect =
-  document.getElementById("province");
-
-const citySelect =
-  document.getElementById("city");
-
-
-provinces.forEach(
-  (province,index) => {
-
-    const option =
-      document.createElement("option");
-
-    option.value = index;
-    option.textContent = province.name;
-
-    provinceSelect.appendChild(option);
-  }
-);
-
-
-/* =========================================================
-   LOAD CITIES
-   ========================================================= */
-
-function loadCities(){
-
-  citySelect.innerHTML =
-    '<option value="">انتخاب شهر</option>';
-
-  const index =
-    provinceSelect.value;
-
-  if(index === ""){
-    return;
-  }
-
-  provinces[index].cities.forEach(
-    city => {
-
-      const option =
-        document.createElement("option");
-
-      option.value = city;
-      option.textContent = city;
-
-      citySelect.appendChild(option);
-    }
-  );
-}
-
-
-/* =========================================================
-   CALCULATE
-   ========================================================= */
-
-function calculateWeight(){
-
-  const span =
-    toNumber(
-      document.getElementById("span").value
-    );
-
-  const length =
-    toNumber(
-      document.getElementById("length").value
-    );
-
-  const height =
-    toNumber(
-      document.getElementById("height").value
-    );
-
-  const crane =
-    toNumber(
-      document.getElementById("crane").value
-    );
-
-  const provinceIndex =
-    provinceSelect.value;
-
-
-  if(
-    provinceIndex === "" ||
-    citySelect.value === "" ||
-    !isFinite(span) ||
-    !isFinite(length) ||
-    !isFinite(height) ||
-    span < 12 ||
-    span > 50 ||
-    length <= 0 ||
-    height <= 0
-  ){
-
-    alert(
-      "لطفاً استان، شهر و تمام ابعاد را صحیح وارد کنید."
-    );
-
-    return;
-  }
-
-
-  const area =
-    (span + 2) *
-    (length + 2);
-
-
-  const baseWeight =
-    spanBase(span);
-
-
-  const provinceRate =
-    provinces[provinceIndex].rate;
-
-
-  const provinceAdjustment =
-    provinceRate - 32;
-
-
-  const heightAdjustment =
-    (height - 6) * 2;
-
-
-  const craneWeight =
-    craneAddition[crane] || 0;
-
-
-  const kgPerSquareMeter =
-    baseWeight +
-    provinceAdjustment +
-    heightAdjustment +
-    craneWeight;
-
-
-  const totalWeight =
-    area *
-    kgPerSquareMeter /
-    1000;
-
-
-  const roofCover =
-    (span + 3) *
-    (length + 2) +
-    (length / 2);
-
-
-  document.getElementById("weightPanel").innerHTML =
-
-    '<div class="icon-result">⚖️</div>' +
-
-    '<div class="caption">وزن تقریبی سوله</div>' +
-
-    '<div class="number">' +
-
-    persianNumber(totalWeight) +
-
-    ' <span class="unit">تن</span>' +
-
-    '</div>';
-
-
-  document.getElementById("coverPanel").innerHTML =
-
-    '<div class="icon-result">🏠</div>' +
-
-    '<div class="caption">متراژ پوشش سقف</div>' +
-
-    '<div class="number">' +
-
-    persianNumber(roofCover) +
-
-    ' <span class="unit">مترمربع</span>' +
-
-    '</div>';
-
-
-  document.getElementById("results")
-    .style.display = "block";
-
-
-  showTab(
-    "weightPanel",
-    "weightTab"
-  );
-}
-
-
-/* =========================================================
-   TABS
-   ========================================================= */
-
-function showTab(panelId,tabId){
-
-  document
-    .querySelectorAll(".panel")
-    .forEach(
-      panel =>
-        panel.classList.remove("active")
-    );
-
-
-  document
-    .querySelectorAll(".tab")
-    .forEach(
-      tab =>
-        tab.classList.remove("active")
-    );
-
-
-  document
-    .getElementById(panelId)
-    .classList.add("active");
-
-
-  document
-    .getElementById(tabId)
-    .classList.add("active");
-}
-
-
-/* =========================================================
-   PHONE MODAL
-   ========================================================= */
-
-function openPhoneModal(){
-
-  document.getElementById(
-    "phoneModal"
-  ).style.display = "flex";
-}
-
-
-function closePhoneModal(event){
-
-  const modal =
-    document.getElementById("phoneModal");
-
-  if(
-    !event ||
-    event.target === modal
-  ){
-
-    modal.style.display = "none";
-  }
-}
-
-</script>
-
-</body>
-</html>
