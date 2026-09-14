@@ -49,7 +49,7 @@
     }
 
     .page{
-      width:min(100%, 1100px);
+      width:min(100%,1100px);
       margin:auto;
       padding:25px 15px 40px;
     }
@@ -64,9 +64,7 @@
       -webkit-backdrop-filter:blur(18px);
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
 
     .header{
       text-align:center;
@@ -118,16 +116,24 @@
     }
 
     .phone-main{
+      display:inline-block;
       margin-top:8px;
       font-size:18px;
       direction:ltr;
       font-weight:700;
       letter-spacing:1px;
+      color:#fff;
+      text-decoration:none;
+      cursor:pointer;
+      transition:.2s ease;
     }
 
-    /* =========================
-       CALCULATOR
-    ========================= */
+    .phone-main:hover{
+      color:#ffd21c;
+      transform:translateY(-1px);
+    }
+
+    /* CALCULATOR */
 
     .calculator{
       border-radius:28px;
@@ -151,7 +157,7 @@
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:16px;
     }
 
@@ -202,10 +208,6 @@
       background:rgba(0,0,0,.42);
     }
 
-    .full{
-      grid-column:1 / -1;
-    }
-
     .calculate{
       width:100%;
       min-height:58px;
@@ -235,9 +237,7 @@
       transform:scale(.98);
     }
 
-    /* =========================
-       RESULTS
-    ========================= */
+    /* RESULTS */
 
     .results{
       margin-top:20px;
@@ -324,9 +324,7 @@
       gap:15px;
     }
 
-    /* =========================
-       SOCIAL
-    ========================= */
+    /* SOCIAL - ONLY INSTAGRAM + TELEGRAM */
 
     .social{
       display:flex;
@@ -376,9 +374,7 @@
       display:block;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     .footer{
       margin-top:20px;
@@ -435,9 +431,7 @@
       transform:translateY(-2px);
     }
 
-    /* =========================
-       MODAL
-    ========================= */
+    /* MODAL */
 
     .modal{
       position:fixed;
@@ -502,9 +496,7 @@
       border:1px solid rgba(255,255,255,.18);
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* MOBILE */
 
     @media(max-width:700px){
 
@@ -558,10 +550,6 @@
         gap:13px;
       }
 
-      .full{
-        grid-column:auto;
-      }
-
       .result-grid{
         grid-template-columns:1fr;
       }
@@ -577,9 +565,7 @@
 
   <main class="page">
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+    <!-- HEADER -->
 
     <header class="header glass">
 
@@ -605,21 +591,20 @@
         مهندس علی محمدی
       </div>
 
-   <a
-  href="javascript:void(0)"
-  class="phone-main"
-  onclick="openPhoneModal()"
-  aria-label="تماس یا واتساپ با مهندس علی محمدی"
->
-  ۰۹۱۲۵۲۸۵۸۴۱
-</a>
+      <!-- شماره اصلی: با کلیک، دو گزینه تماس و واتساپ -->
+      <a
+        href="javascript:void(0)"
+        class="phone-main"
+        onclick="openPhoneModal()"
+        aria-label="تماس یا واتساپ با مهندس علی محمدی"
+      >
+        ۰۹۱۲۵۲۸۵۸۴۱
+      </a>
 
     </header>
 
 
-    <!-- =========================
-         CALCULATOR
-    ========================= -->
+    <!-- CALCULATOR -->
 
     <section class="calculator glass">
 
@@ -631,10 +616,8 @@
         مشخصات سوله را وارد کنید تا وزن تقریبی سازه و سطح پوشش موردنیاز محاسبه شود.
       </div>
 
-
       <div class="grid">
 
-        <!-- Province -->
         <div class="field">
 
           <label for="province">
@@ -642,15 +625,16 @@
           </label>
 
           <select id="province">
+
             <option value="">
               انتخاب استان
             </option>
+
           </select>
 
         </div>
 
 
-        <!-- City -->
         <div class="field">
 
           <label for="city">
@@ -658,15 +642,16 @@
           </label>
 
           <select id="city" disabled>
+
             <option value="">
               ابتدا استان را انتخاب کنید
             </option>
+
           </select>
 
         </div>
 
 
-        <!-- Span -->
         <div class="field">
 
           <label for="span">
@@ -685,7 +670,6 @@
         </div>
 
 
-        <!-- Length -->
         <div class="field">
 
           <label for="length">
@@ -703,7 +687,6 @@
         </div>
 
 
-        <!-- Height -->
         <div class="field">
 
           <label for="height">
@@ -721,7 +704,6 @@
         </div>
 
 
-        <!-- Crane -->
         <div class="field">
 
           <label for="crane">
@@ -790,9 +772,7 @@
       </button>
 
 
-      <!-- =========================
-           RESULTS
-      ========================= -->
+      <!-- RESULTS -->
 
       <section id="results" class="results">
 
@@ -823,6 +803,7 @@
           id="weightPanel"
           class="panel active"
         >
+
           <div class="result-card">
 
             <div class="result-icon">
@@ -838,6 +819,7 @@
             </div>
 
           </div>
+
         </div>
 
 
@@ -845,6 +827,7 @@
           id="coverPanel"
           class="panel"
         >
+
           <div class="result-card">
 
             <div class="result-icon">
@@ -860,6 +843,7 @@
             </div>
 
           </div>
+
         </div>
 
       </section>
@@ -867,14 +851,11 @@
     </section>
 
 
-    <!-- =========================
-         SOCIAL
-         فقط همین دو آیکون
-    ========================= -->
+    <!-- فقط دو آیکون اجتماعی -->
 
     <div class="social">
 
-      <!-- Instagram -->
+      <!-- INSTAGRAM -->
       <a
         href="https://www.instagram.com/sooleh.center?stkn=dTl2Y3MwNHVtYTk0"
         target="_blank"
@@ -916,12 +897,12 @@
       </a>
 
 
-      <!-- Telegram -->
+      <!-- TELEGRAM - کانال -->
       <a
         href="https://t.me/poladsazeh"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Telegram"
+        aria-label="Telegram Channel"
       >
 
         <svg
@@ -930,7 +911,7 @@
         >
 
           <path
-            d="M21.8 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.1 1.2 11.6c-1.1-.3-1.1-1 .2-1.5L20.5 2.6c.9-.3 1.7.2-1.3.6Z"
+            d="M21.8 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.1 1.2 11.6c-1.1-.3-1.1-1 .2-1.5L20.5 2.6c.9-.3 1.7.2 1.3.6Z"
           ></path>
 
         </svg>
@@ -940,9 +921,7 @@
     </div>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- FOOTER -->
 
     <footer class="footer glass">
 
@@ -963,10 +942,11 @@
       </div>
 
       <a
-        href="tel:+989125285841"
+        href="javascript:void(0)"
         class="call-button"
+        onclick="openPhoneModal()"
       >
-        📞 تماس با مهندس علی محمدی
+        📞 تماس و واتساپ
       </a>
 
       <div class="copyright">
@@ -978,9 +958,7 @@
   </main>
 
 
-  <!-- =========================
-       PHONE MODAL
-  ========================= -->
+  <!-- PHONE / WHATSAPP MODAL -->
 
   <div
     id="phoneModal"
@@ -995,16 +973,18 @@
 
       <div class="modal-actions">
 
+        <!-- تماس مستقیم -->
         <a href="tel:+989125285841">
-          📞 تماس مستقیم
+          📞 تماس تلفنی
         </a>
 
+        <!-- واتساپ همان شماره اصلی -->
         <a
           href="https://wa.me/989125285841"
           target="_blank"
           rel="noopener noreferrer"
         >
-          💬 واتساپ
+          💬 پیام در واتساپ
         </a>
 
         <button
@@ -1024,9 +1004,7 @@
 
   <script>
 
-    /* =========================
-       PROVINCES
-    ========================= */
+    /* PROVINCES */
 
     const provinces = [
 
@@ -1219,9 +1197,7 @@
     ];
 
 
-    /* =========================
-       CRANE ADDITION
-    ========================= */
+    /* CRANE ADDITION */
 
     const craneAddition = {
 
@@ -1240,9 +1216,7 @@
     };
 
 
-    /* =========================
-       SPAN BASE
-    ========================= */
+    /* SPAN BASE */
 
     function spanBase(span){
 
@@ -1258,61 +1232,61 @@
 
       ];
 
-      if(span < 12 || span > 50){
+      if(span<12 || span>50){
         return NaN;
       }
 
-      for(let i=0; i<table.length-1; i++){
+      for(let i=0;i<table.length-1;i++){
 
-        if(span <= table[i+1][0]){
+        if(span<=table[i+1][0]){
 
-          const x1 = table[i][0];
-          const y1 = table[i][1];
+          const x1=table[i][0];
+          const y1=table[i][1];
 
-          const x2 = table[i+1][0];
-          const y2 = table[i+1][1];
+          const x2=table[i+1][0];
+          const y2=table[i+1][1];
 
-          return y1 +
-            (span-x1) *
-            (y2-y1) /
+          return y1+
+            (span-x1)*
+            (y2-y1)/
             (x2-x1);
+
         }
+
       }
 
       return 57.54;
     }
 
 
-    /* =========================
-       NUMBER CONVERSION
-    ========================= */
+    /* NUMBER CONVERSION */
 
     function toNumber(value){
 
-      if(value === null || value === undefined){
+      if(value===null || value===undefined){
         return NaN;
       }
 
-      let str = String(value);
+      let str=String(value);
 
-      const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
-      const arabicDigits  = "٠١٢٣٤٥٦٧٨٩";
+      const persianDigits="۰۱۲۳۴۵۶۷۸۹";
+      const arabicDigits="٠١٢٣٤٥٦٧٨٩";
 
       for(let i=0;i<10;i++){
 
-        str = str.replace(
+        str=str.replace(
           new RegExp(persianDigits[i],"g"),
           String(i)
         );
 
-        str = str.replace(
+        str=str.replace(
           new RegExp(arabicDigits[i],"g"),
           String(i)
         );
 
       }
 
-      str = str
+      str=str
         .replace(/٬/g,"")
         .replace(/,/g,"")
         .replace(/٫/g,".")
@@ -1322,24 +1296,22 @@
     }
 
 
-    /* =========================
-       POPULATE PROVINCES
-    ========================= */
+    /* PROVINCES */
 
-    const provinceSelect =
+    const provinceSelect=
       document.getElementById("province");
 
-    const citySelect =
+    const citySelect=
       document.getElementById("city");
 
 
     provinces.forEach((province,index)=>{
 
-      const option =
+      const option=
         document.createElement("option");
 
-      option.value = index;
-      option.textContent = province.name;
+      option.value=index;
+      option.textContent=province.name;
 
       provinceSelect.appendChild(option);
 
@@ -1350,16 +1322,15 @@
       "change",
       function(){
 
-        citySelect.innerHTML =
+        citySelect.innerHTML=
           '<option value="">انتخاب شهر</option>';
 
-        citySelect.disabled = true;
+        citySelect.disabled=true;
 
-        const index =
-          Number(this.value);
+        const index=Number(this.value);
 
         if(
-          this.value === "" ||
+          this.value==="" ||
           !provinces[index]
         ){
           return;
@@ -1367,52 +1338,50 @@
 
         provinces[index].cities.forEach(city=>{
 
-          const option =
+          const option=
             document.createElement("option");
 
-          option.value = city;
-          option.textContent = city;
+          option.value=city;
+          option.textContent=city;
 
           citySelect.appendChild(option);
 
         });
 
-        citySelect.disabled = false;
+        citySelect.disabled=false;
 
       }
     );
 
 
-    /* =========================
-       CALCULATE
-    ========================= */
+    /* CALCULATE */
 
     function calculateWeight(){
 
-      const provinceIndex =
+      const provinceIndex=
         Number(
           document.getElementById("province").value
         );
 
-      const city =
+      const city=
         document.getElementById("city").value;
 
-      const span =
+      const span=
         toNumber(
           document.getElementById("span").value
         );
 
-      const length =
+      const length=
         toNumber(
           document.getElementById("length").value
         );
 
-      const height =
+      const height=
         toNumber(
           document.getElementById("height").value
         );
 
-      const crane =
+      const crane=
         toNumber(
           document.getElementById("crane").value
         );
@@ -1439,8 +1408,8 @@
 
       if(
         !Number.isFinite(span) ||
-        span < 12 ||
-        span > 50
+        span<12 ||
+        span>50
       ){
 
         alert(
@@ -1454,7 +1423,7 @@
 
       if(
         !Number.isFinite(length) ||
-        length <= 0
+        length<=0
       ){
 
         alert(
@@ -1468,7 +1437,7 @@
 
       if(
         !Number.isFinite(height) ||
-        height < 3
+        height<3
       ){
 
         alert(
@@ -1480,40 +1449,40 @@
       }
 
 
-      const area =
-        (span + 2) *
-        (length + 2);
+      const area=
+        (span+2)*
+        (length+2);
 
-      const baseWeight =
+      const baseWeight=
         spanBase(span);
 
-      const provinceRate =
+      const provinceRate=
         provinces[provinceIndex].rate;
 
-      const provinceAdjustment =
-        provinceRate - 32;
+      const provinceAdjustment=
+        provinceRate-32;
 
-      const heightAdjustment =
-        (height - 6) * 2;
+      const heightAdjustment=
+        (height-6)*2;
 
-      const craneWeight =
-        craneAddition[crane] || 0;
+      const craneWeight=
+        craneAddition[crane]||0;
 
-      const kgPerSquareMeter =
-        baseWeight +
-        provinceAdjustment +
-        heightAdjustment +
+      const kgPerSquareMeter=
+        baseWeight+
+        provinceAdjustment+
+        heightAdjustment+
         craneWeight;
 
-      const totalWeight =
-        area *
-        kgPerSquareMeter /
+      const totalWeight=
+        area*
+        kgPerSquareMeter/
         1000;
 
-      const roofCover =
-        (span + 3) *
-        (length + 2) +
-        (length / 2);
+      const roofCover=
+        (span+3)*
+        (length+2)+
+        (length/2);
 
 
       showResults(
@@ -1524,7 +1493,6 @@
         length,
         height,
         crane,
-        provinceRate,
         provinceIndex,
         city
       );
@@ -1532,9 +1500,7 @@
     }
 
 
-    /* =========================
-       SHOW RESULTS
-    ========================= */
+    /* RESULTS */
 
     function showResults(
       totalWeight,
@@ -1544,18 +1510,17 @@
       length,
       height,
       crane,
-      provinceRate,
       provinceIndex,
       city
     ){
 
-      const province =
+      const province=
         provinces[provinceIndex].name;
 
 
       document.getElementById(
         "weightPanel"
-      ).innerHTML = `
+      ).innerHTML=`
 
         <div class="result-grid">
 
@@ -1571,7 +1536,9 @@
 
             <div class="result-value">
               ${formatNumber(totalWeight,2)}
-              <span class="result-unit">تن</span>
+              <span class="result-unit">
+                تن
+              </span>
             </div>
 
           </div>
@@ -1589,7 +1556,9 @@
 
             <div class="result-value">
               ${formatNumber(kgPerSquareMeter,2)}
-              <span class="result-unit">kg/m²</span>
+              <span class="result-unit">
+                kg/m²
+              </span>
             </div>
 
           </div>
@@ -1597,14 +1566,21 @@
         </div>
 
 
-        <div class="result-card" style="margin-top:15px;">
+        <div
+          class="result-card"
+          style="margin-top:15px;"
+        >
 
           <div class="result-note">
 
-            استان: ${province}
+            استان:
+            ${province}
+
             <br>
 
-            شهر: ${city}
+            شهر:
+            ${city}
+
             <br>
 
             ابعاد سوله:
@@ -1612,15 +1588,21 @@
             ×
             ${formatNumber(length,1)}
             متر
+
             <br>
 
             ارتفاع:
             ${formatNumber(height,1)}
             متر
+
             <br>
 
             ظرفیت جرثقیل:
-            ${crane === 0 ? "بدون جرثقیل" : crane + " تن"}
+            ${
+              crane===0
+              ? "بدون جرثقیل"
+              : crane+" تن"
+            }
 
           </div>
 
@@ -1631,7 +1613,7 @@
 
       document.getElementById(
         "coverPanel"
-      ).innerHTML = `
+      ).innerHTML=`
 
         <div class="result-card">
 
@@ -1645,7 +1627,9 @@
 
           <div class="result-value">
             ${formatNumber(roofCover,2)}
-            <span class="result-unit">m²</span>
+            <span class="result-unit">
+              m²
+            </span>
           </div>
 
           <div class="result-note">
@@ -1673,30 +1657,25 @@
     }
 
 
-    /* =========================
-       FORMAT NUMBER
-    ========================= */
+    /* FORMAT NUMBER */
 
     function formatNumber(
       number,
       decimals
     ){
 
-      return Number(number)
-        .toLocaleString(
-          "fa-IR",
-          {
-            minimumFractionDigits:decimals,
-            maximumFractionDigits:decimals
-          }
-        );
+      return Number(number).toLocaleString(
+        "fa-IR",
+        {
+          minimumFractionDigits:decimals,
+          maximumFractionDigits:decimals
+        }
+      );
 
     }
 
 
-    /* =========================
-       TABS
-    ========================= */
+    /* TABS */
 
     function showTab(
       panelId,
@@ -1729,9 +1708,7 @@
     }
 
 
-    /* =========================
-       PHONE MODAL
-    ========================= */
+    /* PHONE + WHATSAPP MODAL */
 
     function openPhoneModal(){
 
@@ -1757,7 +1734,7 @@
         "click",
         function(event){
 
-          if(event.target === this){
+          if(event.target===this){
             closePhoneModal();
           }
 
