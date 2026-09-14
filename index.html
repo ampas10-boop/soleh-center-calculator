@@ -1,1239 +1,663 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sooleh.Center | محاسبه‌گر وزن سوله</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
 
+html,
 body{
-    margin:0;
-    background:linear-gradient(145deg,#081321,#122743 55%,#3b1117);
-    color:#fff;
-    font-family:Tahoma,Arial,sans-serif;
+    min-height:100%;
 }
+
+body{
+
+    margin:0;
+
+    color:#fff;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            145deg,
+            #07111f,
+            #102640 55%,
+            #310f15
+        );
+
+    position:relative;
+
+    overflow-x:hidden;
+
+}
+
+
+/* =========================================================
+   BACKGROUND PHOTO
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:-25px;
+
+    background-image:
+        linear-gradient(
+            rgba(5,12,22,0.68),
+            rgba(5,12,22,0.72)
+        ),
+        url("./ali.mo.jpg");
+
+    background-position:center;
+
+    background-size:cover;
+
+    background-repeat:no-repeat;
+
+    filter:blur(5px);
+
+    opacity:0.58;
+
+    transform:scale(1.04);
+
+    z-index:-2;
+
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(255,255,255,0.08),
+            transparent 35%
+        );
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .container{
-    max-width:700px;
+
+    width:min(700px,100%);
+
     margin:auto;
-    padding:18px 14px 30px;
+
+    padding:
+        18px
+        14px
+        35px;
+
 }
 
-/* BRAND */
+
+/* =========================================================
+   BRAND AREA
+========================================================= */
+
 .brand{
+
+    position:relative;
+
     text-align:center;
-    padding-top:5px;
+
+    min-height:145px;
+
+    padding-top:8px;
+
 }
+
+
+/* LOGO */
+
+.brand-logo{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:82px;
+
+    height:82px;
+
+    object-fit:contain;
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.22);
+
+    padding:5px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.35);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+}
+
+
+/* BRAND TEXT */
 
 .mohammadi{
+
     font-size:28px;
+
     font-weight:900;
+
     letter-spacing:2px;
+
+    text-shadow:
+        0 3px 15px
+        rgba(0,0,0,0.5);
+
 }
 
 .steel{
+
     font-size:11px;
+
     letter-spacing:3px;
+
     color:#e2b34f;
+
     font-weight:900;
+
 }
 
 .logo-text{
+
     font-size:32px;
+
     font-weight:950;
+
     margin:8px 0;
+
 }
 
 .engineer{
+
     font-size:17px;
+
     font-weight:900;
+
 }
+
+
+/* PHONE */
 
 .phone-main{
+
     display:inline-block;
+
     margin:7px;
-    padding:8px 15px;
+
+    padding:
+        8px
+        15px;
+
     border-radius:12px;
+
     color:#ffd36b;
-    background:#ffffff12;
-    border:1px solid #d9a44177;
+
+    background:
+        rgba(255,255,255,0.09);
+
+    border:
+        1px solid
+        rgba(217,164,65,0.55);
+
     text-decoration:none;
+
     font-size:21px;
+
     font-weight:950;
+
     direction:ltr;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
 }
 
-/* CARD */
+
+/* =========================================================
+   GLASS CARD
+========================================================= */
+
 .card{
+
     margin-top:12px;
-    background:#fff;
+
     color:#152033;
+
     border-radius:24px;
+
     padding:19px;
-    box-shadow:0 20px 60px #0009;
+
+    background:
+        rgba(255,255,255,0.76);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.65);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.42);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
 }
+
+
+/* =========================================================
+   GRID
+========================================================= */
 
 .grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:12px;
+
 }
 
 .full{
-    grid-column:1 / -1;
+
+    grid-column:
+        1 / -1;
+
 }
 
+
+/* =========================================================
+   LABEL
+========================================================= */
+
 label{
+
     display:block;
+
     font-size:13px;
+
     font-weight:900;
+
     margin-bottom:6px;
-    color:#334155;
+
+    color:#26364b;
+
 }
+
+
+/* =========================================================
+   INPUT / SELECT
+========================================================= */
 
 input,
 select{
+
     width:100%;
+
     height:50px;
-    border:1px solid #d8e0e9;
+
+    border:
+        1px solid
+        rgba(180,195,210,0.75);
+
     border-radius:13px;
-    background:#f8fafc;
-    padding:0 12px;
+
+    background:
+        rgba(248,250,252,0.78);
+
+    padding:
+        0 12px;
+
     font-size:17px;
+
     color:#111827;
+
+    outline:none;
+
+    transition:
+        0.2s ease;
+
 }
+
+
+input:focus,
+select:focus{
+
+    border-color:#d71920;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(215,25,32,0.12);
+
+}
+
+
+/* =========================================================
+   CALCULATE BUTTON
+========================================================= */
 
 .calculate{
+
     width:100%;
+
     height:54px;
+
     margin-top:16px;
+
     border:0;
+
     border-radius:15px;
-    background:linear-gradient(135deg,#d71920,#a80e15);
+
+    background:
+        linear-gradient(
+            135deg,
+            #d71920,
+            #a80e15
+        );
+
     color:#fff;
+
     font-size:17px;
+
     font-weight:950;
+
     cursor:pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(167,14,21,0.30);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+
 }
 
-/* RESULTS */
-.results{
-    display:none;
-    margin-top:18px;
+.calculate:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(167,14,21,0.40);
+
 }
+
+.calculate:active{
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.results{
+
+    display:none;
+
+    margin-top:18px;
+
+}
+
+
+/* TABS */
 
 .tabs{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:8px;
+
 }
 
 .tab{
+
     height:48px;
-    border:1px solid #dce3eb;
+
+    border:
+        1px solid
+        rgba(220,227,235,0.8);
+
     border-radius:13px;
-    background:#f1f5f9;
+
+    background:
+        rgba(241,245,249,0.82);
+
     font-weight:900;
+
     cursor:pointer;
+
+    color:#152033;
+
 }
 
 .tab.active{
+
     background:#132744;
+
     color:#fff;
+
 }
 
+
+/* PANEL */
+
 .panel{
+
     display:none;
+
     margin-top:10px;
-    background:#f3f6fa;
-    border:1px solid #e3e8ef;
+
+    background:
+        rgba(243,246,250,0.82);
+
+    border:
+        1px solid
+        rgba(227,232,239,0.85);
+
     border-radius:18px;
-    padding:22px 10px;
+
+    padding:
+        22px
+        10px;
+
     text-align:center;
+
 }
 
 .panel.active{
+
     display:block;
+
 }
 
+
+/* RESULT */
+
 .icon-result{
+
     font-size:29px;
+
 }
 
 .caption{
+
     color:#64748b;
+
     font-weight:900;
+
 }
 
 .number{
+
     font-size:32px;
+
     color:#d71920;
+
     font-weight:950;
+
     margin-top:5px;
+
 }
 
 .unit{
+
     font-size:14px;
+
     color:#475569;
+
 }
 
-/* FOOTER */
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
 .footer{
+
     text-align:center;
-    color:#aeb9c9;
+
+    color:#d2d9e4;
+
     font-size:13px;
+
     line-height:2;
+
     margin-top:17px;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.6);
+
 }
 
 .footer a{
-    color:#e2b34f;
+
+    color:#ffd36b;
+
     text-decoration:none;
+
 }
 
+
+/* SOCIAL */
+
 .social{
+
     display:flex;
+
     justify-content:center;
+
     gap:16px;
+
     margin-top:10px;
+
 }
 
 .social a{
+
     width:42px;
+
     height:42px;
+
     border-radius:12px;
-    background:#172b46;
+
+    background:
+        rgba(23,43,70,0.80);
+
     color:#fff;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
 }
 
 .social svg{
+
     width:25px;
+
     height:25px;
-}
-
-/* PHONE MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#000b;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal-box{
-    width:min(380px,100%);
-    background:#102035;
-    border-radius:20px;
-    padding:22px;
-    text-align:center;
-}
-
-.modal-button{
-    display:block;
-    width:100%;
-    padding:13px;
-    margin-top:10px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:900;
-    border:0;
-    cursor:pointer;
-}
-
-.call{
-    background:#d9b45b;
-    color:#111;
-}
-
-.whatsapp{
-    background:#1f8f54;
-    color:#fff;
-}
-
-.close{
-    background:#243449;
-    color:#fff;
-}
-
-/* MOBILE */
-@media(max-width:500px){
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    .full{
-        grid-column:auto;
-    }
-
-    .number{
-        font-size:28px;
-    }
-
-    .logo-text{
-        font-size:29px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-    <!-- BRAND -->
-    <header class="brand">
-
-        <div class="mohammadi">
-            MOHAMMADI
-        </div>
-
-        <div class="steel">
-            STEEL STRUCTURES
-        </div>
-
-        <div class="logo-text">
-            Sooleh.Center
-        </div>
-
-        <div class="engineer">
-            مهندس علی محمدی
-        </div>
-
-        <a
-            class="phone-main"
-            href="#"
-            onclick="openPhoneModal(); return false;"
-        >
-            ۰۹۱۲۵۲۸۵۸۴۱
-        </a>
-
-    </header>
-
-
-    <!-- MAIN CARD -->
-    <main class="card">
-
-        <div class="grid">
-
-            <!-- PROVINCE -->
-            <div class="full">
-
-                <label>
-                    استان
-                </label>
-
-                <select id="province" onchange="loadCities()">
-
-                    <option value="">
-                        انتخاب استان
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- CITY -->
-            <div class="full">
-
-                <label>
-                    شهر
-                </label>
-
-                <select id="city">
-
-                    <option>
-                        ابتدا استان را انتخاب کنید
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- SPAN -->
-            <div>
-
-                <label>
-                    دهانه
-                </label>
-
-                <input
-                    id="span"
-                    type="text"
-                    inputmode="decimal"
-                    placeholder="مثلاً ۲۰"
-                >
-
-            </div>
-
-
-            <!-- LENGTH -->
-            <div>
-
-                <label>
-                    طول
-                </label>
-
-                <input
-                    id="length"
-                    type="text"
-                    inputmode="decimal"
-                    placeholder="مثلاً ۴۸"
-                >
-
-            </div>
-
-
-            <!-- HEIGHT -->
-            <div>
-
-                <label>
-                    ارتفاع
-                </label>
-
-                <input
-                    id="height"
-                    type="text"
-                    inputmode="decimal"
-                    placeholder="مثلاً ۸"
-                >
-
-            </div>
-
-
-            <!-- CRANE -->
-            <div>
-
-                <label>
-                    جرثقیل
-                </label>
-
-                <select id="crane">
-
-                    <option value="0">
-                        بدون جرثقیل
-                    </option>
-
-                    <option value="5">
-                        ۵ تن
-                    </option>
-
-                    <option value="10">
-                        ۱۰ تن
-                    </option>
-
-                    <option value="15">
-                        ۱۵ تن
-                    </option>
-
-                    <option value="20">
-                        ۲۰ تن
-                    </option>
-
-                    <option value="25">
-                        ۲۵ تن
-                    </option>
-
-                    <option value="30">
-                        ۳۰ تن
-                    </option>
-
-                    <option value="35">
-                        ۳۵ تن
-                    </option>
-
-                    <option value="40">
-                        ۴۰ تن
-                    </option>
-
-                    <option value="45">
-                        ۴۵ تن
-                    </option>
-
-                    <option value="50">
-                        ۵۰ تن
-                    </option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="calculate"
-            onclick="calculateWeight()"
-        >
-            محاسبه
-        </button>
-
-
-        <!-- RESULTS -->
-        <section
-            id="results"
-            class="results"
-        >
-
-            <div class="tabs">
-<button
-                    id="weightTab"
-                    class="tab active"
-                    onclick="showTab('weightPanel','weightTab')"
-                >
-                    ⚖️ وزن سوله
-                </button>
-
-                <button
-                    id="coverTab"
-                    class="tab"
-                    onclick="showTab('coverPanel','coverTab')"
-                >
-                    🏠 متراژ پوشش سقف
-                </button>
-
-            </div>
-
-
-            <div
-                id="weightPanel"
-                class="panel active"
-            >
-            </div>
-
-
-            <div
-                id="coverPanel"
-                class="panel"
-            >
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <div class="footer">
-
-        <a href="tel:+989105289068">
-            ۰۹۱۰۵۲۸۹۰۶۸
-        </a>
-
-        <br>
-
-        <a href="tel:+989199528860">
-            ۰۹۱۹۹۵۲۸۸۶۰
-        </a>
-
-
-        <div class="social">
-
-            <!-- INSTAGRAM -->
-            <a
-                href="https://instagram.com/Sooleh.Center"
-                target="_blank"
-                aria-label="Instagram"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                >
-
-                    <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="5"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="4"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="17.5"
-                        cy="6.5"
-                        r="1.2"
-                        fill="currentColor"
-                    />
-
-                </svg>
-
-            </a>
-
-
-            <!-- TELEGRAM -->
-            <a
-                href="https://t.me/poladsazeh"
-                target="_blank"
-                aria-label="Telegram"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                >
-
-                    <path
-                        d="M21.4 4.2 18.1 20c-.25 1.12-.91 1.4-1.85.87l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.03.5l.37-5.2 9.46-8.55c.41-.37-.09-.58-.64-.21L5.16 13.55.12 11.97c-1.1-.34-1.12-1.1.23-1.61L20.04 2.7c.93-.34 1.74.21 1.36 1.5Z"
-                        fill="currentColor"
-                    />
-
-                </svg>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- PHONE MODAL -->
-<div
-    id="phoneModal"
-    class="modal"
-    onclick="closePhoneModal(event)"
->
-
-    <div class="modal-box">
-
-        <a
-            class="modal-button call"
-            href="tel:+989125285841"
-        >
-            📞 تماس تلفنی
-        </a>
-
-
-        <a
-            class="modal-button whatsapp"
-            href="https://wa.me/989125285841"
-            target="_blank"
-        >
-            💬 واتساپ
-        </a>
-
-
-        <button
-            class="modal-button close"
-            onclick="closePhoneModal()"
-        >
-            بستن
-        </button>
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   PROVINCES
-========================================================= */
-
-const provinces = [
-
-    {
-        name:"آذربایجان شرقی",
-        rate:35,
-        cities:["تبریز","مراغه","مرند","میانه","اهر","بناب","سراب","جلفا"]
-    },
-
-    {
-        name:"آذربایجان غربی",
-        rate:35,
-        cities:["ارومیه","خوی","مهاباد","میاندوآب","بوکان","سلماس","پیرانشهر"]
-    },
-
-    {
-        name:"اردبیل",
-        rate:35,
-        cities:["اردبیل","پارس‌آباد","مشگین‌شهر","خلخال","گرمی"]
-    },
-
-    {
-        name:"اصفهان",
-        rate:32,
-        cities:["اصفهان","کاشان","خمینی‌شهر","نجف‌آباد","شاهین‌شهر","شهرضا","مبارکه","فلاورجان"]
-    },
-{
-        name:"البرز",
-        rate:32,
-        cities:["کرج","فردیس","نظرآباد","هشتگرد","محمدشهر"]
-    },
-
-    {
-        name:"ایلام",
-        rate:33.5,
-        cities:["ایلام","دهلران","آبدانان","ایوان","مهران"]
-    },
-
-    {
-        name:"بوشهر",
-        rate:28,
-        cities:["بوشهر","برازجان","عسلویه","کنگان","گناوه","دیلم","خورموج"]
-    },
-
-    {
-        name:"تهران",
-        rate:32,
-        cities:["تهران","اسلامشهر","شهریار","شهرری","قدس","رباط‌کریم","پاکدشت","ورامین"]
-    },
-
-    {
-        name:"چهارمحال و بختیاری",
-        rate:35,
-        cities:["شهرکرد","بروجن","فارسان","لردگان","فرخ‌شهر"]
-    },
-
-    {
-        name:"خراسان جنوبی",
-        rate:30,
-        cities:["بیرجند","قاین","طبس","فردوس","نهبندان"]
-    },
-
-    {
-        name:"خراسان رضوی",
-        rate:31,
-        cities:["مشهد","نیشابور","سبزوار","تربت‌حیدریه","کاشمر","قوچان","تربت‌جام","گناباد"]
-    },
-
-    {
-        name:"خراسان شمالی",
-        rate:32,
-        cities:["بجنورد","شیروان","اسفراین","جاجرم","آشخانه"]
-    },
-
-    {
-        name:"خوزستان",
-        rate:27,
-        cities:["اهواز","دزفول","آبادان","خرمشهر","ماهشهر","بندر امام خمینی","شوش","شوشتر","بهبهان"]
-    },
-
-    {
-        name:"زنجان",
-        rate:32,
-        cities:["زنجان","ابهر","خرمدره","قیدار","ماهنشان"]
-    },
-
-    {
-        name:"سمنان",
-        rate:32,
-        cities:["سمنان","شاهرود","دامغان","گرمسار","مهدی‌شهر"]
-    },
-
-    {
-        name:"سیستان و بلوچستان",
-        rate:28,
-        cities:["زاهدان","زابل","چابهار","ایرانشهر","سراوان","خاش","کنارک"]
-    },
-
-    {
-        name:"فارس",
-        rate:30,
-        cities:["شیراز","مرودشت","جهرم","فسا","کازرون","لار","داراب","آباده","فیروزآباد"]
-    },
-
-    {
-        name:"قزوین",
-        rate:33.5,
-        cities:["قزوین","تاکستان","آبیک","الوند","بوئین‌زهرا"]
-    },
-
-    {
-        name:"قم",
-        rate:30,
-        cities:["قم","جعفریه","سلفچگان","کهک"]
-    },
-
-    {
-        name:"کردستان",
-        rate:33.5,
-        cities:["سنندج","سقز","مریوان","بانه","قروه","بیجار"]
-    },
-
-    {
-        name:"کرمان",
-        rate:29,
-        cities:["کرمان","رفسنجان","سیرجان","جیرفت","بم","زرند","شهربابک","کهنوج"]
-    },
-
-    {
-        name:"کرمانشاه",
-        rate:33,
-        cities:["کرمانشاه","اسلام‌آباد غرب","کنگاور","هرسین","پاوه","جوانرود","قصرشیرین"]
-    },
-
-    {
-        name:"کهگیلویه و بویراحمد",
-        rate:32,
-        cities:["یاسوج","دهدشت","گچساران","لیکک"]
-    },
-
-    {
-        name:"گلستان",
-        rate:33,
-        cities:["گرگان","گنبدکاووس","علی‌آباد کتول","بندرترکمن","کردکوی","مینودشت"]
-    },
-
-    {
-        name:"گیلان",
-        rate:33,
-        cities:["رشت","انزلی","لاهیجان","لنگرود","آستارا","رودسر","رودبار","فومن"]
-    },
-
-    {
-        name:"لرستان",
-        rate:32,
-        cities:["خرم‌آباد","بروجرد","دورود","الیگودرز","کوهدشت","پلدختر"]
-    },
-
-    {
-        name:"مازندران",
-        rate:33,
-        cities:["ساری","بابل","آمل","قائم‌شهر","چالوس","نوشهر","تنکابن","بهشهر"]
-    },
-
-    {
-        name:"مرکزی",
-        rate:34,
-        cities:["اراک","ساوه","خمین","محلات","دلیجان","شازند"]
-    },
-
-    {
-        name:"هرمزگان",
-        rate:28,
-        cities:["بندرعباس","بندرلنگه","میناب","قشم","جاسک","رودان","حاجی‌آباد"]
-    },
-
-    {
-        name:"همدان",
-        rate:32,
-        cities:["همدان","ملایر","نهاوند","تویسرکان","کبودرآهنگ","اسدآباد"]
-    },
-
-    {
-        name:"یزد",
-        rate:30,
-        cities:["یزد","میبد","اردکان","بافق","مهریز","تفت"]
-    }
-
-];
-
-
-/* =========================================================
-   CRANE ADDITIONS
-========================================================= */
-
-const craneAddition = {
-
-    0:0,
-    5:5,
-    10:7.5,
-    15:12,
-    20:15,
-    25:20,
-    30:25,
-    35:30,
-    40:35,
-    45:40,
-    50:45
-
-};
-
-
-/* =========================================================
-   SPAN BASE WEIGHTS
-========================================================= */
-
-function spanBase(span){
-
-    const table = [
-
-        [12,25],
-        [15,28],
-        [18,29],
-        [20,32],
-        [25,38],
-        [30,43],
-        [50,57.54]
-
-    ];
-if(span < 12 || span > 50){
-        return NaN;
-    }
-
-    for(let i=0;i<table.length-1;i++){
-
-        if(span <= table[i+1][0]){
-
-            const x1 = table[i][0];
-            const y1 = table[i][1];
-
-            const x2 = table[i+1][0];
-            const y2 = table[i+1][1];
-
-            return y1 +
-            (span-x1) *
-            (y2-y1) /
-            (x2-x1);
-        }
-
-    }
-
-    return 57.54;
-}
-
-
-/* =========================================================
-   NUMBER CONVERTER
-========================================================= */
-
-function toNumber(value){
-
-    let text = String(value);
-
-    text = text.replace(/[۰-۹]/g,function(d){
-
-        return "۰۱۲۳۴۵۶۷۸۹".indexOf(d);
-
-    });
-
-    text = text.replace(/[٠-٩]/g,function(d){
-
-        return "٠١٢٣٤٥٦٧٨٩".indexOf(d);
-
-    });
-
-    text = text
-        .replace(/٫/g,".")
-        .replace(/[,٬]/g,"");
-
-    return parseFloat(text);
-}
-
-
-/* =========================================================
-   PERSIAN NUMBER FORMAT
-========================================================= */
-
-function persianNumber(value){
-
-    return value.toLocaleString(
-        "fa-IR",
-        {
-            maximumFractionDigits:2
-        }
-    );
-
-}
-
-
-/* =========================================================
-   LOAD PROVINCES
-========================================================= */
-
-const provinceSelect =
-document.getElementById("province");
-
-const citySelect =
-document.getElementById("city");
-
-
-provinces.forEach(function(province,index){
-
-    const option =
-    document.createElement("option");
-
-    option.value = index;
-    option.textContent = province.name;
-
-    provinceSelect.appendChild(option);
-
-});
-
-
-/* =========================================================
-   LOAD CITIES
-========================================================= */
-
-function loadCities(){
-
-    citySelect.innerHTML = "";
-
-    const index =
-    provinceSelect.value;
-
-    if(index === ""){
-
-        const option =
-        document.createElement("option");
-
-        option.textContent =
-        "ابتدا استان را انتخاب کنید";
-
-        citySelect.appendChild(option);
-
-        return;
-    }
-
-
-    const province =
-    provinces[index];
-
-
-    province.cities.forEach(function(city){
-
-        const option =
-        document.createElement("option");
-
-        option.value = city;
-        option.textContent = city;
-
-        citySelect.appendChild(option);
-
-    });
-
-}
-
-
-/* =========================================================
-   CALCULATE
-========================================================= */
-
-function calculateWeight(){
-
-    const span =
-    toNumber(
-        document.getElementById("span").value
-    );
-
-    const length =
-    toNumber(
-        document.getElementById("length").value
-    );
-
-    const height =
-    toNumber(
-        document.getElementById("height").value
-    );
-
-    const crane =
-    toNumber(
-        document.getElementById("crane").value
-    );
-
-
-    const provinceIndex =
-    provinceSelect.value;
-
-
-    /* VALIDATION */
-
-    if(
-        provinceIndex === "" ||
-        citySelect.value === "" ||
-        !isFinite(span) ||
-        !isFinite(length) ||
-        !isFinite(height) ||
-        span < 12 ||
-        span > 50 ||
-        length <= 0 ||
-        height <= 0
-    ){
-
-        alert(
-            "لطفاً استان، شهر و تمام ابعاد را صحیح وارد کنید."
-        );
-
-        return;
-    }
-
-
-    /* -----------------------------------------------------
-       AREA
-       Span + 2
-       Length + 2
-    ----------------------------------------------------- */
-
-    const area =
-    (span + 2) *
-    (length + 2);
-
-
-    /* -----------------------------------------------------
-       BASE SPAN WEIGHT
-    ----------------------------------------------------- */
-
-    const baseWeight =
-    spanBase(span);
-
-
-    /* -----------------------------------------------------
-       PROVINCE ADJUSTMENT
-       Tehran = 32 => zero
-    ----------------------------------------------------- */
-
-    const provinceRate =
-    provinces[provinceIndex].rate;
-
-    const provinceAdjustment =
-    provinceRate - 32;
-/* -----------------------------------------------------
-       HEIGHT
-       Every 1 meter above/below 6 = +/- 2 kg/m²
-    ----------------------------------------------------- */
-
-    const heightAdjustment =
-    (height - 6) * 2;
-
-
-    /* -----------------------------------------------------
-       CRANE
-    ----------------------------------------------------- */
-
-    const craneWeight =
-    craneAddition[crane] || 0;
-
-
-    /* -----------------------------------------------------
-       FINAL KG/M²
-    ----------------------------------------------------- */
-
-    const kgPerSquareMeter =
-    baseWeight +
-    provinceAdjustment +
-    heightAdjustment +
-    craneWeight;
-
-
-    /* -----------------------------------------------------
-       TOTAL WEIGHT
-       tons
-    ----------------------------------------------------- */
-
-    const totalWeight =
-    area *
-    kgPerSquareMeter /
-    1000;
-
-
-    /* -----------------------------------------------------
-       ROOF COVER
-       (Span + 3) × (Length + 2) + Length/2
-    ----------------------------------------------------- */
-
-    const roofCover =
-    (span + 3) *
-    (length + 2) +
-    (length / 2);
-
-
-    /* -----------------------------------------------------
-       SHOW WEIGHT
-    ----------------------------------------------------- */
-
-    document.getElementById("weightPanel").innerHTML =
-
-        '<div class="icon-result">⚖️</div>' +
-
-        '<div class="caption">' +
-        'وزن تقریبی سوله' +
-        '</div>' +
-
-        '<div class="number">' +
-        persianNumber(totalWeight) +
-        ' <span class="unit">تن</span>' +
-        '</div>';
-
-
-    /* -----------------------------------------------------
-       SHOW ROOF COVER
-    ----------------------------------------------------- */
-
-    document.getElementById("coverPanel").innerHTML =
-
-        '<div class="icon-result">🏠</div>' +
-
-        '<div class="caption">' +
-        'متراژ پوشش سقف' +
-        '</div>' +
-
-        '<div class="number">' +
-        persianNumber(roofCover) +
-        ' <span class="unit">مترمربع</span>' +
-        '</div>';
-
-
-    /* SHOW RESULTS */
-
-    document.getElementById("results").style.display =
-    "block";
-
-
-    showTab(
-        "weightPanel",
-        "weightTab"
-    );
-
-}
-
-
-/* =========================================================
-   TABS
-========================================================= */
-
-function showTab(panelId,tabId){
-
-    document
-        .querySelectorAll(".panel")
-        .forEach(function(panel){
-
-            panel.classList.remove("active");
-
-        });
-
-
-    document
-        .querySelectorAll(".tab")
-        .forEach(function(tab){
-
-            tab.classList.remove("active");
-
-        });
-
-
-    document
-        .getElementById(panelId)
-        .classList.add("active");
-
-
-    document
-        .getElementById(tabId)
-        .classList.add("active");
 
 }
 
@@ -1242,33 +666,1339 @@ function showTab(panelId,tabId){
    PHONE MODAL
 ========================================================= */
 
-function openPhoneModal(){
+.modal{
 
-    document
-        .getElementById("phoneModal")
-        .style.display = "flex";
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,0.72);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:100;
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+}
+
+.modal-box{
+
+    width:min(380px,100%);
+
+    background:
+        rgba(16,32,53,0.94);
+
+    border-radius:20px;
+
+    padding:22px;
+
+    text-align:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.55);
+
+}
+
+.modal-button{
+
+    display:block;
+
+    width:100%;
+
+    padding:13px;
+
+    margin-top:10px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    border:0;
+
+    cursor:pointer;
+
+}
+
+.call{
+
+    background:#d9b45b;
+
+    color:#111;
+
+}
+
+.whatsapp{
+
+    background:#1f8f54;
+
+    color:#fff;
+
+}
+
+.close{
+
+    background:#243449;
+
+    color:#fff;
 
 }
 
 
-function closePhoneModal(event){
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    const modal =
-    document.getElementById("phoneModal");
+@media(max-width:500px){
 
+    .container{
 
-    if(
-        !event ||
-        event.target === modal
-    ){
+        padding:
+            12px
+            10px
+            25px;
 
-        modal.style.display = "none";
+    }
+
+    .brand{
+
+        min-height:150px;
+
+    }
+
+    .brand-logo{
+
+        width:66px;
+
+        height:66px;
+
+        top:0;
+
+        left:0;
+
+    }
+
+    .mohammadi{
+
+        font-size:23px;
+
+    }
+
+    .logo-text{
+
+        font-size:28px;
+
+    }
+
+    .engineer{
+
+        font-size:15px;
+
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full{
+
+        grid-column:auto;
+
+    }
+
+    .number{
+
+        font-size:28px;
 
     }
 
 }
 
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:360px){
+
+    .brand-logo{
+
+        width:58px;
+
+        height:58px;
+
+    }
+
+    .mohammadi{
+
+        font-size:20px;
+
+    }
+
+    .steel{
+
+        font-size:9px;
+
+    }
+
+    .logo-text{
+
+        font-size:24px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =======================================================
+     BRAND
+======================================================= -->
+
+<header class="brand">
+
+
+    <img
+        src="./logo.jpg"
+        alt="MOHAMMADI Logo"
+        class="brand-logo"
+    >
+
+
+    <div class="mohammadi">
+        MOHAMMADI
+    </div>
+
+
+    <div class="steel">
+        STEEL STRUCTURES
+    </div>
+
+
+    <div class="logo-text">
+        Sooleh.Center
+    </div>
+
+
+    <div class="engineer">
+        مهندس علی محمدی
+    </div>
+
+
+    <a
+        class="phone-main"
+        href="#"
+        onclick="openPhoneModal(); return false;"
+    >
+        ۰۹۱۲۵۲۸۵۸۴۱
+    </a>
+
+
+</header>
+
+
+
+<!-- =======================================================
+     MAIN CARD
+======================================================= -->
+
+<main class="card">
+
+
+<div class="grid">
+
+
+<!-- PROVINCE -->
+
+<div class="full">
+
+<label>
+استان
+</label>
+
+<select
+    id="province"
+    onchange="loadCities()"
+>
+
+<option value="">
+انتخاب استان
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- CITY -->
+
+<div class="full">
+
+<label>
+شهر
+</label>
+
+<select id="city">
+
+<option value="">
+ابتدا استان را انتخاب کنید
+</option>
+
+</select>
+
+</div>
+
+
+
+<!-- SPAN -->
+
+<div>
+
+<label>
+دهانه
+</label>
+
+<input
+    id="span"
+    type="text"
+    inputmode="decimal"
+    placeholder="مثلاً ۲۰"
+>
+
+</div>
+
+
+
+<!-- LENGTH -->
+
+<div>
+
+<label>
+طول
+</label>
+
+<input
+    id="length"
+    type="text"
+    inputmode="decimal"
+    placeholder="مثلاً ۴۸"
+>
+
+</div>
+
+
+
+<!-- HEIGHT -->
+
+<div>
+
+<label>
+ارتفاع
+</label>
+
+<input
+    id="height"
+    type="text"
+    inputmode="decimal"
+    placeholder="مثلاً ۸"
+>
+
+</div>
+
+
+
+<!-- CRANE -->
+
+<div>
+
+<label>
+جرثقیل
+</label>
+
+<select id="crane">
+
+<option value="0">
+بدون جرثقیل
+</option>
+
+<option value="5">
+۵ تن
+</option>
+
+<option value="10">
+۱۰ تن
+</option>
+
+<option value="15">
+۱۵ تن
+</option>
+
+<option value="20">
+۲۰ تن
+</option>
+
+<option value="25">
+۲۵ تن
+</option>
+
+<option value="30">
+۳۰ تن
+</option>
+
+<option value="35">
+۳۵ تن
+</option>
+
+<option value="40">
+۴۰ تن
+</option>
+
+<option value="45">
+۴۵ تن
+</option>
+
+<option value="50">
+۵۰ تن
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+
+<button
+    class="calculate"
+    onclick="calculateWeight()"
+>
+محاسبه
+</button>
+
+
+
+<!-- =======================================================
+     RESULTS
+======================================================= -->
+
+<section
+    id="results"
+    class="results"
+>
+
+
+<div class="tabs">
+
+
+<button
+    id="weightTab"
+    class="tab active"
+    onclick="showTab('weightPanel','weightTab')"
+>
+⚖️ وزن سوله
+</button>
+
+
+<button
+    id="coverTab"
+    class="tab"
+    onclick="showTab('coverPanel','coverTab')"
+>
+🏠 متراژ پوشش سقف
+</button>
+
+
+</div>
+
+
+
+<div
+    id="weightPanel"
+    class="panel active"
+>
+</div>
+
+
+
+<div
+    id="coverPanel"
+    class="panel"
+>
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<div class="footer">
+
+
+<a href="tel:+989105289068">
+۰۹۱۰۵۲۸۹۰۶۸
+</a>
+
+<br>
+
+
+<a href="tel:+989199528860">
+۰۹۱۹۹۵۲۸۸۶۰
+</a>
+
+
+
+<div class="social">
+
+
+<!-- INSTAGRAM -->
+
+<a
+    href="https://instagram.com/Sooleh.Center"
+    target="_blank"
+    aria-label="Instagram"
+>
+
+<svg
+    viewBox="0 0 24 24"
+    fill="none"
+>
+
+<rect
+    x="3"
+    y="3"
+    width="18"
+    height="18"
+    rx="5"
+    stroke="currentColor"
+    stroke-width="2"
+/>
+
+<circle
+    cx="12"
+    cy="12"
+    r="4"
+    stroke="currentColor"
+    stroke-width="2"
+/>
+
+<circle
+    cx="17.5"
+    cy="6.5"
+    r="1.2"
+    fill="currentColor"
+/>
+
+</svg>
+
+</a>
+
+
+
+<!-- TELEGRAM -->
+
+<a
+    href="https://t.me/poladsazeh"
+    target="_blank"
+    aria-label="Telegram"
+>
+
+<svg
+    viewBox="0 0 24 24"
+>
+
+<path
+    d="M21.4 4.2 18.1 20c-.25 1.12-.91 1.4-1.85.87l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.03.5l.37-5.2 9.46-8.55c.41-.37-.09-.58-.64-.21L5.16 13.55.12 11.97c-1.1-.34-1.12-1.1.23-1.61L20.04 2.7c.93-.34 1.74.21 1.36 1.5Z"
+    fill="currentColor"
+/>
+
+</svg>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =======================================================
+     PHONE MODAL
+======================================================= -->
+
+<div
+    id="phoneModal"
+    class="modal"
+    onclick="closePhoneModal(event)"
+>
+
+
+<div class="modal-box">
+
+
+<a
+    class="modal-button call"
+    href="tel:+989125285841"
+>
+📞 تماس تلفنی
+</a>
+
+
+<a
+    class="modal-button whatsapp"
+    href="https://wa.me/989125285841"
+    target="_blank"
+>
+💬 واتساپ
+</a>
+
+
+<button
+    class="modal-button close"
+    onclick="closePhoneModal()"
+>
+بستن
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   PROVINCES
+========================================================= */
+
+const provinces = [
+
+{
+name:"آذربایجان شرقی",
+rate:35,
+cities:["تبریز","مراغه","مرند","میانه","اهر","بناب","سراب","جلفا"]
+},
+
+{
+name:"آذربایجان غربی",
+rate:35,
+cities:["ارومیه","خوی","مهاباد","میاندوآب","بوکان","سلماس","پیرانشهر"]
+},
+
+{
+name:"اردبیل",
+rate:35,
+cities:["اردبیل","پارس‌آباد","مشگین‌شهر","خلخال","گرمی"]
+},
+
+{
+name:"اصفهان",
+rate:32,
+cities:["اصفهان","کاشان","خمینی‌شهر","نجف‌آباد","شاهین‌شهر","شهرضا","مبارکه","فلاورجان"]
+},
+
+{
+name:"البرز",
+rate:32,
+cities:["کرج","فردیس","نظرآباد","هشتگرد","محمدشهر"]
+},
+
+{
+name:"ایلام",
+rate:33.5,
+cities:["ایلام","دهلران","آبدانان","ایوان","مهران"]
+},
+
+{
+name:"بوشهر",
+rate:28,
+cities:["بوشهر","برازجان","عسلویه","کنگان","گناوه","دیلم","خورموج"]
+},
+
+{
+name:"تهران",
+rate:32,
+cities:["تهران","اسلامشهر","شهریار","شهرری","قدس","رباط‌کریم","پاکدشت","ورامین"]
+},
+
+{
+name:"چهارمحال و بختیاری",
+rate:35,
+cities:["شهرکرد","بروجن","فارسان","لردگان","فرخ‌شهر"]
+},
+
+{
+name:"خراسان جنوبی",
+rate:30,
+cities:["بیرجند","قاین","طبس","فردوس","نهبندان"]
+},
+
+{
+name:"خراسان رضوی",
+rate:31,
+cities:["مشهد","نیشابور","سبزوار","تربت‌حیدریه","کاشمر","قوچان","تربت‌جام","گناباد"]
+},
+
+{
+name:"خراسان شمالی",
+rate:32,
+cities:["بجنورد","شیروان","اسفراین","جاجرم","آشخانه"]
+},
+
+{
+name:"خوزستان",
+rate:27,
+cities:["اهواز","دزفول","آبادان","خرمشهر","ماهشهر","بندر امام خمینی","شوش","شوشتر","بهبهان"]
+},
+
+{
+name:"زنجان",
+rate:32,
+cities:["زنجان","ابهر","خرمدره","قیدار","ماهنشان"]
+},
+
+{
+name:"سمنان",
+rate:32,
+cities:["سمنان","شاهرود","دامغان","گرمسار","مهدی‌شهر"]
+},
+
+{
+name:"سیستان و بلوچستان",
+rate:28,
+cities:["زاهدان","زابل","چابهار","ایرانشهر","سراوان","خاش","کنارک"]
+},
+
+{
+name:"فارس",
+rate:30,
+cities:["شیراز","مرودشت","جهرم","فسا","کازرون","لار","داراب","آباده","فیروزآباد"]
+},
+
+{
+name:"قزوین",
+rate:33.5,
+cities:["قزوین","تاکستان","آبیک","الوند","بوئین‌زهرا"]
+},
+
+{
+name:"قم",
+rate:30,
+cities:["قم","جعفریه","سلفچگان","کهک"]
+},
+
+{
+name:"کردستان",
+rate:33.5,
+cities:["سنندج","سقز","مریوان","بانه","قروه","بیجار"]
+},
+
+{
+name:"کرمان",
+rate:29,
+cities:["کرمان","رفسنجان","سیرجان","جیرفت","بم","زرند","شهربابک","کهنوج"]
+},
+
+{
+name:"کرمانشاه",
+rate:33,
+cities:["کرمانشاه","اسلام‌آباد غرب","کنگاور","هرسین","پاوه","جوانرود","قصرشیرین"]
+},
+
+{
+name:"کهگیلویه و بویراحمد",
+rate:32,
+cities:["یاسوج","دهدشت","گچساران","لیکک"]
+},
+
+{
+name:"گلستان",
+rate:33,
+cities:["گرگان","گنبدکاووس","علی‌آباد کتول","بندرترکمن","کردکوی","مینودشت"]
+},
+
+{
+name:"گیلان",
+rate:33,
+cities:["رشت","انزلی","لاهیجان","لنگرود","آستارا","رودسر","رودبار","فومن"]
+},
+
+{
+name:"لرستان",
+rate:32,
+cities:["خرم‌آباد","بروجرد","دورود","الیگودرز","کوهدشت","پلدختر"]
+},
+
+{
+name:"مازندران",
+rate:33,
+cities:["ساری","بابل","آمل","قائم‌شهر","چالوس","نوشهر","تنکابن","بهشهر"]
+},
+
+{
+name:"مرکزی",
+rate:34,
+cities:["اراک","ساوه","خمین","محلات","دلیجان","شازند"]
+},
+
+{
+name:"هرمزگان",
+rate:28,
+cities:["بندرعباس","بندرلنگه","میناب","قشم","جاسک","رودان","حاجی‌آباد"]
+},
+
+{
+name:"همدان",
+rate:32,
+cities:["همدان","ملایر","نهاوند","تویسرکان","کبودرآهنگ","اسدآباد"]
+},
+
+{
+name:"یزد",
+rate:30,
+cities:["یزد","میبد","اردکان","بافق","مهریز","تفت"]
+}
+
+];
+
+
+
+/* =========================================================
+   CRANE
+========================================================= */
+
+const craneAddition = {
+
+0:0,
+5:5,
+10:7.5,
+15:12,
+20:15,
+25:20,
+30:25,
+35:30,
+40:35,
+45:40,
+50:45
+
+};
+
+
+
+/* =========================================================
+   SPAN BASE WEIGHTS
+========================================================= */
+
+function spanBase(span){
+
+const table=[
+
+[12,25],
+[15,28],
+[18,29],
+[20,32],
+[25,38],
+[30,43],
+[50,57.54]
+
+];
+
+
+if(span<12 || span>50){
+
+return NaN;
+
+}
+
+
+for(let i=0;i<table.length-1;i++){
+
+if(span<=table[i+1][0]){
+
+const x1=table[i][0];
+const y1=table[i][1];
+
+const x2=table[i+1][0];
+const y2=table[i+1][1];
+
+return y1+
+(span-x1)*
+(y2-y1)/
+(x2-x1);
+
+}
+
+}
+
+
+return 57.54;
+
+}
+
+
+
+/* =========================================================
+   NUMBER CONVERTER
+========================================================= */
+
+function toNumber(value){
+
+let text=String(value);
+
+
+text=text.replace(
+    /[۰-۹]/g,
+    function(d){
+        return "۰۱۲۳۴۵۶۷۸۹".indexOf(d);
+    }
+);
+
+
+text=text.replace(
+    /[٠-٩]/g,
+    function(d){
+        return "٠١٢٣٤٥٦٧٨٩".indexOf(d);
+    }
+);
+
+
+text=text
+.replace(/٫/g,".")
+.replace(/[,٬]/g,"");
+
+
+return parseFloat(text);
+
+}
+
+
+
+/* =========================================================
+   PERSIAN NUMBER
+========================================================= */
+
+function persianNumber(value){
+
+return value.toLocaleString(
+    "fa-IR",
+    {
+        maximumFractionDigits:2
+    }
+);
+
+}
+
+
+
+/* =========================================================
+   LOAD PROVINCES
+========================================================= */
+
+const provinceSelect=
+document.getElementById("province");
+
+const citySelect=
+document.getElementById("city");
+
+
+provinces.forEach(
+function(province,index){
+
+const option=
+document.createElement("option");
+
+option.value=index;
+
+option.textContent=
+province.name;
+
+provinceSelect.appendChild(option);
+
+});
+
+
+
+/* =========================================================
+   LOAD CITIES
+========================================================= */
+
+function loadCities(){
+
+citySelect.innerHTML="";
+
+
+const index=
+provinceSelect.value;
+
+
+if(index===""){
+
+const option=
+document.createElement("option");
+
+option.value="";
+
+option.textContent=
+"ابتدا استان را انتخاب کنید";
+
+citySelect.appendChild(option);
+
+return;
+
+}
+
+
+const province=
+provinces[index];
+
+
+province.cities.forEach(
+function(city){
+
+const option=
+document.createElement("option");
+
+option.value=city;
+
+option.textContent=city;
+
+citySelect.appendChild(option);
+
+});
+
+}
+
+
+
+/* =========================================================
+   CALCULATE
+========================================================= */
+
+function calculateWeight(){
+
+
+const span=
+toNumber(
+document.getElementById("span").value
+);
+
+
+const length=
+toNumber(
+document.getElementById("length").value
+);
+
+
+const height=
+toNumber(
+document.getElementById("height").value
+);
+
+
+const crane=
+toNumber(
+document.getElementById("crane").value
+);
+
+
+const provinceIndex=
+provinceSelect.value;
+
+
+
+/* VALIDATION */
+
+if(
+
+provinceIndex===""
+
+||
+
+citySelect.value===""
+
+||
+
+!isFinite(span)
+
+||
+
+!isFinite(length)
+
+||
+
+!isFinite(height)
+
+||
+
+span<12
+
+||
+
+span>50
+
+||
+
+length<=0
+
+||
+
+height<=0
+
+){
+
+alert(
+"لطفاً استان، شهر و تمام ابعاد را صحیح وارد کنید."
+);
+
+return;
+
+}
+
+
+
+/* AREA */
+
+const area=
+(span+2)*
+(length+2);
+
+
+
+/* BASE */
+
+const baseWeight=
+spanBase(span);
+
+
+
+/* PROVINCE */
+
+const provinceRate=
+provinces[provinceIndex].rate;
+
+const provinceAdjustment=
+provinceRate-32;
+
+
+
+/* HEIGHT */
+
+const heightAdjustment=
+(height-6)*2;
+
+
+
+/* CRANE */
+
+const craneWeight=
+craneAddition[crane]||0;
+
+
+
+/* KG/M2 */
+
+const kgPerSquareMeter=
+
+baseWeight+
+provinceAdjustment+
+heightAdjustment+
+craneWeight;
+
+
+
+/* TOTAL */
+
+const totalWeight=
+
+area*
+kgPerSquareMeter/
+1000;
+
+
+
+/* ROOF */
+
+const roofCover=
+
+(span+3)*
+(length+2)
++
+(length/2);
+
+
+
+/* WEIGHT RESULT */
+
+document.getElementById(
+    "weightPanel"
+).innerHTML=
+
+'<div class="icon-result">⚖️</div>'+
+
+'<div class="caption">'+
+'وزن تقریبی سوله'+
+'</div>'+
+
+'<div class="number">'+
+persianNumber(totalWeight)+
+' <span class="unit">تن</span>'+
+'</div>';
+
+
+
+/* ROOF RESULT */
+
+document.getElementById(
+    "coverPanel"
+).innerHTML=
+
+'<div class="icon-result">🏠</div>'+
+
+'<div class="caption">'+
+'متراژ پوشش سقف'+
+'</div>'+
+
+'<div class="number">'+
+persianNumber(roofCover)+
+' <span class="unit">مترمربع</span>'+
+'</div>';
+
+
+
+/* SHOW */
+
+document.getElementById(
+    "results"
+).style.display="block";
+
+
+showTab(
+    "weightPanel",
+    "weightTab"
+);
+
+}
+
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+function showTab(panelId,tabId){
+
+document
+.querySelectorAll(".panel")
+.forEach(
+function(panel){
+
+panel.classList.remove("active");
+
+});
+
+
+document
+.querySelectorAll(".tab")
+.forEach(
+function(tab){
+
+tab.classList.remove("active");
+
+});
+
+
+document
+.getElementById(panelId)
+.classList.add("active");
+
+
+document
+.getElementById(tabId)
+.classList.add("active");
+
+}
+
+
+
+/* =========================================================
+   PHONE MODAL
+========================================================= */
+
+function openPhoneModal(){
+
+document
+.getElementById("phoneModal")
+.style.display="flex";
+
+}
+
+
+
+function closePhoneModal(event){
+
+const modal=
+document.getElementById("phoneModal");
+
+
+if(
+!event ||
+event.target===modal
+){
+
+modal.style.display="none";
+
+}
+
+}
+
 </script>
 
+
 </body>
+
 </html>
