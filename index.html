@@ -325,25 +325,59 @@ select:focus{
 .social{
   display:flex;
   justify-content:center;
-  gap:13px;
-  margin-top:12px;
+  align-items:center;
+  gap:14px;
+  margin-top:16px;
 }
 
 .social a{
-  width:42px;
-  height:42px;
+  width:46px;
+  height:46px;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:13px;
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.25);
-  backdrop-filter:blur(10px);
+
+  border-radius:15px;
+
+  color:#fff;
+  text-decoration:none;
+
+  background:rgba(255,255,255,.14);
+
+  border:1px solid rgba(255,255,255,.30);
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.social a:hover{
+  transform:translateY(-4px) scale(1.06);
+
+  background:rgba(255,255,255,.24);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+.social a:active{
+  transform:scale(.94);
 }
 
 .social svg{
-  width:22px;
-  height:22px;
+  width:23px;
+  height:23px;
+  display:block;
 }
 
 /* =========================
