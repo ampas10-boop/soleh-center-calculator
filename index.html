@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -12,7 +14,8 @@
   box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
   margin:0;
   padding:0;
   min-height:100%;
@@ -63,11 +66,17 @@ body::after{
   pointer-events:none;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
   width:min(720px,100%);
   margin:auto;
   padding:16px 14px 35px;
 }
+
 
 /* =========================
    BRAND
@@ -138,6 +147,7 @@ body::after{
   -webkit-backdrop-filter:blur(12px);
   cursor:pointer;
 }
+
 
 /* =========================
    MAIN CARD
@@ -239,6 +249,7 @@ select:focus{
   transform:translateY(1px);
 }
 
+
 /* =========================
    RESULTS
 ========================= */
@@ -307,6 +318,7 @@ select:focus{
   font-size:17px;
 }
 
+
 /* =========================
    FOOTER
 ========================= */
@@ -325,7 +337,10 @@ select:focus{
   font-weight:bold;
 }
 
-/* SOCIAL ICONS */
+
+/* =========================
+   SOCIAL ICONS
+========================= */
 
 .social{
   display:flex;
@@ -374,6 +389,7 @@ select:focus{
   height:23px;
   display:block;
 }
+
 
 /* =========================
    MODAL
@@ -430,6 +446,7 @@ select:focus{
   background:#e8edf3;
   margin-bottom:0;
 }
+
 
 /* =========================
    MOBILE
@@ -488,175 +505,319 @@ select:focus{
   .number{
     font-size:30px;
   }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-  <!-- BRAND -->
 
-  <header class="brand">
+<!-- =========================
+     BRAND
+========================= -->
 
-    <img
-      src="./logo.jpg"
-      alt="MOHAMMADI Logo"
-      class="brand-logo"
-    >
+<header class="brand">
 
-    <div class="mohammadi">
-      MOHAMMADI
+  <img
+    src="./logo.jpg"
+    alt="MOHAMMADI Logo"
+    class="brand-logo"
+  >
+
+  <div class="mohammadi">
+    MOHAMMADI
+  </div>
+
+  <div class="steel">
+    STEEL STRUCTURES
+  </div>
+
+  <div class="logo-text">
+    Sooleh.Center
+  </div>
+
+  <div class="engineer">
+    مهندس علی محمدی
+  </div>
+
+  <div
+    class="phone-main"
+    onclick="openPhoneModal()"
+  >
+    ۰۹۱۲۵۲۸۵۸۴۱
+  </div>
+
+</header>
+
+
+<!-- =========================
+     CALCULATOR
+========================= -->
+
+<main class="card">
+
+  <div class="title">
+    محاسبه وزن تقریبی سوله
+  </div>
+
+  <div class="subtitle">
+    محاسبه اولیه بر اساس ابعاد، موقعیت پروژه و جرثقیل
+  </div>
+
+
+  <div class="grid">
+
+
+    <!-- PROVINCE -->
+
+    <div class="field">
+
+      <label>
+        استان
+      </label>
+
+      <select
+        id="province"
+        onchange="loadCities()"
+      >
+
+        <option value="">
+          انتخاب استان
+        </option>
+
+      </select>
+
     </div>
 
-    <div class="steel">
-      STEEL STRUCTURES
+
+    <!-- CITY -->
+
+    <div class="field">
+
+      <label>
+        شهر
+      </label>
+
+      <select id="city">
+
+        <option value="">
+          ابتدا استان را انتخاب کنید
+        </option>
+
+      </select>
+
     </div>
 
-    <div class="logo-text">
-      Sooleh.Center
+
+    <!-- SPAN -->
+
+    <div class="field">
+
+      <label>
+        دهانه سوله ـ متر
+      </label>
+
+      <input
+        id="span"
+        type="text"
+        inputmode="decimal"
+        placeholder="مثلاً ۲۰"
+      >
+
     </div>
 
-    <div class="engineer">
-      مهندس علی محمدی
+
+    <!-- LENGTH -->
+
+    <div class="field">
+
+      <label>
+        طول سوله ـ متر
+      </label>
+
+      <input
+        id="length"
+        type="text"
+        inputmode="decimal"
+        placeholder="مثلاً ۴۸"
+      >
+
     </div>
+
+
+    <!-- HEIGHT -->
+
+    <div class="field">
+
+      <label>
+        ارتفاع سوله ـ متر
+      </label>
+
+      <input
+        id="height"
+        type="text"
+        inputmode="decimal"
+        placeholder="مثلاً ۸"
+      >
+
+    </div>
+
+
+    <!-- CRANE -->
+
+    <div class="field">
+
+      <label>
+        ظرفیت جرثقیل
+      </label>
+
+      <select id="crane">
+
+        <option value="0">
+          بدون جرثقیل
+        </option>
+
+        <option value="5">
+          ۵ تن
+        </option>
+
+        <option value="10">
+          ۱۰ تن
+        </option>
+
+        <option value="15">
+          ۱۵ تن
+        </option>
+
+        <option value="20">
+          ۲۰ تن
+        </option>
+
+        <option value="25">
+          ۲۵ تن
+        </option>
+
+        <option value="30">
+          ۳۰ تن
+        </option>
+
+        <option value="35">
+          ۳۵ تن
+        </option>
+
+        <option value="40">
+          ۴۰ تن
+        </option>
+
+        <option value="45">
+          ۴۵ تن
+        </option>
+
+        <option value="50">
+          ۵۰ تن
+        </option>
+
+      </select>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- CALCULATE BUTTON -->
+
+  <button
+    type="button"
+    class="calculate"
+    onclick="calculateWeight()"
+  >
+    محاسبه وزن سوله
+  </button>
+
+
+  <!-- =========================
+       RESULTS
+  ========================= -->
+
+  <section
+    id="results"
+    class="results"
+  >
+
+    <div class="tabs">
+
+      <button
+        type="button"
+        id="weightTab"
+        class="tab active"
+        onclick="showTab('weightPanel','weightTab')"
+      >
+        وزن سوله
+      </button>
+
+      <button
+        type="button"
+        id="coverTab"
+        class="tab"
+        onclick="showTab('coverPanel','coverTab')"
+      >
+        پوشش سقف
+      </button>
+
+    </div>
+
 
     <div
-      class="phone-main"
-      onclick="openPhoneModal()"
+      id="weightPanel"
+      class="panel active"
     >
-      ۰۹۱۲۵۲۸۵۸۴۱
-    </div>
+      <div class="icon-result">
+        ⚖️
+      </div>
 
-  </header>
+      <div class="caption">
+        وزن تقریبی سوله
+      </div>
 
-
-  <!-- CALCULATOR -->
-
-  <main class="card">
-
-    <div class="title">
-      محاسبه وزن تقریبی سوله
-    </div>
-
-    <div class="subtitle">
-      محاسبه اولیه بر اساس ابعاد، موقعیت پروژه و جرثقیل
+      <div class="number">
+        —
+      </div>
     </div>
 
 
-    <div class="grid">
-
-      <div class="field">
-
-        <label>
-          استان
-        </label>
-
-        <select
-          id="province"
-          onchange="loadCities()"
-        >
-
-          <option value="">
-            انتخاب استان
-          </option>
-
-        </select>
-
+    <div
+      id="coverPanel"
+      class="panel"
+    >
+      <div class="icon-result">
+        🏠
       </div>
 
-
-      <div class="field">
-
-        <label>
-          شهر
-        </label>
-
-        <select id="city">
-
-          <option value="">
-            ابتدا استان را انتخاب کنید
-          </option>
-
-        </select>
-
+      <div class="caption">
+        متراژ پوشش سقف
       </div>
 
-
-      <div class="field">
-
-        <label>
-          دهانه سوله ـ متر
-        </label>
-
-        <input
-          id="span"
-          type="text"
-          inputmode="decimal"
-          placeholder="مثلاً ۲۰"
-        >
-
+      <div class="number">
+        —
       </div>
+    </div>
+
+  </section>
+
+</main>
 
 
-      <div class="field">
-
-        <label>
-          طول سوله ـ متر
-        </label>
-
-        <input
-          id="length"
-          type="text"
-          inputmode="decimal"
-          placeholder="مثلاً ۴۸"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label>
-          ارتفاع سوله ـ متر
-        </label>
-
-        <input
-          id="height"
-          type="text"
-          inputmode="decimal"
-          placeholder="مثلاً ۸"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label>
-          ظرفیت جرثقیل
-        </label>
-
-        <select id="crane">
-
-          <option value="0">
-            بدون جرثقیل
-          </option>
-
-          <option value="5">۵ تن</option>
-          <option value="10">۱۰ تن</option>
-          <option value="15">۱۵ تن</option>
-          <option value="20">۲۰ تن</option>
-          <option value="25">۲۵ تن</option>
-          <option value="30">۳۰ تن</option>
-          <option value="35">۳۵ تن</option>
-          <option value="40">۴۰ تن</option>
-          <option value="45">۴۵ تن</option>
-          <option value="50">۵۰ تن</option>
-
-  <!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <div class="footer">
 
@@ -670,7 +831,11 @@ select:focus{
     ۰۹۱۹۹۵۲۸۸۶۰
   </a>
 
+
+  <!-- ONLY TWO SOCIAL ICONS -->
+
   <div class="social">
+
 
     <!-- INSTAGRAM -->
 
@@ -680,6 +845,7 @@ select:focus{
       rel="noopener noreferrer"
       aria-label="Instagram"
     >
+
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -688,6 +854,7 @@ select:focus{
         stroke-linecap="round"
         stroke-linejoin="round"
       >
+
         <rect
           x="3"
           y="3"
@@ -707,7 +874,9 @@ select:focus{
           cy="6.5"
           r="1"
         ></circle>
+
       </svg>
+
     </a>
 
 
@@ -719,93 +888,32 @@ select:focus{
       rel="noopener noreferrer"
       aria-label="Telegram"
     >
+
       <svg
         viewBox="0 0 24 24"
         fill="currentColor"
       >
+
         <path
           d="M21.8 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.1 1.2 11.6c-1.1-.3-1.1-1 .2-1.5L20.5 2.6c.9-.3 1.7.2 1.3.6Z"
         ></path>
+
       </svg>
+
     </a>
 
-  </div>
-
-</div>
-      <!-- INSTAGRAM -->
-
-      <a
-        href="https://instagram.com/Sooleh.Center"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-      >
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-
-          <rect
-            x="3"
-            y="3"
-            width="18"
-            height="18"
-            rx="5"
-          ></rect>
-
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-          ></circle>
-
-          <circle
-            cx="17.5"
-            cy="6.5"
-            r="1"
-          ></circle>
-
-        </svg>
-
-      </a>
-
-
-      <!-- TELEGRAM -->
-
-      <a
-        href="https://t.me/poladsazeh"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Telegram"
-      >
-
-        <svg
-          
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        >
-
-          <path
-            d="M21.8 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.1 1.2 11.6c-1.1-.3-1.1-1 .2-1.5L20.5 2.6c.9-.3 1.7.2 1.3.6Z"
-          ></path>
-
-        </svg>
-
-      </a>
-
-    </div>
 
   </div>
 
 </div>
 
 
-<!-- PHONE MODAL -->
+</div>
+
+
+<!-- =========================
+     PHONE MODAL
+========================= -->
 
 <div
   id="phoneModal"
@@ -814,6 +922,7 @@ select:focus{
 >
 
   <div class="modal-box">
+
 
     <a
       class="modal-button call"
@@ -834,11 +943,13 @@ select:focus{
 
 
     <button
+      type="button"
       class="modal-button close"
       onclick="closePhoneModal()"
     >
       بستن
     </button>
+
 
   </div>
 
@@ -846,6 +957,7 @@ select:focus{
 
 
 <script>
+
 
 /* =========================
    PROVINCES
@@ -857,8 +969,14 @@ const provinces = [
     name:"آذربایجان شرقی",
     rate:35,
     cities:[
-      "تبریز","مراغه","مرند","میانه",
-      "اهر","بناب","سراب","جلفا"
+      "تبریز",
+      "مراغه",
+      "مرند",
+      "میانه",
+      "اهر",
+      "بناب",
+      "سراب",
+      "جلفا"
     ]
   },
 
@@ -866,8 +984,13 @@ const provinces = [
     name:"آذربایجان غربی",
     rate:35,
     cities:[
-      "ارومیه","خوی","مهاباد","میاندوآب",
-      "بوکان","سلماس","پیرانشهر"
+      "ارومیه",
+      "خوی",
+      "مهاباد",
+      "میاندوآب",
+      "بوکان",
+      "سلماس",
+      "پیرانشهر"
     ]
   },
 
@@ -875,8 +998,11 @@ const provinces = [
     name:"اردبیل",
     rate:35,
     cities:[
-      "اردبیل","پارس‌آباد","مشگین‌شهر",
-      "خلخال","گرمی"
+      "اردبیل",
+      "پارس‌آباد",
+      "مشگین‌شهر",
+      "خلخال",
+      "گرمی"
     ]
   },
 
@@ -884,9 +1010,14 @@ const provinces = [
     name:"اصفهان",
     rate:32,
     cities:[
-      "اصفهان","کاشان","خمینی‌شهر",
-      "نجف‌آباد","شاهین‌شهر","شهرضا",
-      "مبارکه","فلاورجان"
+      "اصفهان",
+      "کاشان",
+      "خمینی‌شهر",
+      "نجف‌آباد",
+      "شاهین‌شهر",
+      "شهرضا",
+      "مبارکه",
+      "فلاورجان"
     ]
   },
 
@@ -894,8 +1025,11 @@ const provinces = [
     name:"البرز",
     rate:32,
     cities:[
-      "کرج","فردیس","نظرآباد",
-      "هشتگرد","محمدشهر"
+      "کرج",
+      "فردیس",
+      "نظرآباد",
+      "هشتگرد",
+      "محمدشهر"
     ]
   },
 
@@ -903,8 +1037,11 @@ const provinces = [
     name:"ایلام",
     rate:33.5,
     cities:[
-      "ایلام","دهلران","آبدانان",
-      "ایوان","مهران"
+      "ایلام",
+      "دهلران",
+      "آبدانان",
+      "ایوان",
+      "مهران"
     ]
   },
 
@@ -912,8 +1049,13 @@ const provinces = [
     name:"بوشهر",
     rate:28,
     cities:[
-      "بوشهر","برازجان","عسلویه",
-      "کنگان","گناوه","دیلم","خورموج"
+      "بوشهر",
+      "برازجان",
+      "عسلویه",
+      "کنگان",
+      "گناوه",
+      "دیلم",
+      "خورموج"
     ]
   },
 
@@ -921,9 +1063,14 @@ const provinces = [
     name:"تهران",
     rate:32,
     cities:[
-      "تهران","اسلامشهر","شهریار",
-      "شهرری","قدس","رباط‌کریم",
-      "پاکدشت","ورامین"
+      "تهران",
+      "اسلامشهر",
+      "شهریار",
+      "شهرری",
+      "قدس",
+      "رباط‌کریم",
+      "پاکدشت",
+      "ورامین"
     ]
   },
 
@@ -931,8 +1078,11 @@ const provinces = [
     name:"چهارمحال و بختیاری",
     rate:35,
     cities:[
-      "شهرکرد","بروجن","فارسان",
-      "لردگان","فرخ‌شهر"
+      "شهرکرد",
+      "بروجن",
+      "فارسان",
+      "لردگان",
+      "فرخ‌شهر"
     ]
   },
 
@@ -940,8 +1090,11 @@ const provinces = [
     name:"خراسان جنوبی",
     rate:30,
     cities:[
-      "بیرجند","قاین","طبس",
-      "فردوس","نهبندان"
+      "بیرجند",
+      "قاین",
+      "طبس",
+      "فردوس",
+      "نهبندان"
     ]
   },
 
@@ -949,9 +1102,14 @@ const provinces = [
     name:"خراسان رضوی",
     rate:31,
     cities:[
-      "مشهد","نیشابور","سبزوار",
-      "تربت‌حیدریه","کاشمر","قوچان",
-      "تربت‌جام","گناباد"
+      "مشهد",
+      "نیشابور",
+      "سبزوار",
+      "تربت‌حیدریه",
+      "کاشمر",
+      "قوچان",
+      "تربت‌جام",
+      "گناباد"
     ]
   },
 
@@ -959,8 +1117,11 @@ const provinces = [
     name:"خراسان شمالی",
     rate:32,
     cities:[
-      "بجنورد","شیروان","اسفراین",
-      "جاجرم","آشخانه"
+      "بجنورد",
+      "شیروان",
+      "اسفراین",
+      "جاجرم",
+      "آشخانه"
     ]
   },
 
@@ -968,9 +1129,15 @@ const provinces = [
     name:"خوزستان",
     rate:27,
     cities:[
-      "اهواز","دزفول","آبادان",
-      "خرمشهر","ماهشهر","بندر امام خمینی",
-      "شوش","شوشتر","بهبهان"
+      "اهواز",
+      "دزفول",
+      "آبادان",
+      "خرمشهر",
+      "ماهشهر",
+      "بندر امام خمینی",
+      "شوش",
+      "شوشتر",
+      "بهبهان"
     ]
   },
 
@@ -978,8 +1145,11 @@ const provinces = [
     name:"زنجان",
     rate:32,
     cities:[
-      "زنجان","ابهر","خرمدره",
-      "قیدار","ماهنشان"
+      "زنجان",
+      "ابهر",
+      "خرمدره",
+      "قیدار",
+      "ماهنشان"
     ]
   },
 
@@ -987,8 +1157,11 @@ const provinces = [
     name:"سمنان",
     rate:32,
     cities:[
-      "سمنان","شاهرود","دامغان",
-      "گرمسار","مهدی‌شهر"
+      "سمنان",
+      "شاهرود",
+      "دامغان",
+      "گرمسار",
+      "مهدی‌شهر"
     ]
   },
 
@@ -996,8 +1169,13 @@ const provinces = [
     name:"سیستان و بلوچستان",
     rate:28,
     cities:[
-      "زاهدان","زابل","چابهار",
-      "ایرانشهر","سراوان","خاش","کنارک"
+      "زاهدان",
+      "زابل",
+      "چابهار",
+      "ایرانشهر",
+      "سراوان",
+      "خاش",
+      "کنارک"
     ]
   },
 
@@ -1005,8 +1183,14 @@ const provinces = [
     name:"فارس",
     rate:30,
     cities:[
-      "شیراز","مرودشت","جهرم","فسا",
-      "کازرون","لار","داراب","آباده",
+      "شیراز",
+      "مرودشت",
+      "جهرم",
+      "فسا",
+      "کازرون",
+      "لار",
+      "داراب",
+      "آباده",
       "فیروزآباد"
     ]
   },
@@ -1015,8 +1199,11 @@ const provinces = [
     name:"قزوین",
     rate:33.5,
     cities:[
-      "قزوین","تاکستان","آبیک",
-      "الوند","بوئین‌زهرا"
+      "قزوین",
+      "تاکستان",
+      "آبیک",
+      "الوند",
+      "بوئین‌زهرا"
     ]
   },
 
@@ -1024,7 +1211,10 @@ const provinces = [
     name:"قم",
     rate:30,
     cities:[
-      "قم","جعفریه","سلفچگان","کهک"
+      "قم",
+      "جعفریه",
+      "سلفچگان",
+      "کهک"
     ]
   },
 
@@ -1032,8 +1222,12 @@ const provinces = [
     name:"کردستان",
     rate:33.5,
     cities:[
-      "سنندج","سقز","مریوان",
-      "بانه","قروه","بیجار"
+      "سنندج",
+      "سقز",
+      "مریوان",
+      "بانه",
+      "قروه",
+      "بیجار"
     ]
   },
 
@@ -1041,8 +1235,13 @@ const provinces = [
     name:"کرمان",
     rate:29,
     cities:[
-      "کرمان","رفسنجان","سیرجان",
-      "جیرفت","بم","زرند","شهربابک",
+      "کرمان",
+      "رفسنجان",
+      "سیرجان",
+      "جیرفت",
+      "بم",
+      "زرند",
+      "شهربابک",
       "کهنوج"
     ]
   },
@@ -1051,9 +1250,13 @@ const provinces = [
     name:"کرمانشاه",
     rate:33,
     cities:[
-      "کرمانشاه","اسلام‌آباد غرب",
-      "کنگاور","هرسین","پاوه",
-      "جوانرود","قصرشیرین"
+      "کرمانشاه",
+      "اسلام‌آباد غرب",
+      "کنگاور",
+      "هرسین",
+      "پاوه",
+      "جوانرود",
+      "قصرشیرین"
     ]
   },
 
@@ -1061,7 +1264,10 @@ const provinces = [
     name:"کهگیلویه و بویراحمد",
     rate:32,
     cities:[
-      "یاسوج","دهدشت","گچساران","لیکک"
+      "یاسوج",
+      "دهدشت",
+      "گچساران",
+      "لیکک"
     ]
   },
 
@@ -1069,8 +1275,12 @@ const provinces = [
     name:"گلستان",
     rate:33,
     cities:[
-      "گرگان","گنبدکاووس","علی‌آباد کتول",
-      "بندرترکمن","کردکوی","مینودشت"
+      "گرگان",
+      "گنبدکاووس",
+      "علی‌آباد کتول",
+      "بندرترکمن",
+      "کردکوی",
+      "مینودشت"
     ]
   },
 
@@ -1078,9 +1288,14 @@ const provinces = [
     name:"گیلان",
     rate:33,
     cities:[
-      "رشت","انزلی","لاهیجان",
-      "لنگرود","آستارا","رودسر",
-      "رودبار","فومن"
+      "رشت",
+      "انزلی",
+      "لاهیجان",
+      "لنگرود",
+      "آستارا",
+      "رودسر",
+      "رودبار",
+      "فومن"
     ]
   },
 
@@ -1088,8 +1303,12 @@ const provinces = [
     name:"لرستان",
     rate:32,
     cities:[
-      "خرم‌آباد","بروجرد","دورود",
-      "الیگودرز","کوهدشت","پلدختر"
+      "خرم‌آباد",
+      "بروجرد",
+      "دورود",
+      "الیگودرز",
+      "کوهدشت",
+      "پلدختر"
     ]
   },
 
@@ -1097,8 +1316,14 @@ const provinces = [
     name:"مازندران",
     rate:33,
     cities:[
-      "ساری","بابل","آمل","قائم‌شهر",
-      "چالوس","نوشهر","تنکابن","بهشهر"
+      "ساری",
+      "بابل",
+      "آمل",
+      "قائم‌شهر",
+      "چالوس",
+      "نوشهر",
+      "تنکابن",
+      "بهشهر"
     ]
   },
 
@@ -1106,8 +1331,12 @@ const provinces = [
     name:"مرکزی",
     rate:34,
     cities:[
-      "اراک","ساوه","خمین",
-      "محلات","دلیجان","شازند"
+      "اراک",
+      "ساوه",
+      "خمین",
+      "محلات",
+      "دلیجان",
+      "شازند"
     ]
   },
 
@@ -1115,8 +1344,13 @@ const provinces = [
     name:"هرمزگان",
     rate:28,
     cities:[
-      "بندرعباس","بندرلنگه","میناب",
-      "قشم","جاسک","رودان","حاجی‌آباد"
+      "بندرعباس",
+      "بندرلنگه",
+      "میناب",
+      "قشم",
+      "جاسک",
+      "رودان",
+      "حاجی‌آباد"
     ]
   },
 
@@ -1124,8 +1358,12 @@ const provinces = [
     name:"همدان",
     rate:32,
     cities:[
-      "همدان","ملایر","نهاوند",
-      "تویسرکان","کبودرآهنگ","اسدآباد"
+      "همدان",
+      "ملایر",
+      "نهاوند",
+      "تویسرکان",
+      "کبودرآهنگ",
+      "اسدآباد"
     ]
   },
 
@@ -1133,8 +1371,12 @@ const provinces = [
     name:"یزد",
     rate:30,
     cities:[
-      "یزد","میبد","اردکان",
-      "بافق","مهریز","تفت"
+      "یزد",
+      "میبد",
+      "اردکان",
+      "بافق",
+      "مهریز",
+      "تفت"
     ]
   }
 
@@ -1169,6 +1411,7 @@ const craneAddition = {
 function spanBase(span){
 
   const table=[
+
     [12,25],
     [15,28],
     [18,29],
@@ -1176,15 +1419,25 @@ function spanBase(span){
     [25,38],
     [30,43],
     [50,57.54]
+
   ];
 
-  if(span<12 || span>50){
+  if(
+    span<12 ||
+    span>50
+  ){
     return NaN;
   }
 
-  for(let i=0;i<table.length-1;i++){
+  for(
+    let i=0;
+    i<table.length-1;
+    i++
+  ){
 
-    if(span<=table[i+1][0]){
+    if(
+      span<=table[i+1][0]
+    ){
 
       const x1=table[i][0];
       const y1=table[i][1];
@@ -1196,16 +1449,18 @@ function spanBase(span){
         (span-x1)*
         (y2-y1)/
         (x2-x1);
+
     }
 
   }
 
   return 57.54;
+
 }
 
 
 /* =========================
-   NUMBER
+   NUMBER CONVERSION
 ========================= */
 
 function toNumber(value){
@@ -1227,6 +1482,7 @@ function toNumber(value){
     .replace(/[,٬]/g,"");
 
   return parseFloat(text);
+
 }
 
 
@@ -1246,17 +1502,17 @@ function persianNumber(value){
    LOAD PROVINCES
 ========================= */
 
-const provinceSelect=
+const provinceSelect =
   document.getElementById("province");
 
-const citySelect=
+const citySelect =
   document.getElementById("city");
 
 
 provinces.forEach(
   function(province,index){
 
-    const option=
+    const option =
       document.createElement("option");
 
     option.value=index;
@@ -1276,26 +1532,29 @@ function loadCities(){
 
   citySelect.innerHTML="";
 
-  const index=
+  const index =
     provinceSelect.value;
 
   if(index===""){
 
-    const option=
+    const option =
       document.createElement("option");
 
-    option.textContent=
+    option.value="";
+    option.textContent =
       "ابتدا استان را انتخاب کنید";
 
     citySelect.appendChild(option);
 
     return;
+
   }
+
 
   provinces[index].cities.forEach(
     function(city){
 
-      const option=
+      const option =
         document.createElement("option");
 
       option.value=city;
@@ -1315,40 +1574,50 @@ function loadCities(){
 
 function calculateWeight(){
 
-  const span=
+  const span =
     toNumber(
       document.getElementById("span").value
     );
 
-  const length=
+  const length =
     toNumber(
       document.getElementById("length").value
     );
 
-  const height=
+  const height =
     toNumber(
       document.getElementById("height").value
     );
 
-  const crane=
+  const crane =
     toNumber(
       document.getElementById("crane").value
     );
 
-  const provinceIndex=
+  const provinceIndex =
     provinceSelect.value;
 
 
   if(
+
     provinceIndex==="" ||
+
     citySelect.value==="" ||
+
     !isFinite(span) ||
+
     !isFinite(length) ||
+
     !isFinite(height) ||
+
     span<12 ||
+
     span>50 ||
+
     length<=0 ||
+
     height<=0
+
   ){
 
     alert(
@@ -1356,47 +1625,49 @@ function calculateWeight(){
     );
 
     return;
+
   }
 
 
-  const area=
-    (span+2)*(length+2);
+  const area =
+    (span+2)*
+    (length+2);
 
 
-  const baseWeight=
+  const baseWeight =
     spanBase(span);
 
 
-  const provinceRate=
+  const provinceRate =
     provinces[provinceIndex].rate;
 
 
-  const provinceAdjustment=
+  const provinceAdjustment =
     provinceRate-32;
 
 
-  const heightAdjustment=
+  const heightAdjustment =
     (height-6)*2;
 
 
-  const craneWeight=
+  const craneWeight =
     craneAddition[crane] || 0;
 
 
-  const kgPerSquareMeter=
+  const kgPerSquareMeter =
     baseWeight+
     provinceAdjustment+
     heightAdjustment+
     craneWeight;
 
 
-  const totalWeight=
+  const totalWeight =
     area*
     kgPerSquareMeter/
     1000;
 
 
-  const roofCover=
+  const roofCover =
     (span+3)*
     (length+2)+
     (length/2);
@@ -1404,25 +1675,33 @@ function calculateWeight(){
 
   document.getElementById(
     "weightPanel"
-  ).innerHTML=
+  ).innerHTML =
 
-    '<div class="icon-result">⚖️</div>'+
-    '<div class="caption">وزن تقریبی سوله</div>'+
-    '<div class="number">'+
-    persianNumber(totalWeight)+
-    ' <span class="unit">تن</span>'+
+    '<div class="icon-result">⚖️</div>' +
+
+    '<div class="caption">' +
+    'وزن تقریبی سوله' +
+    '</div>' +
+
+    '<div class="number">' +
+    persianNumber(totalWeight) +
+    ' <span class="unit">تن</span>' +
     '</div>';
 
 
   document.getElementById(
     "coverPanel"
-  ).innerHTML=
+  ).innerHTML =
 
-    '<div class="icon-result">🏠</div>'+
-    '<div class="caption">متراژ پوشش سقف</div>'+
-    '<div class="number">'+
-    persianNumber(roofCover)+
-    ' <span class="unit">مترمربع</span>'+
+    '<div class="icon-result">🏠</div>' +
+
+    '<div class="caption">' +
+    'متراژ پوشش سقف' +
+    '</div>' +
+
+    '<div class="number">' +
+    persianNumber(roofCover) +
+    ' <span class="unit">مترمربع</span>' +
     '</div>';
 
 
@@ -1443,12 +1722,15 @@ function calculateWeight(){
    TABS
 ========================= */
 
-function showTab(panelId,tabId){
+function showTab(
+  panelId,
+  tabId
+){
 
   document
     .querySelectorAll(".panel")
     .forEach(
-      panel=>
+      panel =>
         panel.classList.remove("active")
     );
 
@@ -1456,7 +1738,7 @@ function showTab(panelId,tabId){
   document
     .querySelectorAll(".tab")
     .forEach(
-      tab=>
+      tab =>
         tab.classList.remove("active")
     );
 
@@ -1488,8 +1770,10 @@ function openPhoneModal(){
 
 function closePhoneModal(event){
 
-  const modal=
-    document.getElementById("phoneModal");
+  const modal =
+    document.getElementById(
+      "phoneModal"
+    );
 
 
   if(
@@ -1505,5 +1789,7 @@ function closePhoneModal(event){
 
 </script>
 
+
 </body>
+
 </html>
