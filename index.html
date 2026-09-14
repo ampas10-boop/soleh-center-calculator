@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Sooleh.Center | محاسبه وزن سوله</title>
 
+  <meta
+    name="description"
+    content="محاسبه تقریبی وزن سوله و سطح پوشش سقف توسط مهندس علی محمدی - Mohammadi Steel Structures"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <!-- معرفی رسمی شبکه‌های اجتماعی به موتورهای جستجو -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "مهندس علی محمدی",
+    "url": "https://ampas10-boop.github.io/soleh-center-calculator/",
+    "sameAs": [
+      "https://www.instagram.com/sooleh.center?stkn=dTl2Y3MwNHVtYTk0",
+      "https://t.me/poladsazeh"
+    ]
+  }
+  </script>
+
   <style>
+
     *{
       box-sizing:border-box;
     }
@@ -324,7 +350,7 @@
       gap:15px;
     }
 
-    /* SOCIAL - ONLY INSTAGRAM + TELEGRAM */
+    /* SOCIAL */
 
     .social{
       display:flex;
@@ -557,8 +583,11 @@
       .result-value{
         font-size:26px;
       }
+
     }
+
   </style>
+
 </head>
 
 <body>
@@ -591,7 +620,6 @@
         مهندس علی محمدی
       </div>
 
-      <!-- شماره اصلی: با کلیک، دو گزینه تماس و واتساپ -->
       <a
         href="javascript:void(0)"
         class="phone-main"
@@ -712,49 +740,17 @@
 
           <select id="crane">
 
-            <option value="0">
-              بدون جرثقیل
-            </option>
-
-            <option value="5">
-              ۵ تن
-            </option>
-
-            <option value="10">
-              ۱۰ تن
-            </option>
-
-            <option value="15">
-              ۱۵ تن
-            </option>
-
-            <option value="20">
-              ۲۰ تن
-            </option>
-
-            <option value="25">
-              ۲۵ تن
-            </option>
-
-            <option value="30">
-              ۳۰ تن
-            </option>
-
-            <option value="35">
-              ۳۵ تن
-            </option>
-
-            <option value="40">
-              ۴۰ تن
-            </option>
-
-            <option value="45">
-              ۴۵ تن
-            </option>
-
-            <option value="50">
-              ۵۰ تن
-            </option>
+            <option value="0">بدون جرثقیل</option>
+            <option value="5">۵ تن</option>
+            <option value="10">۱۰ تن</option>
+            <option value="15">۱۵ تن</option>
+            <option value="20">۲۰ تن</option>
+            <option value="25">۲۵ تن</option>
+            <option value="30">۳۰ تن</option>
+            <option value="35">۳۵ تن</option>
+            <option value="40">۴۰ تن</option>
+            <option value="45">۴۵ تن</option>
+            <option value="50">۵۰ تن</option>
 
           </select>
 
@@ -851,16 +847,18 @@
     </section>
 
 
-    <!-- فقط دو آیکون اجتماعی -->
+    <!-- SOCIAL LINKS -->
 
     <div class="social">
 
       <!-- INSTAGRAM -->
+
       <a
         href="https://www.instagram.com/sooleh.center?stkn=dTl2Y3MwNHVtYTk0"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
+        title="Instagram"
       >
 
         <svg
@@ -897,22 +895,25 @@
       </a>
 
 
-      <!-- TELEGRAM - کانال -->
+      <!-- TELEGRAM CHANNEL -->
+
       <a
         href="https://t.me/poladsazeh"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Telegram Channel"
+        title="کانال تلگرام"
       >
 
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
+          aria-hidden="true"
         >
 
-        <path
-  d="M21.4 3.2 18.2 19.8c-.24 1.18-.92 1.47-1.87.92l-5.12-3.77-2.47 2.38c-.27.27-.5.5-1.03.5l.37-5.22L17.6 6.8c.42-.37-.09-.58-.65-.21L6.1 13.68 1.25 12.16c-1.06-.33-1.08-1.06.22-1.57L20.42 3.05c.88-.32 1.65.2.98.15Z"
-></path>
+          <path
+            d="M21.4 3.2 18.2 19.8c-.24 1.18-.92 1.47-1.87.92l-5.12-3.77-2.47 2.38c-.27.27-.5.5-1.03.5l.37-5.22L17.6 6.8c.42-.37-.09-.58-.65-.21L6.1 13.68 1.25 12.16c-1.06-.33-1.08-1.06.22-1.57L20.42 3.05c.88-.32 1.65.2.98.15Z"
+          ></path>
 
         </svg>
 
@@ -973,12 +974,10 @@
 
       <div class="modal-actions">
 
-        <!-- تماس مستقیم -->
         <a href="tel:+989125285841">
           📞 تماس تلفنی
         </a>
 
-        <!-- واتساپ همان شماره اصلی -->
         <a
           href="https://wa.me/989125285841"
           target="_blank"
@@ -1296,18 +1295,18 @@
     }
 
 
-    /* PROVINCES */
+    /* PROVINCE + CITY */
 
-    const provinceSelect=
+    const provinceSelect =
       document.getElementById("province");
 
-    const citySelect=
+    const citySelect =
       document.getElementById("city");
 
 
     provinces.forEach((province,index)=>{
 
-      const option=
+      const option =
         document.createElement("option");
 
       option.value=index;
@@ -1322,7 +1321,7 @@
       "change",
       function(){
 
-        citySelect.innerHTML=
+        citySelect.innerHTML =
           '<option value="">انتخاب شهر</option>';
 
         citySelect.disabled=true;
@@ -1338,7 +1337,7 @@
 
         provinces[index].cities.forEach(city=>{
 
-          const option=
+          const option =
             document.createElement("option");
 
           option.value=city;
@@ -1358,30 +1357,30 @@
 
     function calculateWeight(){
 
-      const provinceIndex=
+      const provinceIndex =
         Number(
           document.getElementById("province").value
         );
 
-      const city=
+      const city =
         document.getElementById("city").value;
 
-      const span=
+      const span =
         toNumber(
           document.getElementById("span").value
         );
 
-      const length=
+      const length =
         toNumber(
           document.getElementById("length").value
         );
 
-      const height=
+      const height =
         toNumber(
           document.getElementById("height").value
         );
 
-      const crane=
+      const crane =
         toNumber(
           document.getElementById("crane").value
         );
@@ -1449,37 +1448,37 @@
       }
 
 
-      const area=
+      const area =
         (span+2)*
         (length+2);
 
-      const baseWeight=
+      const baseWeight =
         spanBase(span);
 
-      const provinceRate=
+      const provinceRate =
         provinces[provinceIndex].rate;
 
-      const provinceAdjustment=
+      const provinceAdjustment =
         provinceRate-32;
 
-      const heightAdjustment=
+      const heightAdjustment =
         (height-6)*2;
 
-      const craneWeight=
+      const craneWeight =
         craneAddition[crane]||0;
 
-      const kgPerSquareMeter=
+      const kgPerSquareMeter =
         baseWeight+
         provinceAdjustment+
         heightAdjustment+
         craneWeight;
 
-      const totalWeight=
+      const totalWeight =
         area*
         kgPerSquareMeter/
         1000;
 
-      const roofCover=
+      const roofCover =
         (span+3)*
         (length+2)+
         (length/2);
@@ -1514,7 +1513,7 @@
       city
     ){
 
-      const province=
+      const province =
         provinces[provinceIndex].name;
 
 
@@ -1708,7 +1707,7 @@
     }
 
 
-    /* PHONE + WHATSAPP MODAL */
+    /* PHONE + WHATSAPP */
 
     function openPhoneModal(){
 
