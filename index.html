@@ -7,6 +7,7 @@
 <title>Sooleh.Center | محاسبه وزن سوله</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -92,6 +93,7 @@ body::after{
   border:1px solid rgba(255,255,255,.28);
   box-shadow:0 12px 35px rgba(0,0,0,.35);
   backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
 }
 
 .mohammadi{
@@ -133,6 +135,7 @@ body::after{
   background:rgba(255,255,255,.10);
   border:1px solid rgba(255,255,255,.22);
   backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
   cursor:pointer;
 }
 
@@ -316,11 +319,13 @@ select:focus{
   text-shadow:0 2px 8px #000;
 }
 
-.footer a{
+.footer > a{
   color:#fff;
   text-decoration:none;
   font-weight:bold;
 }
+
+/* SOCIAL ICONS */
 
 .social{
   display:flex;
@@ -333,27 +338,19 @@ select:focus{
 .social a{
   width:46px;
   height:46px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:15px;
-
   color:#fff;
   text-decoration:none;
-
   background:rgba(255,255,255,.14);
-
   border:1px solid rgba(255,255,255,.30);
-
   box-shadow:
     0 8px 24px rgba(0,0,0,.25),
     inset 0 1px 0 rgba(255,255,255,.35);
-
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
-
   transition:
     transform .25s ease,
     background .25s ease,
@@ -362,9 +359,7 @@ select:focus{
 
 .social a:hover{
   transform:translateY(-4px) scale(1.06);
-
   background:rgba(255,255,255,.24);
-
   box-shadow:
     0 12px 30px rgba(0,0,0,.35),
     inset 0 1px 0 rgba(255,255,255,.5);
@@ -394,6 +389,7 @@ select:focus{
   background:rgba(0,0,0,.60);
   z-index:100;
   backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
 }
 
 .modal-box{
@@ -440,6 +436,7 @@ select:focus{
 ========================= */
 
 @media(max-width:520px){
+
   .container{
     padding:10px 9px 25px;
   }
@@ -483,6 +480,7 @@ select:focus{
   .grid{
     grid-template-columns:1fr;
   }
+
   .field.full{
     grid-column:auto;
   }
@@ -491,8 +489,8 @@ select:focus{
     font-size:30px;
   }
 }
+
 </style>
-</head>
 </head>
 
 <body>
@@ -500,6 +498,7 @@ select:focus{
 <div class="container">
 
   <!-- BRAND -->
+
   <header class="brand">
 
     <img
@@ -508,7 +507,9 @@ select:focus{
       class="brand-logo"
     >
 
-    <div class="mohammadi">MOHAMMADI</div>
+    <div class="mohammadi">
+      MOHAMMADI
+    </div>
 
     <div class="steel">
       STEEL STRUCTURES
@@ -521,17 +522,19 @@ select:focus{
     <div class="engineer">
       مهندس علی محمدی
     </div>
+
     <div
       class="phone-main"
       onclick="openPhoneModal()"
     >
-      ۰۹۱۲۵۲۸۵۸۸۴۱
+      ۰۹۱۲۵۲۸۵۸۴۱
     </div>
 
   </header>
 
 
   <!-- CALCULATOR -->
+
   <main class="card">
 
     <div class="title">
@@ -546,42 +549,63 @@ select:focus{
     <div class="grid">
 
       <div class="field">
-        <label>استان</label>
+
+        <label>
+          استان
+        </label>
+
         <select
           id="province"
           onchange="loadCities()"
         >
+
           <option value="">
             انتخاب استان
           </option>
+
         </select>
+
       </div>
 
 
       <div class="field">
-        <label>شهر</label>
+
+        <label>
+          شهر
+        </label>
 
         <select id="city">
+
           <option value="">
             ابتدا استان را انتخاب کنید
           </option>
+
         </select>
+
       </div>
 
 
       <div class="field">
-        <label>دهانه سوله ـ متر</label>
+
+        <label>
+          دهانه سوله ـ متر
+        </label>
+
         <input
           id="span"
           type="text"
           inputmode="decimal"
           placeholder="مثلاً ۲۰"
         >
+
       </div>
 
 
       <div class="field">
-        <label>طول سوله ـ متر</label>
+
+        <label>
+          طول سوله ـ متر
+        </label>
 
         <input
           id="length"
@@ -589,28 +613,38 @@ select:focus{
           inputmode="decimal"
           placeholder="مثلاً ۴۸"
         >
+
       </div>
 
 
       <div class="field">
-        <label>ارتفاع سوله ـ متر</label>
+
+        <label>
+          ارتفاع سوله ـ متر
+        </label>
+
         <input
           id="height"
           type="text"
           inputmode="decimal"
           placeholder="مثلاً ۸"
         >
+
       </div>
 
 
       <div class="field">
-        <label>ظرفیت جرثقیل</label>
+
+        <label>
+          ظرفیت جرثقیل
+        </label>
 
         <select id="crane">
 
           <option value="0">
             بدون جرثقیل
           </option>
+
           <option value="5">۵ تن</option>
           <option value="10">۱۰ تن</option>
           <option value="15">۱۵ تن</option>
@@ -623,9 +657,11 @@ select:focus{
           <option value="50">۵۰ تن</option>
 
         </select>
+
       </div>
 
     </div>
+
 
     <button
       class="calculate"
@@ -693,73 +729,77 @@ select:focus{
       ۰۹۱۹۹۵۲۸۸۶۰
     </a>
 
-  <div class="social">
 
-  <a
-    href="https://instagram.com/Sooleh.Center"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-  >
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-      <circle cx="12" cy="12" r="4"></circle>
-      <circle cx="17.5" cy="6.5" r="1"></circle>
-    </svg>
-  </a>
+    <!-- SOCIAL -->
 
-<div class="social">
+    <div class="social">
 
-  <a
-    href="https://instagram.com/Sooleh.Center"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-  >
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-      <circle cx="12" cy="12" r="4"></circle>
-      <circle cx="17.5" cy="6.5" r="1"></circle>
-    </svg>
-  </a>
+      <!-- INSTAGRAM -->
 
-  <a
-    href="https://t.me/poladsazeh"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Telegram"
-  >
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M21.8 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.1 1.2 11.6c-1.1-.3-1.1-1 .2-1.5L20.5 2.6c.9-.3 1.7.2-1.3.6Z"></path>
-    </svg>
-  </a>
+      <a
+        href="https://instagram.com/Sooleh.Center"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
 
-</div>
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
-    <path d="M21.8 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.1 1.2 11.6c-1.1-.3-1.1-1 .2-1.5L20.5 2.6c.9-.3 1.7.2 1.3.6Z"></path>
-  </svg>
-</a>
-</div>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="5"
+          ></rect>
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+          ></circle>
+
+          <circle
+            cx="17.5"
+            cy="6.5"
+            r="1"
+          ></circle>
+
+        </svg>
+
+      </a>
+
+
+      <!-- TELEGRAM -->
+
+      <a
+        href="https://t.me/poladsazeh"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Telegram"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+
+          <path
+            d="M21.8 3.2 18.7 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.1 1.2 11.6c-1.1-.3-1.1-1 .2-1.5L20.5 2.6c.9-.3 1.7.2 1.3.6Z"
+          ></path>
+
+        </svg>
+
+      </a>
+
+    </div>
 
   </div>
 
@@ -773,6 +813,7 @@ select:focus{
   class="modal"
   onclick="closePhoneModal(event)"
 >
+
   <div class="modal-box">
 
     <a
@@ -782,13 +823,16 @@ select:focus{
       📞 تماس تلفنی
     </a>
 
+
     <a
       class="modal-button whatsapp"
       href="https://wa.me/989125285841"
       target="_blank"
+      rel="noopener noreferrer"
     >
       💬 واتساپ
     </a>
+
 
     <button
       class="modal-button close"
@@ -810,191 +854,290 @@ select:focus{
 
 const provinces = [
 
-{
-name:"آذربایجان شرقی",
-rate:35,
-cities:["تبریز","مراغه","مرند","میانه","اهر","بناب","سراب","جلفا"]
-},
+  {
+    name:"آذربایجان شرقی",
+    rate:35,
+    cities:[
+      "تبریز","مراغه","مرند","میانه",
+      "اهر","بناب","سراب","جلفا"
+    ]
+  },
 
-{
-name:"آذربایجان غربی",
-rate:35,
-cities:["ارومیه","خوی","مهاباد","میاندوآب","بوکان","سلماس","پیرانشهر"]
-},
+  {
+    name:"آذربایجان غربی",
+    rate:35,
+    cities:[
+      "ارومیه","خوی","مهاباد","میاندوآب",
+      "بوکان","سلماس","پیرانشهر"
+    ]
+  },
 
-{
-name:"اردبیل",
-rate:35,
-cities:["اردبیل","پارس‌آباد","مشگین‌شهر","خلخال","گرمی"]
-},
+  {
+    name:"اردبیل",
+    rate:35,
+    cities:[
+      "اردبیل","پارس‌آباد","مشگین‌شهر",
+      "خلخال","گرمی"
+    ]
+  },
 
-{
-name:"اصفهان",
-rate:32,
-cities:["اصفهان","کاشان","خمینی‌شهر","نجف‌آباد","شاهین‌شهر","شهرضا","مبارکه","فلاورجان"]
-},
+  {
+    name:"اصفهان",
+    rate:32,
+    cities:[
+      "اصفهان","کاشان","خمینی‌شهر",
+      "نجف‌آباد","شاهین‌شهر","شهرضا",
+      "مبارکه","فلاورجان"
+    ]
+  },
 
-{
-name:"البرز",
-rate:32,
-cities:["کرج","فردیس","نظرآباد","هشتگرد","محمدشهر"]
-},
+  {
+    name:"البرز",
+    rate:32,
+    cities:[
+      "کرج","فردیس","نظرآباد",
+      "هشتگرد","محمدشهر"
+    ]
+  },
 
-{
-name:"ایلام",
-rate:33.5,
-cities:["ایلام","دهلران","آبدانان","ایوان","مهران"]
-},
+  {
+    name:"ایلام",
+    rate:33.5,
+    cities:[
+      "ایلام","دهلران","آبدانان",
+      "ایوان","مهران"
+    ]
+  },
 
-{
-name:"بوشهر",
-rate:28,
-cities:["بوشهر","برازجان","عسلویه","کنگان","گناوه","دیلم","خورموج"]
-},
+  {
+    name:"بوشهر",
+    rate:28,
+    cities:[
+      "بوشهر","برازجان","عسلویه",
+      "کنگان","گناوه","دیلم","خورموج"
+    ]
+  },
 
-{
-name:"تهران",
-rate:32,
-cities:["تهران","اسلامشهر","شهریار","شهرری","قدس","رباط‌کریم","پاکدشت","ورامین"]
-},
+  {
+    name:"تهران",
+    rate:32,
+    cities:[
+      "تهران","اسلامشهر","شهریار",
+      "شهرری","قدس","رباط‌کریم",
+      "پاکدشت","ورامین"
+    ]
+  },
 
-{
-name:"چهارمحال و بختیاری",
-rate:35,
-cities:["شهرکرد","بروجن","فارسان","لردگان","فرخ‌شهر"]
-},
+  {
+    name:"چهارمحال و بختیاری",
+    rate:35,
+    cities:[
+      "شهرکرد","بروجن","فارسان",
+      "لردگان","فرخ‌شهر"
+    ]
+  },
 
-{
-name:"خراسان جنوبی",
-rate:30,
-cities:["بیرجند","قاین","طبس","فردوس","نهبندان"]
-},
+  {
+    name:"خراسان جنوبی",
+    rate:30,
+    cities:[
+      "بیرجند","قاین","طبس",
+      "فردوس","نهبندان"
+    ]
+  },
 
-{
-name:"خراسان رضوی",
-rate:31,
-cities:["مشهد","نیشابور","سبزوار","تربت‌حیدریه","کاشمر","قوچان","تربت‌جام","گناباد"]
-},
+  {
+    name:"خراسان رضوی",
+    rate:31,
+    cities:[
+      "مشهد","نیشابور","سبزوار",
+      "تربت‌حیدریه","کاشمر","قوچان",
+      "تربت‌جام","گناباد"
+    ]
+  },
 
-{
-name:"خراسان شمالی",
-rate:32,
-cities:["بجنورد","شیروان","اسفراین","جاجرم","آشخانه"]
-},
+  {
+    name:"خراسان شمالی",
+    rate:32,
+    cities:[
+      "بجنورد","شیروان","اسفراین",
+      "جاجرم","آشخانه"
+    ]
+  },
 
-{
-name:"خوزستان",
-rate:27,
-cities:["اهواز","دزفول","آبادان","خرمشهر","ماهشهر","بندر امام خمینی","شوش","شوشتر","بهبهان"]
-},
+  {
+    name:"خوزستان",
+    rate:27,
+    cities:[
+      "اهواز","دزفول","آبادان",
+      "خرمشهر","ماهشهر","بندر امام خمینی",
+      "شوش","شوشتر","بهبهان"
+    ]
+  },
 
-{
-name:"زنجان",
-rate:32,
-cities:["زنجان","ابهر","خرمدره","قیدار","ماهنشان"]
-},
+  {
+    name:"زنجان",
+    rate:32,
+    cities:[
+      "زنجان","ابهر","خرمدره",
+      "قیدار","ماهنشان"
+    ]
+  },
 
-{
-name:"سمنان",
-rate:32,
-cities:["سمنان","شاهرود","دامغان","گرمسار","مهدی‌شهر"]
-},
+  {
+    name:"سمنان",
+    rate:32,
+    cities:[
+      "سمنان","شاهرود","دامغان",
+      "گرمسار","مهدی‌شهر"
+    ]
+  },
 
-{
-name:"سیستان و بلوچستان",
-rate:28,
-cities:["زاهدان","زابل","چابهار","ایرانشهر","سراوان","خاش","کنارک"]
-},
+  {
+    name:"سیستان و بلوچستان",
+    rate:28,
+    cities:[
+      "زاهدان","زابل","چابهار",
+      "ایرانشهر","سراوان","خاش","کنارک"
+    ]
+  },
 
-{
-name:"فارس",
-rate:30,
-cities:["شیراز","مرودشت","جهرم","فسا","کازرون","لار","داراب","آباده","فیروزآباد"]
-},
+  {
+    name:"فارس",
+    rate:30,
+    cities:[
+      "شیراز","مرودشت","جهرم","فسا",
+      "کازرون","لار","داراب","آباده",
+      "فیروزآباد"
+    ]
+  },
 
-{
-name:"قزوین",
-rate:33.5,
-cities:["قزوین","تاکستان","آبیک","الوند","بوئین‌زهرا"]
-},
+  {
+    name:"قزوین",
+    rate:33.5,
+    cities:[
+      "قزوین","تاکستان","آبیک",
+      "الوند","بوئین‌زهرا"
+    ]
+  },
 
-{
-name:"قم",
-rate:30,
-cities:["قم","جعفریه","سلفچگان","کهک"]
-},
+  {
+    name:"قم",
+    rate:30,
+    cities:[
+      "قم","جعفریه","سلفچگان","کهک"
+    ]
+  },
 
-{
-name:"کردستان",
-rate:33.5,
-cities:["سنندج","سقز","مریوان","بانه","قروه","بیجار"]
-},
+  {
+    name:"کردستان",
+    rate:33.5,
+    cities:[
+      "سنندج","سقز","مریوان",
+      "بانه","قروه","بیجار"
+    ]
+  },
 
-{
-name:"کرمان",
-rate:29,
-cities:["کرمان","رفسنجان","سیرجان","جیرفت","بم","زرند","شهربابک","کهنوج"]
-},
+  {
+    name:"کرمان",
+    rate:29,
+    cities:[
+      "کرمان","رفسنجان","سیرجان",
+      "جیرفت","بم","زرند","شهربابک",
+      "کهنوج"
+    ]
+  },
 
-{
-name:"کرمانشاه",
-rate:33,
-cities:["کرمانشاه","اسلام‌آباد غرب","کنگاور","هرسین","پاوه","جوانرود","قصرشیرین"]
-},
+  {
+    name:"کرمانشاه",
+    rate:33,
+    cities:[
+      "کرمانشاه","اسلام‌آباد غرب",
+      "کنگاور","هرسین","پاوه",
+      "جوانرود","قصرشیرین"
+    ]
+  },
 
-{
-name:"کهگیلویه و بویراحمد",
-rate:32,
-cities:["یاسوج","دهدشت","گچساران","لیکک"]
-},
+  {
+    name:"کهگیلویه و بویراحمد",
+    rate:32,
+    cities:[
+      "یاسوج","دهدشت","گچساران","لیکک"
+    ]
+  },
 
-{
-name:"گلستان",
-rate:33,
-cities:["گرگان","گنبدکاووس","علی‌آباد کتول","بندرترکمن","کردکوی","مینودشت"]
-},
+  {
+    name:"گلستان",
+    rate:33,
+    cities:[
+      "گرگان","گنبدکاووس","علی‌آباد کتول",
+      "بندرترکمن","کردکوی","مینودشت"
+    ]
+  },
 
-{
-name:"گیلان",
-rate:33,
-cities:["رشت","انزلی","لاهیجان","لنگرود","آستارا","رودسر","رودبار","فومن"]
-},
+  {
+    name:"گیلان",
+    rate:33,
+    cities:[
+      "رشت","انزلی","لاهیجان",
+      "لنگرود","آستارا","رودسر",
+      "رودبار","فومن"
+    ]
+  },
 
-{
-name:"لرستان",
-rate:32,
-cities:["خرم‌آباد","بروجرد","دورود","الیگودرز","کوهدشت","پلدختر"]
-},
+  {
+    name:"لرستان",
+    rate:32,
+    cities:[
+      "خرم‌آباد","بروجرد","دورود",
+      "الیگودرز","کوهدشت","پلدختر"
+    ]
+  },
 
-{
-name:"مازندران",
-rate:33,
-cities:["ساری","بابل","آمل","قائم‌شهر","چالوس","نوشهر","تنکابن","بهشهر"]
-},
+  {
+    name:"مازندران",
+    rate:33,
+    cities:[
+      "ساری","بابل","آمل","قائم‌شهر",
+      "چالوس","نوشهر","تنکابن","بهشهر"
+    ]
+  },
 
-{
-name:"مرکزی",
-rate:34,
-cities:["اراک","ساوه","خمین","محلات","دلیجان","شازند"]
-},
+  {
+    name:"مرکزی",
+    rate:34,
+    cities:[
+      "اراک","ساوه","خمین",
+      "محلات","دلیجان","شازند"
+    ]
+  },
 
-{
-name:"هرمزگان",
-rate:28,
-cities:["بندرعباس","بندرلنگه","میناب","قشم","جاسک","رودان","حاجی‌آباد"]
-},
+  {
+    name:"هرمزگان",
+    rate:28,
+    cities:[
+      "بندرعباس","بندرلنگه","میناب",
+      "قشم","جاسک","رودان","حاجی‌آباد"
+    ]
+  },
 
-{
-name:"همدان",
-rate:32,
-cities:["همدان","ملایر","نهاوند","تویسرکان","کبودرآهنگ","اسدآباد"]
-},
+  {
+    name:"همدان",
+    rate:32,
+    cities:[
+      "همدان","ملایر","نهاوند",
+      "تویسرکان","کبودرآهنگ","اسدآباد"
+    ]
+  },
 
-{
-name:"یزد",
-rate:30,
-cities:["یزد","میبد","اردکان","بافق","مهریز","تفت"]
-}
+  {
+    name:"یزد",
+    rate:30,
+    cities:[
+      "یزد","میبد","اردکان",
+      "بافق","مهریز","تفت"
+    ]
+  }
 
 ];
 
@@ -1005,17 +1148,17 @@ cities:["یزد","میبد","اردکان","بافق","مهریز","تفت"]
 
 const craneAddition = {
 
-0:0,
-5:5,
-10:7.5,
-15:12,
-20:15,
-25:20,
-30:25,
-35:30,
-40:35,
-45:40,
-50:45
+  0:0,
+  5:5,
+  10:7.5,
+  15:12,
+  20:15,
+  25:20,
+  30:25,
+  35:30,
+  40:35,
+  45:40,
+  50:45
 
 };
 
@@ -1026,45 +1169,39 @@ const craneAddition = {
 
 function spanBase(span){
 
-const table=[
+  const table=[
+    [12,25],
+    [15,28],
+    [18,29],
+    [20,32],
+    [25,38],
+    [30,43],
+    [50,57.54]
+  ];
 
-[12,25],
-[15,28],
-[18,29],
-[20,32],
-[25,38],
-[30,43],
-[50,57.54]
+  if(span<12 || span>50){
+    return NaN;
+  }
 
-];
+  for(let i=0;i<table.length-1;i++){
 
-if(span<12 || span>50){
+    if(span<=table[i+1][0]){
 
-return NaN;
+      const x1=table[i][0];
+      const y1=table[i][1];
 
-}
+      const x2=table[i+1][0];
+      const y2=table[i+1][1];
 
-for(let i=0;i<table.length-1;i++){
+      return y1+
+        (span-x1)*
+        (y2-y1)/
+        (x2-x1);
+    }
 
-if(span<=table[i+1][0]){
+  }
 
-const x1=table[i][0];
-const y1=table[i][1];
-
-const x2=table[i+1][0];
-const y2=table[i+1][1];
-
-return y1+
-(span-x1)*
-(y2-y1)/
-(x2-x1);
-
-}
-
-}
-
-return 57.54;
-
+  return 57.54;
 }
 
 
@@ -1074,35 +1211,34 @@ return 57.54;
 
 function toNumber(value){
 
-let text=String(value);
+  let text=String(value);
 
-text=text.replace(
-  /[۰-۹]/g,
-  d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)
-);
+  text=text.replace(
+    /[۰-۹]/g,
+    d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+  );
 
-text=text.replace(
-  /[٠-٩]/g,
-  d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)
-);
+  text=text.replace(
+    /[٠-٩]/g,
+    d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)
+  );
 
-text=text
-.replace(/٫/g,".")
-.replace(/[,٬]/g,"");
+  text=text
+    .replace(/٫/g,".")
+    .replace(/[,٬]/g,"");
 
-return parseFloat(text);
-
+  return parseFloat(text);
 }
 
 
 function persianNumber(value){
 
-return value.toLocaleString(
-"fa-IR",
-{
-maximumFractionDigits:2
-}
-);
+  return value.toLocaleString(
+    "fa-IR",
+    {
+      maximumFractionDigits:2
+    }
+  );
 
 }
 
@@ -1112,26 +1248,25 @@ maximumFractionDigits:2
 ========================= */
 
 const provinceSelect=
-document.getElementById("province");
+  document.getElementById("province");
 
 const citySelect=
-document.getElementById("city");
+  document.getElementById("city");
 
 
 provinces.forEach(
-function(province,index){
+  function(province,index){
 
-const option=
-document.createElement("option");
+    const option=
+      document.createElement("option");
 
-option.value=index;
+    option.value=index;
+    option.textContent=province.name;
 
-option.textContent=
-province.name;
+    provinceSelect.appendChild(option);
 
-provinceSelect.appendChild(option);
-
-});
+  }
+);
 
 
 /* =========================
@@ -1140,38 +1275,37 @@ provinceSelect.appendChild(option);
 
 function loadCities(){
 
-citySelect.innerHTML="";
+  citySelect.innerHTML="";
 
-const index=
-provinceSelect.value;
+  const index=
+    provinceSelect.value;
 
-if(index===""){
+  if(index===""){
 
-const option=
-document.createElement("option");
+    const option=
+      document.createElement("option");
 
-option.textContent=
-"ابتدا استان را انتخاب کنید";
+    option.textContent=
+      "ابتدا استان را انتخاب کنید";
 
-citySelect.appendChild(option);
+    citySelect.appendChild(option);
 
-return;
+    return;
+  }
 
-}
+  provinces[index].cities.forEach(
+    function(city){
 
-provinces[index].cities.forEach(
-function(city){
+      const option=
+        document.createElement("option");
 
-const option=
-document.createElement("option");
+      option.value=city;
+      option.textContent=city;
 
-option.value=city;
+      citySelect.appendChild(option);
 
-option.textContent=city;
-
-citySelect.appendChild(option);
-
-});
+    }
+  );
 
 }
 
@@ -1182,121 +1316,126 @@ citySelect.appendChild(option);
 
 function calculateWeight(){
 
-const span=
-toNumber(
-document.getElementById("span").value
-);
+  const span=
+    toNumber(
+      document.getElementById("span").value
+    );
 
-const length=
-toNumber(
-document.getElementById("length").value
-);
+  const length=
+    toNumber(
+      document.getElementById("length").value
+    );
 
-const height=
-toNumber(
-document.getElementById("height").value
-);
+  const height=
+    toNumber(
+      document.getElementById("height").value
+    );
 
-const crane=
-toNumber(
-document.getElementById("crane").value
-);
+  const crane=
+    toNumber(
+      document.getElementById("crane").value
+    );
 
-const provinceIndex=
-provinceSelect.value;
-
-
-if(
-provinceIndex==="" ||
-citySelect.value==="" ||
-!isFinite(span) ||
-!isFinite(length) ||
-!isFinite(height) ||
-span<12 ||
-span>50 ||
-length<=0 ||
-height<=0
-){
-
-alert(
-"لطفاً استان، شهر و تمام ابعاد را صحیح وارد کنید."
-);
-
-return;
-
-}
+  const provinceIndex=
+    provinceSelect.value;
 
 
-const area=
-(span+2)*(length+2);
+  if(
+    provinceIndex==="" ||
+    citySelect.value==="" ||
+    !isFinite(span) ||
+    !isFinite(length) ||
+    !isFinite(height) ||
+    span<12 ||
+    span>50 ||
+    length<=0 ||
+    height<=0
+  ){
 
-const baseWeight=
-spanBase(span);
+    alert(
+      "لطفاً استان، شهر و تمام ابعاد را صحیح وارد کنید."
+    );
 
-const provinceRate=
-provinces[provinceIndex].rate;
-
-const provinceAdjustment=
-provinceRate-32;
-
-const heightAdjustment=
-(height-6)*2;
-
-const craneWeight=
-craneAddition[crane] || 0;
-
-const kgPerSquareMeter=
-baseWeight+
-provinceAdjustment+
-heightAdjustment+
-craneWeight;
+    return;
+  }
 
 
-const totalWeight=
-area*
-kgPerSquareMeter/
-1000;
+  const area=
+    (span+2)*(length+2);
 
 
-const roofCover=
-(span+3)*
-(length+2)+
-(length/2);
+  const baseWeight=
+    spanBase(span);
 
 
-document.getElementById(
-"weightPanel"
-).innerHTML=
-
-'<div class="icon-result">⚖️</div>'+
-'<div class="caption">وزن تقریبی سوله</div>'+
-'<div class="number">'+
-persianNumber(totalWeight)+
-' <span class="unit">تن</span>'+
-'</div>';
+  const provinceRate=
+    provinces[provinceIndex].rate;
 
 
-document.getElementById(
-"coverPanel"
-).innerHTML=
-
-'<div class="icon-result">🏠</div>'+
-'<div class="caption">متراژ پوشش سقف</div>'+
-'<div class="number">'+
-persianNumber(roofCover)+
-' <span class="unit">مترمربع</span>'+
-'</div>';
+  const provinceAdjustment=
+    provinceRate-32;
 
 
-document.getElementById(
-"results"
-).style.display="block";
+  const heightAdjustment=
+    (height-6)*2;
 
 
-showTab(
-"weightPanel",
-"weightTab"
-);
+  const craneWeight=
+    craneAddition[crane] || 0;
+
+
+  const kgPerSquareMeter=
+    baseWeight+
+    provinceAdjustment+
+    heightAdjustment+
+    craneWeight;
+
+
+  const totalWeight=
+    area*
+    kgPerSquareMeter/
+    1000;
+
+
+  const roofCover=
+    (span+3)*
+    (length+2)+
+    (length/2);
+
+
+  document.getElementById(
+    "weightPanel"
+  ).innerHTML=
+
+    '<div class="icon-result">⚖️</div>'+
+    '<div class="caption">وزن تقریبی سوله</div>'+
+    '<div class="number">'+
+    persianNumber(totalWeight)+
+    ' <span class="unit">تن</span>'+
+    '</div>';
+
+
+  document.getElementById(
+    "coverPanel"
+  ).innerHTML=
+
+    '<div class="icon-result">🏠</div>'+
+    '<div class="caption">متراژ پوشش سقف</div>'+
+    '<div class="number">'+
+    persianNumber(roofCover)+
+    ' <span class="unit">مترمربع</span>'+
+    '</div>';
+
+
+  document.getElementById(
+    "results"
+  ).style.display="block";
+
+
+  showTab(
+    "weightPanel",
+    "weightTab"
+  );
 
 }
 
@@ -1307,29 +1446,30 @@ showTab(
 
 function showTab(panelId,tabId){
 
-document
-.querySelectorAll(".panel")
-.forEach(
-panel=>
-panel.classList.remove("active")
-);
-
-document
-.querySelectorAll(".tab")
-.forEach(
-tab=>
-tab.classList.remove("active")
-);
+  document
+    .querySelectorAll(".panel")
+    .forEach(
+      panel=>
+        panel.classList.remove("active")
+    );
 
 
-document
-.getElementById(panelId)
-.classList.add("active");
+  document
+    .querySelectorAll(".tab")
+    .forEach(
+      tab=>
+        tab.classList.remove("active")
+    );
 
 
-document
-.getElementById(tabId)
-.classList.add("active");
+  document
+    .getElementById(panelId)
+    .classList.add("active");
+
+
+  document
+    .getElementById(tabId)
+    .classList.add("active");
 
 }
 
@@ -1340,26 +1480,27 @@ document
 
 function openPhoneModal(){
 
-document.getElementById(
-"phoneModal"
-).style.display="flex";
+  document.getElementById(
+    "phoneModal"
+  ).style.display="flex";
 
 }
 
 
 function closePhoneModal(event){
 
-const modal=
-document.getElementById("phoneModal");
+  const modal=
+    document.getElementById("phoneModal");
 
-if(
-!event ||
-event.target===modal
-){
 
-modal.style.display="none";
+  if(
+    !event ||
+    event.target===modal
+  ){
 
-}
+    modal.style.display="none";
+
+  }
 
 }
 
