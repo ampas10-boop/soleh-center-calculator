@@ -406,7 +406,6 @@ select:focus{
 ========================= */
 
 @media(max-width:520px){
-
   .container{
     padding:10px 9px 25px;
   }
@@ -450,7 +449,6 @@ select:focus{
   .grid{
     grid-template-columns:1fr;
   }
-
   .field.full{
     grid-column:auto;
   }
@@ -460,6 +458,7 @@ select:focus{
   }
 }
 </style>
+</head>
 </head>
 
 <body>
@@ -488,12 +487,11 @@ select:focus{
     <div class="engineer">
       مهندس علی محمدی
     </div>
-
     <div
       class="phone-main"
       onclick="openPhoneModal()"
     >
-      ۰۹۱۲۵۲۸۵۸۴۱
+      ۰۹۱۲۵۲۸۵۸۸۴۱
     </div>
 
   </header>
@@ -515,7 +513,6 @@ select:focus{
 
       <div class="field">
         <label>استان</label>
-
         <select
           id="province"
           onchange="loadCities()"
@@ -540,7 +537,6 @@ select:focus{
 
       <div class="field">
         <label>دهانه سوله ـ متر</label>
-
         <input
           id="span"
           type="text"
@@ -564,7 +560,6 @@ select:focus{
 
       <div class="field">
         <label>ارتفاع سوله ـ متر</label>
-
         <input
           id="height"
           type="text"
@@ -582,7 +577,6 @@ select:focus{
           <option value="0">
             بدون جرثقیل
           </option>
-
           <option value="5">۵ تن</option>
           <option value="10">۱۰ تن</option>
           <option value="15">۱۵ تن</option>
@@ -598,7 +592,6 @@ select:focus{
       </div>
 
     </div>
-
 
     <button
       class="calculate"
@@ -698,7 +691,6 @@ select:focus{
   class="modal"
   onclick="closePhoneModal(event)"
 >
-
   <div class="modal-box">
 
     <a
@@ -930,6 +922,7 @@ cities:["یزد","میبد","اردکان","بافق","مهریز","تفت"]
 ========================= */
 
 const craneAddition = {
+
 0:0,
 5:5,
 10:7.5,
@@ -941,6 +934,7 @@ const craneAddition = {
 40:35,
 45:40,
 50:45
+
 };
 
 
@@ -951,6 +945,7 @@ const craneAddition = {
 function spanBase(span){
 
 const table=[
+
 [12,25],
 [15,28],
 [18,29],
@@ -958,10 +953,13 @@ const table=[
 [25,38],
 [30,43],
 [50,57.54]
+
 ];
 
 if(span<12 || span>50){
+
 return NaN;
+
 }
 
 for(let i=0;i<table.length-1;i++){
@@ -984,6 +982,7 @@ return y1+
 }
 
 return 57.54;
+
 }
 
 
@@ -1010,6 +1009,7 @@ text=text
 .replace(/[,٬]/g,"");
 
 return parseFloat(text);
+
 }
 
 
@@ -1074,6 +1074,7 @@ option.textContent=
 citySelect.appendChild(option);
 
 return;
+
 }
 
 provinces[index].cities.forEach(
@@ -1140,6 +1141,7 @@ alert(
 );
 
 return;
+
 }
 
 
@@ -1160,7 +1162,6 @@ const heightAdjustment=
 
 const craneWeight=
 craneAddition[crane] || 0;
-
 
 const kgPerSquareMeter=
 baseWeight+
@@ -1238,9 +1239,11 @@ tab=>
 tab.classList.remove("active")
 );
 
+
 document
 .getElementById(panelId)
 .classList.add("active");
+
 
 document
 .getElementById(tabId)
