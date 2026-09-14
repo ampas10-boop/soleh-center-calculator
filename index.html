@@ -10,6 +10,10 @@
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     box-sizing:border-box;
 }
@@ -18,6 +22,11 @@ html,
 body{
     min-height:100%;
 }
+
+
+/* =========================
+   BODY
+========================= */
 
 body{
 
@@ -33,21 +42,20 @@ body{
     background:
         linear-gradient(
             145deg,
-            #07111f,
-            #102640 55%,
-            #310f15
+            #081321,
+            #122743 55%,
+            #3b1117
         );
 
     position:relative;
 
     overflow-x:hidden;
-
 }
 
 
-/* =========================================================
-   BACKGROUND PHOTO
-========================================================= */
+/* =========================
+   YOUR PHOTO
+========================= */
 
 body::before{
 
@@ -58,10 +66,12 @@ body::before{
     inset:-25px;
 
     background-image:
+
         linear-gradient(
-            rgba(5,12,22,0.68),
-            rgba(5,12,22,0.72)
+            rgba(5,12,22,0.64),
+            rgba(5,12,22,0.70)
         ),
+
         url("./ali.mo.jpg");
 
     background-position:center;
@@ -72,18 +82,17 @@ body::before{
 
     filter:blur(5px);
 
-    opacity:0.58;
+    opacity:0.62;
 
-    transform:scale(1.04);
+    transform:scale(1.05);
 
     z-index:-2;
-
 }
 
 
-/* =========================================================
-   DARK OVERLAY
-========================================================= */
+/* =========================
+   LIGHT OVERLAY
+========================= */
 
 body::after{
 
@@ -94,22 +103,22 @@ body::after{
     inset:0;
 
     background:
+
         radial-gradient(
             circle at 50% 15%,
-            rgba(255,255,255,0.08),
-            transparent 35%
+            rgba(255,255,255,0.10),
+            transparent 38%
         );
 
     pointer-events:none;
 
     z-index:-1;
-
 }
 
 
-/* =========================================================
+/* =========================
    CONTAINER
-========================================================= */
+========================= */
 
 .container{
 
@@ -121,13 +130,12 @@ body::after{
         18px
         14px
         35px;
-
 }
 
 
-/* =========================================================
-   BRAND AREA
-========================================================= */
+/* =========================
+   BRAND
+========================= */
 
 .brand{
 
@@ -135,14 +143,15 @@ body::after{
 
     text-align:center;
 
-    min-height:145px;
+    min-height:150px;
 
     padding-top:8px;
-
 }
 
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .brand-logo{
 
@@ -160,29 +169,30 @@ body::after{
 
     border-radius:16px;
 
+    padding:5px;
+
     background:
         rgba(255,255,255,0.10);
 
     border:
         1px solid
-        rgba(255,255,255,0.22);
-
-    padding:5px;
+        rgba(255,255,255,0.25);
 
     box-shadow:
-        0 10px 30px
-        rgba(0,0,0,0.35);
+        0 12px 35px
+        rgba(0,0,0,0.40);
 
     backdrop-filter:
         blur(10px);
 
     -webkit-backdrop-filter:
         blur(10px);
-
 }
 
 
-/* BRAND TEXT */
+/* =========================
+   BRAND TEXT
+========================= */
 
 .mohammadi{
 
@@ -194,8 +204,7 @@ body::after{
 
     text-shadow:
         0 3px 15px
-        rgba(0,0,0,0.5);
-
+        rgba(0,0,0,0.55);
 }
 
 .steel{
@@ -207,7 +216,6 @@ body::after{
     color:#e2b34f;
 
     font-weight:900;
-
 }
 
 .logo-text{
@@ -216,8 +224,8 @@ body::after{
 
     font-weight:950;
 
-    margin:8px 0;
-
+    margin:
+        8px 0;
 }
 
 .engineer{
@@ -226,10 +234,15 @@ body::after{
 
     font-weight:900;
 
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.5);
 }
 
 
-/* PHONE */
+/* =========================
+   PHONE
+========================= */
 
 .phone-main{
 
@@ -246,7 +259,7 @@ body::after{
     color:#ffd36b;
 
     background:
-        rgba(255,255,255,0.09);
+        rgba(255,255,255,0.10);
 
     border:
         1px solid
@@ -265,13 +278,12 @@ body::after{
 
     -webkit-backdrop-filter:
         blur(10px);
-
 }
 
 
-/* =========================================================
+/* =========================
    GLASS CARD
-========================================================= */
+========================= */
 
 .card{
 
@@ -284,28 +296,27 @@ body::after{
     padding:19px;
 
     background:
-        rgba(255,255,255,0.76);
+        rgba(255,255,255,0.78);
 
     border:
         1px solid
-        rgba(255,255,255,0.65);
+        rgba(255,255,255,0.70);
 
     box-shadow:
         0 25px 70px
-        rgba(0,0,0,0.42);
+        rgba(0,0,0,0.45);
 
     backdrop-filter:
         blur(18px);
 
     -webkit-backdrop-filter:
         blur(18px);
-
 }
 
 
-/* =========================================================
+/* =========================
    GRID
-========================================================= */
+========================= */
 
 .grid{
 
@@ -315,20 +326,18 @@ body::after{
         1fr 1fr;
 
     gap:12px;
-
 }
 
 .full{
 
     grid-column:
         1 / -1;
-
 }
 
 
-/* =========================================================
+/* =========================
    LABEL
-========================================================= */
+========================= */
 
 label{
 
@@ -340,14 +349,13 @@ label{
 
     margin-bottom:6px;
 
-    color:#26364b;
-
+    color:#334155;
 }
 
 
-/* =========================================================
+/* =========================
    INPUT / SELECT
-========================================================= */
+========================= */
 
 input,
 select{
@@ -358,12 +366,12 @@ select{
 
     border:
         1px solid
-        rgba(180,195,210,0.75);
+        rgba(180,195,210,0.80);
 
     border-radius:13px;
 
     background:
-        rgba(248,250,252,0.78);
+        rgba(248,250,252,0.84);
 
     padding:
         0 12px;
@@ -376,9 +384,7 @@ select{
 
     transition:
         0.2s ease;
-
 }
-
 
 input:focus,
 select:focus{
@@ -388,13 +394,12 @@ select:focus{
     box-shadow:
         0 0 0 3px
         rgba(215,25,32,0.12);
-
 }
 
 
-/* =========================================================
-   CALCULATE BUTTON
-========================================================= */
+/* =========================
+   CALCULATE
+========================= */
 
 .calculate{
 
@@ -428,9 +433,7 @@ select:focus{
         rgba(167,14,21,0.30);
 
     transition:
-        transform .15s ease,
-        box-shadow .15s ease;
-
+        0.15s ease;
 }
 
 .calculate:hover{
@@ -441,31 +444,24 @@ select:focus{
     box-shadow:
         0 14px 30px
         rgba(167,14,21,0.40);
-
-}
-
-.calculate:active{
-
-    transform:
-        translateY(0);
-
 }
 
 
-/* =========================================================
+/* =========================
    RESULTS
-========================================================= */
+========================= */
 
 .results{
 
     display:none;
 
     margin-top:18px;
-
 }
 
 
-/* TABS */
+/* =========================
+   TABS
+========================= */
 
 .tabs{
 
@@ -475,7 +471,6 @@ select:focus{
         1fr 1fr;
 
     gap:8px;
-
 }
 
 .tab{
@@ -484,19 +479,18 @@ select:focus{
 
     border:
         1px solid
-        rgba(220,227,235,0.8);
+        rgba(220,227,235,0.85);
 
     border-radius:13px;
 
     background:
-        rgba(241,245,249,0.82);
+        rgba(241,245,249,0.86);
 
     font-weight:900;
 
     cursor:pointer;
 
     color:#152033;
-
 }
 
 .tab.active{
@@ -504,11 +498,12 @@ select:focus{
     background:#132744;
 
     color:#fff;
-
 }
 
 
-/* PANEL */
+/* =========================
+   RESULT PANEL
+========================= */
 
 .panel{
 
@@ -517,11 +512,11 @@ select:focus{
     margin-top:10px;
 
     background:
-        rgba(243,246,250,0.82);
+        rgba(243,246,250,0.86);
 
     border:
         1px solid
-        rgba(227,232,239,0.85);
+        rgba(227,232,239,0.90);
 
     border-radius:18px;
 
@@ -530,22 +525,16 @@ select:focus{
         10px;
 
     text-align:center;
-
 }
 
 .panel.active{
 
     display:block;
-
 }
-
-
-/* RESULT */
 
 .icon-result{
 
     font-size:29px;
-
 }
 
 .caption{
@@ -553,7 +542,6 @@ select:focus{
     color:#64748b;
 
     font-weight:900;
-
 }
 
 .number{
@@ -565,7 +553,6 @@ select:focus{
     font-weight:950;
 
     margin-top:5px;
-
 }
 
 .unit{
@@ -573,19 +560,18 @@ select:focus{
     font-size:14px;
 
     color:#475569;
-
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 .footer{
 
     text-align:center;
 
-    color:#d2d9e4;
+    color:#d5dce6;
 
     font-size:13px;
 
@@ -595,8 +581,7 @@ select:focus{
 
     text-shadow:
         0 2px 8px
-        rgba(0,0,0,0.6);
-
+        rgba(0,0,0,0.60);
 }
 
 .footer a{
@@ -604,11 +589,12 @@ select:focus{
     color:#ffd36b;
 
     text-decoration:none;
-
 }
 
 
-/* SOCIAL */
+/* =========================
+   SOCIAL
+========================= */
 
 .social{
 
@@ -619,7 +605,6 @@ select:focus{
     gap:16px;
 
     margin-top:10px;
-
 }
 
 .social a{
@@ -631,7 +616,7 @@ select:focus{
     border-radius:12px;
 
     background:
-        rgba(23,43,70,0.80);
+        rgba(23,43,70,0.82);
 
     color:#fff;
 
@@ -650,7 +635,6 @@ select:focus{
 
     -webkit-backdrop-filter:
         blur(8px);
-
 }
 
 .social svg{
@@ -658,13 +642,12 @@ select:focus{
     width:25px;
 
     height:25px;
-
 }
 
 
-/* =========================================================
-   PHONE MODAL
-========================================================= */
+/* =========================
+   MODAL
+========================= */
 
 .modal{
 
@@ -675,7 +658,7 @@ select:focus{
     inset:0;
 
     background:
-        rgba(0,0,0,0.72);
+        rgba(0,0,0,0.75);
 
     align-items:center;
 
@@ -690,7 +673,6 @@ select:focus{
 
     -webkit-backdrop-filter:
         blur(8px);
-
 }
 
 .modal-box{
@@ -698,7 +680,7 @@ select:focus{
     width:min(380px,100%);
 
     background:
-        rgba(16,32,53,0.94);
+        rgba(16,32,53,0.95);
 
     border-radius:20px;
 
@@ -713,7 +695,6 @@ select:focus{
     box-shadow:
         0 25px 70px
         rgba(0,0,0,0.55);
-
 }
 
 .modal-button{
@@ -735,7 +716,6 @@ select:focus{
     border:0;
 
     cursor:pointer;
-
 }
 
 .call{
@@ -743,7 +723,6 @@ select:focus{
     background:#d9b45b;
 
     color:#111;
-
 }
 
 .whatsapp{
@@ -751,7 +730,6 @@ select:focus{
     background:#1f8f54;
 
     color:#fff;
-
 }
 
 .close{
@@ -759,13 +737,12 @@ select:focus{
     background:#243449;
 
     color:#fff;
-
 }
 
 
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:500px){
 
@@ -775,13 +752,11 @@ select:focus{
             12px
             10px
             25px;
-
     }
 
     .brand{
 
         min-height:150px;
-
     }
 
     .brand-logo{
@@ -793,80 +768,37 @@ select:focus{
         top:0;
 
         left:0;
-
     }
 
     .mohammadi{
 
         font-size:23px;
-
     }
 
     .logo-text{
 
         font-size:28px;
-
     }
 
     .engineer{
 
         font-size:15px;
-
     }
 
     .grid{
 
         grid-template-columns:1fr;
-
     }
 
     .full{
 
         grid-column:auto;
-
     }
 
     .number{
 
         font-size:28px;
-
     }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media(max-width:360px){
-
-    .brand-logo{
-
-        width:58px;
-
-        height:58px;
-
-    }
-
-    .mohammadi{
-
-        font-size:20px;
-
-    }
-
-    .steel{
-
-        font-size:9px;
-
-    }
-
-    .logo-text{
-
-        font-size:24px;
-
-    }
-
 }
 
 </style>
@@ -880,56 +812,56 @@ select:focus{
 <div class="container">
 
 
-<!-- =======================================================
+<!-- =========================
      BRAND
-======================================================= -->
+========================= -->
 
 <header class="brand">
 
 
-    <img
-        src="./logo.jpg"
-        alt="MOHAMMADI Logo"
-        class="brand-logo"
-    >
+<img
+    src="./logo.jpg"
+    alt="MOHAMMADI Logo"
+    class="brand-logo"
+>
 
 
-    <div class="mohammadi">
-        MOHAMMADI
-    </div>
+<div class="mohammadi">
+    MOHAMMADI
+</div>
 
 
-    <div class="steel">
-        STEEL STRUCTURES
-    </div>
+<div class="steel">
+    STEEL STRUCTURES
+</div>
 
 
-    <div class="logo-text">
-        Sooleh.Center
-    </div>
+<div class="logo-text">
+    Sooleh.Center
+</div>
 
 
-    <div class="engineer">
-        مهندس علی محمدی
-    </div>
+<div class="engineer">
+    مهندس علی محمدی
+</div>
 
 
-    <a
-        class="phone-main"
-        href="#"
-        onclick="openPhoneModal(); return false;"
-    >
-        ۰۹۱۲۵۲۸۵۸۴۱
-    </a>
+<a
+    class="phone-main"
+    href="#"
+    onclick="openPhoneModal(); return false;"
+>
+    ۰۹۱۲۵۲۸۵۸۴۱
+</a>
 
 
 </header>
 
 
 
-<!-- =======================================================
+<!-- =========================
      MAIN CARD
-======================================================= -->
+========================= -->
 
 <main class="card">
 
@@ -1109,9 +1041,9 @@ select:focus{
 
 
 
-<!-- =======================================================
+<!-- =========================
      RESULTS
-======================================================= -->
+========================= -->
 
 <section
     id="results"
@@ -1166,9 +1098,9 @@ select:focus{
 
 
 
-<!-- =======================================================
+<!-- =========================
      FOOTER
-======================================================= -->
+========================= -->
 
 <div class="footer">
 
@@ -1264,9 +1196,9 @@ select:focus{
 
 
 
-<!-- =======================================================
+<!-- =========================
      PHONE MODAL
-======================================================= -->
+========================= -->
 
 <div
     id="phoneModal"
@@ -1507,9 +1439,8 @@ cities:["یزد","میبد","اردکان","بافق","مهریز","تفت"]
 ];
 
 
-
 /* =========================================================
-   CRANE
+   CRANE ADDITIONS
 ========================================================= */
 
 const craneAddition = {
@@ -1529,9 +1460,8 @@ const craneAddition = {
 };
 
 
-
 /* =========================================================
-   SPAN BASE WEIGHTS
+   SPAN BASE WEIGHT
 ========================================================= */
 
 function spanBase(span){
@@ -1581,7 +1511,6 @@ return 57.54;
 }
 
 
-
 /* =========================================================
    NUMBER CONVERTER
 ========================================================= */
@@ -1594,7 +1523,9 @@ let text=String(value);
 text=text.replace(
     /[۰-۹]/g,
     function(d){
+
         return "۰۱۲۳۴۵۶۷۸۹".indexOf(d);
+
     }
 );
 
@@ -1602,7 +1533,9 @@ text=text.replace(
 text=text.replace(
     /[٠-٩]/g,
     function(d){
+
         return "٠١٢٣٤٥٦٧٨٩".indexOf(d);
+
     }
 );
 
@@ -1617,9 +1550,8 @@ return parseFloat(text);
 }
 
 
-
 /* =========================================================
-   PERSIAN NUMBER
+   PERSIAN NUMBER FORMAT
 ========================================================= */
 
 function persianNumber(value){
@@ -1632,7 +1564,6 @@ return value.toLocaleString(
 );
 
 }
-
 
 
 /* =========================================================
@@ -1660,7 +1591,6 @@ province.name;
 provinceSelect.appendChild(option);
 
 });
-
 
 
 /* =========================================================
@@ -1714,13 +1644,11 @@ citySelect.appendChild(option);
 }
 
 
-
 /* =========================================================
    CALCULATE
 ========================================================= */
 
 function calculateWeight(){
-
 
 const span=
 toNumber(
@@ -1748,7 +1676,6 @@ document.getElementById("crane").value
 
 const provinceIndex=
 provinceSelect.value;
-
 
 
 /* VALIDATION */
@@ -1800,7 +1727,6 @@ return;
 }
 
 
-
 /* AREA */
 
 const area=
@@ -1808,12 +1734,10 @@ const area=
 (length+2);
 
 
-
 /* BASE */
 
 const baseWeight=
 spanBase(span);
-
 
 
 /* PROVINCE */
@@ -1825,19 +1749,16 @@ const provinceAdjustment=
 provinceRate-32;
 
 
-
 /* HEIGHT */
 
 const heightAdjustment=
 (height-6)*2;
 
 
-
 /* CRANE */
 
 const craneWeight=
 craneAddition[crane]||0;
-
 
 
 /* KG/M2 */
@@ -1850,7 +1771,6 @@ heightAdjustment+
 craneWeight;
 
 
-
 /* TOTAL */
 
 const totalWeight=
@@ -1858,7 +1778,6 @@ const totalWeight=
 area*
 kgPerSquareMeter/
 1000;
-
 
 
 /* ROOF */
@@ -1871,8 +1790,7 @@ const roofCover=
 (length/2);
 
 
-
-/* WEIGHT RESULT */
+/* WEIGHT */
 
 document.getElementById(
     "weightPanel"
@@ -1890,8 +1808,7 @@ persianNumber(totalWeight)+
 '</div>';
 
 
-
-/* ROOF RESULT */
+/* ROOF */
 
 document.getElementById(
     "coverPanel"
@@ -1909,7 +1826,6 @@ persianNumber(roofCover)+
 '</div>';
 
 
-
 /* SHOW */
 
 document.getElementById(
@@ -1923,7 +1839,6 @@ showTab(
 );
 
 }
-
 
 
 /* =========================================================
@@ -1964,7 +1879,6 @@ document
 }
 
 
-
 /* =========================================================
    PHONE MODAL
 ========================================================= */
@@ -1976,7 +1890,6 @@ document
 .style.display="flex";
 
 }
-
 
 
 function closePhoneModal(event){
@@ -1997,7 +1910,6 @@ modal.style.display="none";
 }
 
 </script>
-
 
 </body>
 
