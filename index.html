@@ -4,1208 +4,1249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#07111f">
 <title>Sooleh.Center | محاسبهگر وزن سوله</title>
 
-<meta name="description" content="محاسبهگر وزن سوله و پوشش سقف - مهندس علی محمدی">
-
-<meta name="author" content="مهندس علی محمدی">
-
-<meta name="keywords" content="محاسبه وزن سوله, سوله, اسکلت فلزی, محاسبهگر سوله, مهندس علی محمدی">
-
-<meta property="og:title" content="Sooleh.Center | محاسبهگر وزن سوله">
-<meta property="og:description" content="محاسبه 
-
-وزن سازه و پوشش سقف سوله">
-<meta property="og:type" content="website">
-
 <style>
-•	{
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+*{box-sizing:border-box}
+html,body{
+margin:0;
+padding:0;
+min-height:100%;
+font-family:"B Zar","B Titr",Tahoma,Arial,sans-serif;
+background:#06101d;
+color:#fff;
 }
 
-body {
-font-family: Tahoma, Arial, sans-serif;
-min-height: 100vh;
+body{
 background:
-linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.72)),
-url('./ali.mo.jpg') center center / cover fixed;
-color: #fff;
-padding: 20px;
+linear-gradient(180deg,rgba(2,10,20,.72),rgba(2,9,18,.91)),
+url("./ali.mo.jpg") center/cover fixed no-repeat;
 }
-
-
-.container {
-max-width: 1100px;
-margin: 0 auto;
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background:radial-gradient(circle at 50% 0%,rgba(38,127,190,.18),transparent 42%);
+pointer-events:none;
 }
-
-/* ===== HEADER ===== */
-
-.header {
-text-align: center;
-margin-bottom: 20px;
+.container{
+width:min(1180px,94%);
+margin:auto;
 }
+header{
+padding:18px 0 12px;
 
-.header .brand-main {
-font-size: 30px;
-font-weight: 900;
-letter-spacing: 2px;
-color: #fff;
-text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
-
-
-.header .brand-sub {
-font-size: 15px;
-font-weight: bold;
-color: #ddd;
-letter-spacing: 3px;
-margin-top: 3px;
-}
-
-.header .site-name {
-font-size: 25px;
-font-weight: 900;
-color: #4da6ff;
-margin-top: 10px;
-text-shadow: 0 0 12px rgba(77,166,255,0.45);
-}
-
-.header .engineer {
-font-size: 16px;
-font-weight: bold;
-
-margin-top: 5px;
-}
-
-.header .phone {
-direction: ltr;
-display: inline-block;
-margin-top: 8px;
-padding: 7px 15px;
-border-radius: 20px;
-background: rgba(0,0,0,0.45);
-border: 1px solid rgba(255,255,255,0.2);
-font-weight: bold;
-}
-
-/* ===== GLASS CARD ===== */
-
-.card {
-background: rgba(20, 30, 40, 0.62);
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(15px);
-
-border: 1px solid rgba(255,255,255,0.16);
-border-radius: 22px;
-padding: 25px;
+.header-card,
+.panel,
+.result-card,
+.shed-card,
+.summary-card{
+background:rgba(8,20,35,.72);
+border:1px solid rgba(130,180,220,.22);
 box-shadow:
-0 20px 60px rgba(0,0,0,0.45),
-inset 0 1px 0 rgba(255,255,255,0.08);
-margin-bottom: 20px;
+0 18px 50px rgba(0,0,0,.28),
+inset 0 1px 0 rgba(255,255,255,.05);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+border-radius:22px;
 }
-
-.card-title {
-text-align: center;
-font-size: 25px;
-font-weight: 900;
-margin-bottom: 8px;
-}
-
-.card-subtitle {
-text-align: center;
-color: #ccc;
-font-size: 14px;
-
-margin-bottom: 25px;
-}
-
-/* ===== FORM ===== */
-
-.form-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 16px;
-}
-
-.form-group {
-display: flex;
-flex-direction: column;
-}
-
-.form-group label {
-font-size: 14px;
-font-weight: bold;
-margin-bottom: 7px;
-
-color: #eee;
-}
-
-.form-group select,
-.form-group input {
-width: 100%;
-padding: 13px 14px;
-border-radius: 12px;
-border: 1px solid rgba(255,255,255,0.18);
-background: rgba(0,0,0,0.38);
-color: #fff;
-font-size: 15px;
-outline: none;
-transition: 0.25s;
-}
-
-.form-group select:focus,
-.form-group input:focus {
-border-color: #4da6ff;
-box-shadow: 0 0 0 3px rgba(77,166,255,0.12);
+.header-card{
+padding:16px 20px;
+display:flex;
+align-items:center;
+gap:18px;
 
 }
+.logo{
+width:78px;
+height:78px;
+border-radius:18px;
+object-fit:cover;
+border:1px solid rgba(255,255,255,.2);
+}
+.brand{
+flex:1;
+}
+.brand h1{
+margin:0;
+font-size:24px;
+color:#fff;
+}
+.brand .en{
+font-family:Arial,sans-serif;
+letter-spacing:2px;
+color:#8ec9ff;
 
-.form-group select option {
-background: #17212b;
-color: #fff;
+font-size:13px;
+margin-top:3px;
+}
+.brand p{
+margin:7px 0 0;
+color:#c9d7e5;
+font-size:14px;
+}
+.phone-btn,
+.primary-btn,
+.secondary-btn,
+.danger-btn,
+.tab{
+border:0;
+cursor:pointer;
+color:#fff;
+border-radius:14px;
+font-family:inherit;
+font-weight:700;
 }
 
-/* ===== BUTTON ===== */
-
-.calculate-btn {
-width: 100%;
-margin-top: 20px;
-padding: 15px;
-border: none;
-border-radius: 14px;
-background: linear-gradient(135deg, #1479d1, #2499ff);
-color: #fff;
-font-size: 17px;
-font-weight: 900;
-
-cursor: pointer;
-box-shadow: 0 8px 25px rgba(0,120,255,0.3);
-transition: 0.25s;
+.phone-btn{
+padding:12px 16px;
+background:linear-gradient(135deg,#0b79c8,#124d88);
+box-shadow:0 8px 22px rgba(0,110,200,.25);
 }
-
-.calculate-btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 12px 30px rgba(0,120,255,0.4);
+.hero{
+text-align:center;
+padding:18px 10px 12px;
 }
-
-.calculate-btn:active {
-transform: translateY(0);
+.hero h2{
+margin:0;
+font-size:30px;
+color:#fff;
 }
-
-/* ===== RESULTS ===== */
-
-.results {
-display: none;
-margin-top: 25px;
-}
-
-
-.tabs {
-display: flex;
-gap: 8px;
-margin-bottom: 15px;
-}
-
-.tab {
-flex: 1;
-padding: 12px;
-text-align: center;
-border-radius: 12px;
-background: rgba(255,255,255,0.07);
-border: 1px solid rgba(255,255,255,0.1);
-cursor: pointer;
-font-weight: bold;
-transition: 0.2s;
-}
-
-.tab.active {
-
-background: rgba(77,166,255,0.25);
-border-color: #4da6ff;
-color: #fff;
-}
-
-.result-box {
-background: rgba(0,0,0,0.3);
-border-radius: 16px;
-padding: 20px;
-text-align: center;
-border: 1px solid rgba(255,255,255,0.1);
-}
-
-.result-value {
-font-size: 38px;
-font-weight: 900;
-color: #4da6ff;
-margin: 8px 0;
-}
-
-.result-unit {
-color: #ddd;
-font-size: 14px;
-}
-
-.result-info {
-margin-top: 12px;
-color: #bbb;
-font-size: 13px;
-line-height: 1.8;
-}
-
-/* ===== FOOTER ===== */
-
-.footer {
-text-align: center;
-color: #bbb;
-font-size: 13px;
-line-height: 2;
-padding: 15px 0 5px;
+.hero p{
+margin:8px auto 0;
+color:#b8c9d8;
+max-width:760px;
+line-height:1.8;
 
 }
+.mode-switch{
+display:flex;
+justify-content:center;
+gap:8px;
+flex-wrap:wrap;
+margin:18px 0;
+}
+.mode-switch button{
+padding:11px 18px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.12);
+}
+.mode-switch button.active{
+background:linear-gradient(135deg,#0876c7,#164f83);
+border-color:#49aaf0;
+}
+.panel{
+padding:20px;
 
-.footer strong {
-color: #fff;
+margin-bottom:18px;
+}
+.panel-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-bottom:16px;
+}
+.panel-title h3{
+margin:0;
+font-size:20px;
+}
+.badge{
+font-size:12px;
+color:#9bd3ff;
+background:rgba(20,130,210,.13);
+padding:6px 10px;
+border-radius:999px;
 }
 
-.footer .numbers {
-direction: ltr;
-display: inline-block;
+.global-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+.field label{
+display:block;
+color:#d9e6f0;
+font-size:14px;
+margin-bottom:7px;
+}
+input,
+select{
+width:100%;
+height:46px;
+padding:0 12px;
+border-radius:12px;
+border:1px solid rgba(145,190,225,.22);
+background:rgba(2,11,21,.72);
+color:#fff;
+
+font:inherit;
+outline:none;
+}
+input:focus,
+select:focus{
+border-color:#43a9ef;
+box-shadow:0 0 0 3px rgba(35,150,220,.12);
+}
+select option{
+background:#0b1a2b;
+color:#fff;
+}
+.shed-list{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+.shed-card{
+padding:14px;
 }
 
-/* ===== MODAL ===== */
+.shed-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:11px;
+}
+.shed-name{
+font-weight:800;
+color:#9dd7ff;
+}
+.shed-remove{
+background:rgba(210,50,50,.12);
+border:1px solid rgba(255,90,90,.25);
+color:#ffb4b4;
+padding:6px 10px;
+border-radius:9px;
+cursor:pointer;
+font-family:inherit;
+}
+.shed-row{
 
-.modal {
-display: none;
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.75);
-z-index: 9999;
-align-items: center;
+display:grid;
+grid-template-columns:1.2fr 1.2fr 1fr 1.2fr auto;
+gap:10px;
+align-items:end;
+}
+.shed-row .field{
+min-width:0;
+}
+.small-hint{
+font-size:11px;
+color:#8298aa;
+margin-top:5px;
+}
+.add-row{
+display:flex;
+justify-content:center;
+margin-top:13px;
+}
+.secondary-btn{
+padding:10px 17px;
 
-justify-content: center;
-padding: 20px;
+background:rgba(255,255,255,.07);
+border:1px solid rgba(255,255,255,.14);
+}
+.primary-btn{
+padding:13px 24px;
+background:linear-gradient(135deg,#f2a900,#c96d00);
+box-shadow:0 10px 26px rgba(220,130,0,.2);
+font-size:16px;
+}
+.calculate-wrap{
+text-align:center;
+margin:18px 0;
+}
+.notice{
+font-size:12px;
+color:#a9bdcd;
+line-height:1.8;
+margin-top:12px;
 }
 
-.modal.show {
-display: flex;
+.checklist{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+.check-item{
+padding:11px 13px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
+color:#d8e6f0;
+}
+.check-item b{
+color:#fff;
+}
+.results{
+display:none;
+margin-top:18px;
+}
+.results.show{
+
+display:block;
+}
+.tabs{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-bottom:13px;
+}
+.tab{
+padding:10px 15px;
+background:rgba(255,255,255,.055);
+border:1px solid rgba(255,255,255,.11);
+}
+.tab.active{
+background:#126ba8;
+}
+.result-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+
+}
+.metric{
+padding:15px;
+border-radius:15px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.08);
+}
+.metric .k{
+font-size:12px;
+color:#9eb5c8;
+}
+.metric .v{
+font-size:23px;
+font-weight:900;
+margin-top:5px;
+color:#fff;
+}
+.metric .u{
+font-size:11px;
+color:#8ca4b7;
+
+}
+.result-section{
+display:none;
+}
+.result-section.active{
+display:block;
+}
+.detail-table{
+width:100%;
+border-collapse:collapse;
+margin-top:13px;
+overflow:hidden;
+border-radius:14px;
+}
+.detail-table th,
+.detail-table td{
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,.08);
+text-align:center;
 }
 
-.modal-content {
-width: 100%;
-max-width: 430px;
-background: #17212b;
-border-radius: 20px;
-padding: 25px;
-border: 1px solid rgba(255,255,255,0.15);
-box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+.detail-table th{
+color:#9ed8ff;
+background:rgba(10,80,125,.22);
+}
+.detail-table td{
+color:#dbe7ef;
+background:rgba(255,255,255,.025);
+}
+.warn{
+margin-top:13px;
+padding:12px;
+border-radius:13px;
+background:rgba(214,150,0,.10);
+border:1px solid rgba(214,150,0,.25);
+color:#f4d891;
+line-height:1.8;
+}
+.ok{
+margin-top:13px;
+padding:12px;
+
+border-radius:13px;
+background:rgba(0,170,120,.09);
+border:1px solid rgba(0,190,140,.2);
+color:#a9ead5;
+line-height:1.8;
+}
+.footer{
+padding:25px 0 35px;
+text-align:center;
+color:#8fa5b8;
+font-size:13px;
+}
+.footer a{
+color:#80c9ff;
+text-decoration:none;
+}
+.hidden{
+display:none!important;
+}
+.modal{
+
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.72);
+z-index:50;
+align-items:center;
+justify-content:center;
+padding:18px;
+}
+.modal.show{
+display:flex;
+}
+.modal-box{
+width:min(420px,100%);
+background:#0b1a2b;
+border:1px solid rgba(120,190,235,.25);
+border-radius:22px;
+padding:22px;
+box-shadow:0 25px 70px #000;
 }
 
-.modal-title {
-text-align: center;
+.modal-box h3{
+margin-top:0;
+}
+.close{
+float:left;
+background:none;
+border:0;
+color:#fff;
+font-size:24px;
+cursor:pointer;
+}
+.contact{
+display:grid;
+gap:9px;
+margin-top:15px;
+}
+.contact a{
+display:block;
+padding:13px;
+border-radius:12px;
 
-font-size: 20px;
-font-weight: 900;
-margin-bottom: 20px;
+background:rgba(255,255,255,.06);
+color:#fff;
+text-decoration:none;
+text-align:center;
 }
 
-.modal-buttons {
-display: grid;
-gap: 10px;
+@media(max-width:800px){
+.global-grid{
+grid-template-columns:1fr;
+}
+.shed-row{
+grid-template-columns:repeat(2,1fr);
+}
+.shed-row .remove-cell{
+grid-column:1/-1;
+}
+.result-grid{
+grid-template-columns:repeat(2,1fr);
+}
+.checklist{
+
+grid-template-columns:1fr;
+}
+.header-card{
+align-items:flex-start;
+}
+.phone-btn{
+font-size:12px;
+}
 }
 
-.modal-buttons a,
-.modal-buttons button {
-display: block;
-width: 100%;
-padding: 13px;
-border-radius: 12px;
-text-align: center;
-text-decoration: none;
-border: none;
-font-size: 15px;
-
-font-weight: bold;
-cursor: pointer;
+@media(max-width:520px){
+.header-card{
+flex-wrap:wrap;
 }
-
-.call-btn {
-background: #198754;
-color: #fff;
+.logo{
+width:62px;
+height:62px;
 }
+.brand h1{
+font-size:19px;
 
-.whatsapp-btn {
-background: #25D366;
-color: #fff;
 }
-
-.close-btn {
-background: rgba(255,255,255,0.1);
-color: #fff;
+.hero h2{
+font-size:24px;
 }
-
-/* ===== RESPONSIVE ===== */
-
-
-@media (max-width: 700px) {
-
-body {
-padding: 12px;
+.shed-row{
+grid-template-columns:1fr 1fr;
 }
-
-.card {
-padding: 17px;
-border-radius: 18px;
-}
-
-.header .brand-main {
-font-size: 23px;
-}
-
-.header .brand-sub {
-font-size: 12px;
-letter-spacing: 2px;
-}
-
-
-.header .site-name {
-font-size: 21px;
-}
-
-.form-grid {
-grid-template-columns: 1fr;
-gap: 13px;
-}
-
-.result-value {
-font-size: 31px;
+.result-grid{
+grid-template-columns:1fr 1fr;
 }
 }
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<div class="page">
 
+<!-- ================= HEADER ================= -->
+<header class="topbar">
 
-<!-- ===== HEADER ===== -->
-<div class="header">
-
-<div class="brand-main">
-MOHAMMADI
+<div class="brand-box">
+<img src="./logo.jpg" class="logo" alt="MOHAMMADI Steel Structures">
+<div class="brand-text">
+<div class="brand-main">MOHAMMADI</div>
+<div class="brand-sub">STEEL STRUCTURES</div>
+<div class="brand-small">Sooleh.Center</div>
+</div>
 </div>
 
-<div class="brand-sub">
-STEEL STRUCTURES
+<div class="engineer-box">
+<div class="engineer-title">مهندس علی محمدی</div>
+<div class="engineer-sub">
+محاسبهگر وزن سوله و برآورد اولیه سازه
+</div>
+<button class="phone-btn" onclick="openModal()">
+📞 ۰۹۱۲۵۲۸۵۸۴۱
+</button>
 </div>
 
-<div class="site-name">
-Sooleh.Center
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+<div class="hero-photo">
+<img src="./ali.mo.jpg" alt="مهندس علی محمدی">
 </div>
 
-<div class="engineer">
-مهندس علی محمدی
+<div class="hero-content">
+<div class="hero-badge">
+MOHAMMADI STEEL STRUCTURES
 </div>
 
-<div class="phone">
-۰۹۱۲۵۲۸۵۸۴۱
+<h1>محاسبهگر وزن سوله</h1>
+
+<p>
+محاسبه وزن تقریبی سازه و پوشش سقف
+
+</p>
+
+<p class="hero-note">
+برآورد سریع و اولیه برای بررسی اقتصادی پروژه
+</p>
+</div>
+
+</section>
+
+
+<!-- ================= MAIN CALCULATOR ================= -->
+<main class="calculator-card">
+
+<!-- عنوان -->
+<div class="section-title">
+<span class="title-icon">🏗️</span>
+<div>
+<h2>اطلاعات پروژه</h2>
+<p>
+
+ابتدا تعداد سولهها و مشخصات هر سوله را وارد کنید.
+</p>
+</div>
+</div>
+
+
+<!-- ================= MODE ================= -->
+<div class="mode-section">
+
+<div class="mode-title">
+نوع پروژه
+</div>
+
+<div class="mode-switch">
+
+<button
+type="button"
+id="singleBtn"
+class="mode-btn active"
+
+onclick="setMode(1)">
+تکقلو
+</button>
+
+<button
+type="button"
+id="doubleBtn"
+class="mode-btn"
+onclick="setMode(2)">
+دوقلو
+</button>
+
+<button
+type="button"
+id="tripleBtn"
+class="mode-btn"
+onclick="setMode(3)">
+سهقلو
+</button>
+
+</div>
+
+<div class="mode-description">
+در پروژههای دوقلو و سهقلو، اعضای مشترک فقط یکبار در برآورد لحاظ میشوند.
 </div>
 
 </div>
 
 
-<!-- ===== MAIN CARD ===== -->
-<div class="card">
+<!-- ================= LOCATION ================= -->
+<div class="location-box">
 
-<div class="card-title">
-محاسبهگر وزن سوله
+<div class="section-title small">
+<span class="title-icon">📍</span>
+<div>
+<h3>موقعیت پروژه</h3>
+<p>استان و شهر پروژه را انتخاب کنید.</p>
 </div>
 
-<div class="card-subtitle">
-محاسبه وزن سازه و پوشش سقف
 </div>
 
+<div class="grid">
 
-<!-- ===== FORM ===== -->
-
-<div class="form-grid">
-
-<!-- استان -->
-<div class="form-group">
-
+<div class="field">
 <label for="province">
 استان
 </label>
 
-<select id="province">
-<option value="">
-انتخاب استان
-</option>
+<select
+id="province"
+onchange="populateCities()">
 </select>
-
 </div>
 
 
-<!-- شهر -->
-<div class="form-group">
-
-
+<div class="field">
 <label for="city">
 شهر
 </label>
 
-<select id="city" disabled>
 
-<option value="">
-ابتدا استان را انتخاب کنید
-</option>
-
+<select
+id="city"
+onchange="updateChecklist()">
 </select>
-
 </div>
-
-
-<!-- دهانه -->
-<div class="form-group">
-
-<label for="span">
-
-دهانه سوله (متر)
-</label>
-
-<input
-type="number"
-id="span"
-min="12"
-max="50"
-step="1"
-value="20"
-placeholder="مثلاً ۲۰"
->
-
-</div>
-
-
-<!-- طول -->
-<div class="form-group">
-
-<label for="length">
-
-طول سوله (متر)
-</label>
-
-<input
-type="number"
-id="length"
-min="10"
-step="1"
-value="50"
-placeholder="مثلاً ۵۰"
->
-
-</div>
-
-
-<!-- ارتفاع -->
-<div class="form-group">
-
-<label for="height">
-ارتفاع سوله (متر)
-
-</label>
-
-<input
-type="number"
-id="height"
-min="3"
-step="0.5"
-value="6"
-placeholder="مثلاً ۶"
->
-
-</div>
-
-
-<!-- جرثقیل -->
-<div class="form-group">
-
-<label for="crane">
-ظرفیت جرثقیل (تن)
-</label>
-
-
-<select id="crane">
-
-<option value="0">
-بدون جرثقیل
-</option>
-
-<option value="5">
-۵ تن
-</option>
-
-<option value="10">
-۱۰ تن
-</option>
-
-<option value="15">
-۱۵ تن
-</option>
-
-<option value="20">
-
-۲۰ تن
-</option>
-
-<option value="25">
-۲۵ تن
-</option>
-
-<option value="30">
-۳۰ تن
-</option>
-
-<option value="35">
-۳۵ تن
-</option>
-
-<option value="40">
-۴۰ تن
-</option>
-
-<option value="45">
-
-۴۵ تن
-</option>
-
-<option value="50">
-۵۰ تن
-</option>
-
-</select>
 
 </div>
 
 </div>
 
 
-<!-- ===== CALCULATE BUTTON ===== -->
+<!-- ================= SHEDS ================= -->
+<div class="shed-section">
 
+<div class="section-title small">
+
+<span class="title-icon">🏭</span>
+
+<div>
+<h3>مشخصات سولهها</h3>
+
+<p>
+مشخصات هر سوله مستقل وارد میشود.
+</p>
+</div>
+
+</div>
+
+
+<!-- لیست سولهها -->
+<div id="shedList"></div>
+
+
+<!-- افزودن سوله -->
 <button
-class="calculate-btn"
-onclick="calculate()"
->
+type="button"
+id="addShedBtn"
+class="add-shed-btn"
 
-محاسبه وزن سوله
+onclick="addShed()">
+
+＋ افزودن سوله
+
+</button>
+
+</div>
+
+
+<!-- ================= RULES ================= -->
+<div class="rules-box">
+
+<div class="rules-title">
+⚙️ مبنای برآورد
+</div>
+
+<div class="rules-grid">
+
+<div class="rule">
+
+<span>فاصله فریمها</span>
+<b>۶ متر</b>
+</div>
+
+<div class="rule">
+<span>دهانه مجاز</span>
+<b>۱۰ تا ۵۰ متر</b>
+</div>
+
+<div class="rule">
+<span>لاین عرضی</span>
+<b>بر اساس طول سوله</b>
+</div>
+
+<div class="rule">
+<span>در هر سوله</span>
+<b>یک درب ۶ متری</b>
+</div>
+
+<div class="rule">
+
+<span>پنجره طولی</span>
+<b>۲ × ۶ متر</b>
+</div>
+
+<div class="rule">
+<span>دیوار مشترک</span>
+<b>صفر</b>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= CHECKLIST ================= -->
+<div class="checklist-box">
+
+<div class="checklist-title">
+✅ کنترل اطلاعات قبل از محاسبه
+
+</div>
+
+<div id="checklist" class="checklist">
+
+<!-- توسط JavaScript پر میشود -->
+
+</div>
+
+</div>
+
+
+<!-- ================= CALCULATE BUTTON ================= -->
+<button
+type="button"
+class="calculate-btn"
+onclick="calculateProject()">
+
+<span class="calculate-icon">
+🧮
+
+</span>
+
+<span>
+محاسبه پروژه
+</span>
+
 </button>
 
 
-<!-- ===== RESULTS ===== -->
+<!-- ================= RESULTS ================= -->
+<section
+id="results"
+class="results-card">
 
-<div class="results" id="results">
+<!-- نتیجه بالا -->
 
+<div class="result-header">
+
+<div>
+
+
+<div class="result-title">
+نتیجه برآورد پروژه
+</div>
+
+<div class="result-subtitle">
+مقادیر زیر برآورد اولیه هستند و جایگزین طراحی سازه و نقشه اجرایی نیستند.
+</div>
+
+</div>
+
+
+<div
+id="resultModeBadge"
+class="result-badge">
+تکقلو
+</div>
+
+</div>
+
+
+
+<!-- ================= TABS ================= -->
 <div class="tabs">
 
-<div
-class="tab active"
-id="weightTab"
-onclick="showTab('weight')"
->
-وزن سازه
-</div>
-
-<div
-class="tab"
-
-id="roofTab"
-onclick="showTab('roof')"
->
-پوشش سقف
-</div>
-
-</div>
-
-
-<!-- ===== WEIGHT RESULT ===== -->
-
-<div
-class="result-box"
-id="weightResult"
->
-
-<div class="result-unit">
-وزن تقریبی سازه
-</div>
-
-<div
-class="result-value"
-id="totalWeight"
->
--
-</div>
-
-<div class="result-unit">
-تن
-</div>
-
-<div
-class="result-info"
-id="weightInfo"
->
-</div>
-
-</div>
-
-<!-- ===== ROOF RESULT ===== -->
-
-<div
-class="result-box"
-id="roofResult"
-style="display:none;"
->
-
-<div class="result-unit">
-مساحت تقریبی پوشش سقف
-</div>
-
-<div
-class="result-value"
-id="roofCover"
->
--
-</div>
-
-<div class="result-unit">
-
-مترمربع
-</div>
-
-<div
-class="result-info"
-id="roofInfo"
->
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ===== FOOTER ===== -->
-
-<div class="footer">
-
-<strong>
-برآورد سریع و اولیه
-</strong>
-
-<br>
-
-این محاسبه صرفاً جهت برآورد اولیه بوده
-و جایگزین محاسبات مهندسی و طراحی سازه نیست.
-
-<br>
-
-<span class="numbers">
-۰۹۱۰۵۲۸۹۰۶۸
-</span>
-
-  |  
-
-<span class="numbers">
-۰۹۱۹۹۵۲۸۸۶۰
-</span>
-
-
-<br>
-
 <button
-onclick="openModal()"
-style="
-margin-top:8px;
-padding:8px 18px;
-border:none;
-border-radius:10px;
-background:rgba(77,166,255,0.2);
-color:#fff;
-cursor:pointer;
-font-weight:bold;
-"
->
-تماس / واتساپ
+type="button"
+class="tab active"
+onclick="showTab('weight',this)">
+⚖️ وزن سازه
 </button>
 
-</div>
+<button
+type="button"
+class="tab"
+onclick="showTab('roof',this)">
+🏠 پوشش سقف
+</button>
+
+<button
+type="button"
+class="tab"
+onclick="showTab('walls',this)">
+🧱 دیوارها
+</button>
+
+<button
+type="button"
+class="tab"
+onclick="showTab('foundation',this)">
+🏗️ فونداسیون
+</button>
+
+<button
+type="button"
+class="tab"
+onclick="showTab('members',this)">
+🔩 اعضای سازه
+</button>
 
 
 </div>
 
 
-<!-- ===== MODAL ===== -->
+<!-- ================= WEIGHT ================= -->
+<div
+id="tab-weight"
+class="result-section active">
 
 <div
+id="weightMetrics"
+class="metrics-grid">
+</div>
+
+<div
+id="weightDetails"
+class="details">
+</div>
+
+</div>
+
+
+<!-- ================= ROOF ================= -->
+<div
+id="tab-roof"
+class="result-section">
+
+<div
+id="roofMetrics"
+class="metrics-grid">
+</div>
+
+<div
+id="roofDetails"
+class="details">
+</div>
+
+</div>
+
+
+
+<!-- ================= WALLS ================= -->
+<div
+id="tab-walls"
+class="result-section">
+
+<div
+id="wallMetrics"
+class="metrics-grid">
+</div>
+
+<div
+id="wallDetails"
+class="details">
+</div>
+
+</div>
+
+
+<!-- ================= FOUNDATION ================= -->
+<div
+id="tab-foundation"
+class="result-section">
+
+<div
+id="foundationMetrics"
+class="metrics-grid">
+</div>
+
+<div
+id="foundationDetails"
+class="details">
+</div>
+
+</div>
+
+<!-- ================= MEMBERS ================= -->
+<div
+id="tab-members"
+class="result-section">
+
+<div
+id="memberMetrics"
+class="metrics-grid">
+</div>
+
+<div
+id="memberDetails"
+class="details">
+</div>
+
+</div>
+
+
+<!-- ================= DISCLAIMER 
+
+================= -->
+<div class="result-disclaimer">
+
+⚠️
+این محاسبات برای برآورد اولیه و مقایسه اقتصادی پروژه است.
+ابعاد نهایی مقاطع، اتصالات، فونداسیون، آرماتورگذاری و سایر اجزای سازه
+باید توسط مهندس محاسب و بر اساس بارگذاری، آییننامهها، شرایط خاک و نقشه اجرایی تعیین شود.
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+
+<div class="footer-brand">
+<strong>MOHAMMADI STEEL STRUCTURES</strong>
+<span>Sooleh.Center</span>
+</div>
+
+<div class="footer-info">
+مهندس علی محمدی
+</div>
+
+<div class="footer-contact">
+📞 ۰۹۱۲۵۲۸۵۸۴۱
+</div>
+
+<div class="footer-links">
+
+<a
+href="https://www.instagram.com/sooleh.center"
+target="_blank"
+
+rel="noopener">
+Instagram
+</a>
+
+<a
+href="https://t.me/poladsazeh"
+target="_blank"
+rel="noopener">
+Telegram
+</a>
+
+</div>
+
+<div class="footer-copy">
+© Sooleh.Center
+</div>
+
+</footer>
+
+</div>
+
+
+
+<!-- ================= PHONE MODAL ================= -->
+
+<div
+id="phoneModal"
 class="modal"
-id="contactModal"
-onclick="closeModal(event)"
+onclick="closeModal(event)">
 
-<div
-class="modal-content"
-onclick="event.stopPropagation()"
->
+<div class="modal-box">
+
+<button
+type="button"
+class="modal-close"
+onclick="closeModal()">
+×
+</button>
 
 <div class="modal-title">
+
 ارتباط با مهندس علی محمدی
 </div>
 
-<div class="modal-buttons">
+<div class="modal-subtitle">
+جهت مشاوره، فروش و اجرای سوله و اسکلت فلزی
+</div>
+
 
 <a
-class="call-btn"
-href="tel:09125285841"
->
-📞 تماس مستقیم
+class="modal-phone"
+href="tel:09125285841">
+
+📞 ۰۹۱۲۵۲۸۵۸۴۱
+
 </a>
 
+
 <a
-class="whatsapp-btn"
-href="https://wa.me/989125285841"
+class="modal-phone"
+href="tel:09105289068">
+
+
+📞 ۰۹۱۰۵۲۸۹۰۶۸
+
+</a>
+
+
+<a
+class="modal-phone"
+href="tel:09199528860">
+
+📞 ۰۹۱۹۹۵۲۸۸۶۰
+
+</a>
+
+
+<div class="modal-social">
+
+<a
+href="https://www.instagram.com/sooleh.center"
 target="_blank"
->
-💬 واتساپ
+
+rel="noopener">
+Instagram
 </a>
 
-<button
-class="close-btn"
-onclick="closeModal()"
-
->
-بستن
-</button>
-
-</div>
+<a
+href="https://t.me/poladsazeh"
+target="_blank"
+rel="noopener">
+Telegram
+</a>
 
 </div>
 
 </div>
+
+</div>
+
+
+<!-- ================= SCRIPT STARTS IN NEXT PART ================= -->
 
 
 <script>
-// ===== اطلاعات استانها =====
+/* =========================================================
+PART 3 — DATA / CONFIG / SHED MANAGEMENT
+========================================================= */
 
 const provinces = {
 
 "آذربایجان شرقی": {
 rate: 35,
-cities: [
-"تبریز",
-
-"مراغه",
-"مرند",
-"میانه",
-"اهر",
-"بناب",
-"سراب",
-"جلفا"
- ]
+cities: ["تبریز","مراغه","مرند","میانه","اهر","شبستر"]
 },
 
 "آذربایجان غربی": {
 rate: 35,
-cities: [
-"ارومیه",
-"خوی",
-"مهاباد",
-"میاندوآب",
-"بوکان",
-"سلماس",
-"پیرانشهر"
-
- ]
+cities: ["ارومیه","خوی","میاندوآب","مهاباد","بوکان","سلماس"]
 },
+
 
 "اردبیل": {
 rate: 35,
-cities: [
-"اردبیل",
-"پارسآباد",
-"مشگینشهر",
-"خلخال",
-"گرمی"
- ]
+cities: ["اردبیل","پارسآباد","مشگینشهر","خلخال"]
 },
 
 "اصفهان": {
 rate: 32,
-cities: [
-"اصفهان",
-"کاشان",
-"خمینیشهر",
-
-"نجفآباد",
-"شاهینشهر",
-"شهرضا",
-"مبارکه",
-"فلاورجان"
- ]
+cities: ["اصفهان","کاشان","نجفآباد","خمینیشهر","مبارکه","شاهینشهر"]
 },
 
 "البرز": {
 rate: 32,
-cities: [
-"کرج",
-"فردیس",
-"نظرآباد",
-"هشتگرد",
-"محمدشهر"
- ]
+cities: ["کرج","فردیس","نظرآباد","هشتگرد"]
 },
 
 "ایلام": {
-
 rate: 33.5,
-cities: [
-"ایلام",
-"دهلران",
-"آبدانان",
-"ایوان",
-"مهران"
- ]
+
+cities: ["ایلام","دهلران","آبدانان","مهران"]
 },
 
 "بوشهر": {
 rate: 28,
-cities: [
-"بوشهر",
-"برازجان",
-"عسلویه",
-"کنگان",
-"گناوه",
-"دیلم",
-"خورموج"
-
- ]
+cities: ["بوشهر","دشتستان","کنگان","عسلویه","گناوه"]
 },
 
 "تهران": {
 rate: 32,
-cities: [
-"تهران",
-"اسلامشهر",
-"شهریار",
-"شهرری",
-"قدس",
-"رباطکریم",
-"پاکدشت",
-"ورامین"
- ]
+cities: ["تهران","اسلامشهر","شهریار","قدس","رباطکریم","ورامین"]
 },
 
 "چهارمحال و بختیاری": {
 rate: 35,
-cities: [
-
-"شهرکرد",
-"بروجن",
-"فارسان",
-"لردگان",
-"فرخشهر"
- ]
+cities: ["شهرکرد","بروجن","فارسان","لردگان"]
 },
 
 "خراسان جنوبی": {
+
 rate: 30,
-cities: [
-"بیرجند",
-"قاین",
-"طبس",
-"فردوس",
-"نهبندان"
- ]
+cities: ["بیرجند","قائن","طبس","فردوس"]
 },
 
 "خراسان رضوی": {
-
 rate: 31,
-cities: [
-"مشهد",
-"نیشابور",
-"سبزوار",
-"تربتحیدریه",
-"کاشمر",
-"قوچان",
-"تربتجام",
-"گناباد"
- ]
+cities: ["مشهد","نیشابور","سبزوار","تربت حیدریه","قوچان"]
 },
 
 "خراسان شمالی": {
 rate: 32,
-cities: [
-"بجنورد",
-"شیروان",
-"اسفراین",
-"جاجرم",
-
-"آشخانه"
- ]
+cities: ["بجنورد","شیروان","اسفراین","جاجرم"]
 },
 
 "خوزستان": {
 rate: 27,
-cities: [
-"اهواز",
-"دزفول",
-"آبادان",
-"خرمشهر",
-"ماهشهر",
-"بندر امام خمینی",
-"شوش",
-"شوشتر",
-"بهبهان"
- ]
+cities: ["اهواز","دزفول","شوشتر","آبادان","خرمشهر","ماهشهر"]
 },
 
 "زنجان": {
-
 rate: 32,
-cities: [
-"زنجان",
-"ابهر",
-"خرمدره",
-"قیدار",
-"ماهنشان"
- ]
+cities: ["زنجان","ابهر","خرمدره","قیدار"]
 },
 
 "سمنان": {
 rate: 32,
-cities: [
-"سمنان",
-"شاهرود",
-"دامغان",
-"گرمسار",
-"مهدیشهر"
- ]
+cities: ["سمنان","شاهرود","دامغان","گرمسار"]
 },
-
 
 "سیستان و بلوچستان": {
 rate: 28,
-cities: [
-"زاهدان",
-"زابل",
-"چابهار",
-"ایرانشهر",
-"سراوان",
-"خاش",
-"کنارک"
- ]
+cities: ["زاهدان","زابل","چابهار","ایرانشهر"]
 },
 
 "فارس": {
 rate: 30,
-cities: [
-"شیراز",
-"مرودشت",
-"جهرم",
-
-"فسا",
-"کازرون",
-"لار",
-"داراب",
-"آباده",
-"فیروزآباد"
- ]
+cities: ["شیراز","مرودشت","جهرم","فسا","لار","کازرون"]
 },
 
 "قزوین": {
 rate: 33.5,
-cities: [
-"قزوین",
-"تاکستان",
-"آبیک",
-"الوند",
-"بوئینزهرا"
- ]
+cities: ["قزوین","تاکستان","آبیک","الوند"]
 },
 
 "قم": {
 rate: 30,
-cities: [
-"قم",
-"جعفریه",
-"سلفچگان",
-"کهک"
- ]
+cities: ["قم"]
 },
 
 "کردستان": {
 rate: 33.5,
-cities: [
-"سنندج",
-"سقز",
-"مریوان",
-"بانه",
-"قروه",
-"بیجار"
- ]
-
+cities: ["سنندج","سقز","مریوان","بانه","قروه"]
 },
 
 "کرمان": {
 rate: 29,
-cities: [
-"کرمان",
-"رفسنجان",
-"سیرجان",
-"جیرفت",
-"بم",
-"زرند",
-"شهربابک",
-"کهنوج"
- ]
+cities: ["کرمان","رفسنجان","سیرجان","جیرفت","بم"]
 },
 
 "کرمانشاه": {
 rate: 33,
-cities: [
-"کرمانشاه",
-
-"اسلامآباد غرب",
-"کنگاور",
-"هرسین",
-"پاوه",
-"جوانرود",
-"قصرشیرین"
- ]
+cities: ["کرمانشاه","اسلامآباد غرب","کنگاور","هرسین"]
 },
 
 "کهگیلویه و بویراحمد": {
 rate: 32,
-cities: [
-"یاسوج",
-"دهدشت",
-"گچساران",
-"لیکک"
- ]
+cities: ["یاسوج","دهدشت","گچساران"]
 },
 
 "گلستان": {
-
 rate: 33,
-cities: [
-"گرگان",
-"گنبدکاووس",
-"علیآباد کتول",
-"بندرترکمن",
-"کردکوی",
-"مینودشت"
- ]
+cities: ["گرگان","گنبد کاووس","علیآباد","آققلا"]
 },
 
 "گیلان": {
 rate: 33,
-cities: [
-"رشت",
-"انزلی",
-"لاهیجان",
-"لنگرود",
-"آستارا",
-"رودسر",
-
-"رودبار",
-"فومن"
- ]
+cities: ["رشت","انزلی","لاهیجان","لنگرود","رودسر"]
 },
 
 "لرستان": {
 rate: 32,
-cities: [
-"خرمآباد",
-"بروجرد",
-"دورود",
-"الیگودرز",
-"کوهدشت",
-"پلدختر"
- ]
+cities: ["خرمآباد","بروجرد","دورود","الیگودرز"]
 },
 
 "مازندران": {
 rate: 33,
-cities: [
-
-"ساری",
-"بابل",
-"آمل",
-"قائمشهر",
-"چالوس",
-"نوشهر",
-"تنکابن",
-"بهشهر"
- ]
+cities: ["ساری","بابل","آمل","قائمشهر","نوشهر","چالوس"]
 },
 
 "مرکزی": {
 rate: 34,
-cities: [
-"اراک",
-"ساوه",
-"خمین",
-"محلات",
-"دلیجان",
-"شازند"
-
- ]
+cities: ["اراک","ساوه","خمین","محلات","دلیجان"]
 },
 
 "هرمزگان": {
 rate: 28,
-cities: [
-"بندرعباس",
-"بندرلنگه",
-"میناب",
-"قشم",
-"جاسک",
-"رودان",
-"حاجیآباد"
- ]
+cities: ["بندرعباس","میناب","قشم","بندر لنگه","رودان"]
 },
 
 "همدان": {
 rate: 32,
-cities: [
-"همدان",
-
-"ملایر",
-"نهاوند",
-"تویسرکان",
-"کبودراهنگ",
-"اسدآباد"
- ]
+cities: ["همدان","ملایر","نهاوند","اسدآباد"]
 },
 
 "یزد": {
 rate: 30,
-cities: [
-"یزد",
-"میبد",
-"اردکان",
-"بافق",
-"مهریز",
-"تفت"
- ]
+cities: ["یزد","میبد","اردکان","مهریز","بافق"]
 }
 
 };
-// ===== ضرایب جرثقیل =====
+
+
+/* =========================================================
+جرثقیل سقفی
+========================================================= */
 
 const craneAddition = {
+
 0: 0,
 5: 5,
 10: 7.5,
@@ -1217,455 +1258,3418 @@ const craneAddition = {
 40: 35,
 45: 40,
 50: 45
+
 };
 
 
-// ===== وزن پایه بر اساس دهانه =====
+/* =========================================================
+
+جدول وزن پایه دهانه
+نکته:
+دهانه ۵۰ متر طبق اصلاح نهایی = ۵۲ kg/m²
+========================================================= */
 
 const spanTable = [
+
 [12, 25],
+
 [15, 28],
+
 [18, 29],
+
 [20, 32],
+
 [25, 37.125],
+
 [30, 42.25],
+
 [35, 44.8125],
+
 [40, 47.375],
+
 [45, 49.9375],
-[50, 52.5]
+
+[50, 52]
+
 ];
 
 
-// ===== عناصر فرم =====
+/* =========================================================
+ضرایب اشتراک سولههای چندقلو
+این ضرایب از نمونههای توافقشده قبلی استخراج شدهاند.
 
-const provinceSelect = document.getElementById("province");
-const citySelect = document.getElementById("city");
+نمونههای مبنا:
+تکقلو 20×48×6 = 37 تن
+دوقلو 20+20×48×6 = 62.7 تن
+
+سهقلو 20+20+20×48×6 = 96.3 تن
+
+توجه:
+این ضرایب برآورد اولیهاند و طراحی سازهای نیستند.
+========================================================= */
+
+const multiFactors = {
+
+1: 1,
+
+2: 62.7 / (37 * 2),
+
+3: 96.3 / (37 * 3)
+
+};
 
 
+/* ============================================
 
-// ===== پر کردن لیست استانها =====
+=============
+وضعیت پروژه
+========================================================= */
 
-Object.keys(provinces).forEach(province => {
+let mode = 1;
 
-const option = document.createElement("option");
-
-option.value = province;
-option.textContent = province;
-
-provinceSelect.appendChild(option);
-
-});
+let shedData = [];
 
 
-// ===== تغییر استان =====
+/* =========================================================
+اعداد فارسی
+========================================================= */
 
-provinceSelect.addEventListener("change", function () {
+function fa(n, digits = 2) {
 
+if (!Number.isFinite(Number(n))) {
 
-const province = this.value;
-
-citySelect.innerHTML = "";
-
-if (!province) {
-
-citySelect.disabled = true;
-
-const option = document.createElement("option");
-
-option.value = "";
-option.textContent = "ابتدا استان را انتخاب کنید";
-
-citySelect.appendChild(option);
-
-return;
+return "—";
 }
 
-citySelect.disabled = false;
-
-
-const firstOption = document.createElement("option");
-
-firstOption.value = "";
-firstOption.textContent = "انتخاب شهر";
-
-citySelect.appendChild(firstOption);
-
-
-provinces[province].cities.forEach(city => {
-
-const option = document.createElement("option");
-
-option.value = city;
-option.textContent = city;
-
-citySelect.appendChild(option);
-
-});
-
-
-});
-
-
-// ===== تبدیل اعداد انگلیسی به فارسی =====
-
-function toPersianNumber(value) {
-
-return String(value)
-.replace(/0/g, "۰")
-.replace(/1/g, "۱")
-.replace(/2/g, "۲")
-.replace(/3/g, "۳")
-.replace(/4/g, "۴")
-.replace(/5/g, "۵")
-.replace(/6/g, "۶")
-.replace(/7/g, "۷")
-.replace(/8/g, "۸")
-.replace(/9/g, "۹");
+return Number(n).toLocaleString(
+"fa-IR",
+{
+maximumFractionDigits: digits
+}
+);
 
 }
-// ===== محاسبه وزن پایه بر اساس دهانه =====
+
+
+/* =========================================================
+تبدیل اعداد فارسی به انگلیسی
+========================================================= */
+
+function enNumber(v) {
+
+if (
+v === null ||
+v === undefined
+) {
+return 0;
+}
+
+return Number(
+
+String(v)
+
+.replace(
+/[۰-۹]/g,
+d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+)
+
+.replace(/٫/g, ".")
+
+.replace(/٬/g, "")
+
+.replace(/,/g, "")
+
+) || 0;
+
+}
+
+
+/* =========================================================
+جلوگیری از تزریق HTML
+========================================================= */
+
+function esc(s) {
+
+return String(s).replace(
+/[&<>"']/g,
+
+m => ({
+"&": "&",
+"<": "<",
+">": ">",
+'"': """,
+"'": "'"
+}[m])
+);
+
+}
+
+
+/* =========================================================
+وزن پایه بر اساس دهانه
+بین نقاط جدول به صورت خطی محاسبه میشود.
+========================================================= */
 
 function spanBase(span) {
 
-if (span <= spanTable[0][0]) {
-return spanTable[0][1];
+span = Number(span);
+
+if (span <= 12) {
+return 25;
 }
 
-if (span >= spanTable[spanTable.length - 1][0]) {
-return spanTable[spanTable.length - 1][1];
+if (span >= 50) {
+return 52;
 }
 
+for (
+let i = 0;
+i < spanTable.length - 1;
+i++
+) {
 
-for (let i = 0; i < spanTable.length - 1; i++) {
+const [
+x1,
 
-const x1 = spanTable[i][0];
-const y1 = spanTable[i][1];
+y1
+ ] = spanTable[i];
 
-const x2 = spanTable[i + 1][0];
+const [
+x2,
+y2
+ ] = spanTable[i + 1];
 
-const y2 = spanTable[i + 1][1];
+if (
+span >= x1 &&
+span <= x2
+) {
 
-
-if (span >= x1 && span <= x2) {
-
-const ratio = (span - x1) / (x2 - x1);
-
-return y1 + ratio * (y2 - y1);
-
-}
-
-}
-
-return spanTable[0][1];
-
-}
-
-
-// ===== تابع اصلی محاسبه =====
-
-function calculate() {
-
-const province = provinceSelect.value;
-const city = citySelect.value;
-
-const span = parseFloat(
-document.getElementById("span").value
+return (
+y1 +
+(span - x1) *
+(y2 - y1) /
+(x2 - x1)
 );
 
-const length = parseFloat(
-document.getElementById("length").value
-);
+}
 
-const height = parseFloat(
-document.getElementById("height").value
-);
+}
 
-const crane = parseFloat(
-document.getElementById("crane").value
-);
-
-
-
-// ===== بررسی اطلاعات =====
-
-if (!province) {
-
-alert("لطفاً استان را انتخاب کنید.");
-
-return;
+return 25;
 
 }
 
 
-if (!city) {
+/* =========================================================
+گزینههای جرثقیل
+========================================================= */
 
-alert("لطفاً شهر را انتخاب کنید.");
+function getCraneOptions(selected = 0) {
 
-return;
+return Object.keys(craneAddition)
+
+.map(k => `
+
+<option
+value="
+ 
+{Number(k) === Number(selected) ? "selected" : ""}
+>
+$`{k} تن
+</option>
+
+`)
+
+.join("");
+
+}
+
+
+/* =========================================================
+ایجاد سوله جدید
+
+========================================================= */
+
+function newShed(i) {
+
+return {
+
+id: i,
+
+span: 20,
+
+length: 48,
+
+height: 6,
+
+crane: 0
+
+};
+
+}
+
+
+
+/* =========================================================
+تغییر حالت تک / دو / سه قلویی
+========================================================= */
+
+function setMode(n) {
+
+mode = n;
+
+document
+.getElementById("singleBtn")
+.classList
+.toggle("active", n === 1);
+
+document
+.getElementById("doubleBtn")
+
+.classList
+.toggle("active", n === 2);
+
+document
+.getElementById("tripleBtn")
+.classList
+.toggle("active", n === 3);
+
+
+while (
+shedData.length < n
+) {
+
+shedData.push(
+newShed(
+shedData.length + 1
+)
+);
 
 }
 
 
 
 if (
-isNaN(span) ||
-span < 12 ||
-span > 50
+shedData.length > n
 ) {
 
-alert("دهانه سوله باید بین ۱۲ تا ۵۰ متر باشد.");
-
-return;
+shedData =
+shedData.slice(0, n);
 
 }
 
+
+renderSheds();
+
+updateChecklist();
+
+document
+.getElementById("results")
+.classList
+.remove("show");
+
+
+}
+
+
+/* =========================================================
+افزودن سوله
+========================================================= */
+
+function addShed() {
 
 if (
-isNaN(length) ||
-length <= 0
+shedData.length >= 3
 ) {
-
-alert("طول سوله را بهدرستی وارد کنید.");
-
 return;
+}
+
+shedData.push(
+
+newShed(
+shedData.length + 1
+)
+);
+
+mode =
+shedData.length;
+
+
+document
+.getElementById("singleBtn")
+.classList
+.toggle(
+"active",
+mode === 1
+);
+
+document
+.getElementById("doubleBtn")
+.classList
+
+.toggle(
+"active",
+mode === 2
+);
+
+document
+.getElementById("tripleBtn")
+.classList
+.toggle(
+"active",
+mode === 3
+);
+
+
+renderSheds();
+
+updateChecklist();
 
 }
 
+
+/* =========================================================
+حذف سوله
+========================================================= */
+
+function removeShed(id) {
 
 if (
-isNaN(height) ||
-height < 3
+shedData.length <= 1
 ) {
-
-alert("ارتفاع سوله باید حداقل ۳ متر باشد.");
-
 return;
+}
+
+shedData =
+shedData.filter(
+x => x.id !== id
+);
+
+
+
+shedData.forEach(
+(x, i) => {
+x.id = i + 1;
+}
+);
+
+
+mode =
+shedData.length;
+
+
+setMode(mode);
 
 }
 
 
-// ===== مساحت تقریبی پلان =====
+/* =========================================================
+
+نمایش سولهها
+========================================================= */
+
+function renderSheds() {
+
+const list =
+document.getElementById(
+"shedList"
+);
 
 
-const area =
-(span + 2) *
-(length + 2);
+list.innerHTML =
+
+shedData.map(
+(s, i) => `
+
+<div class="shed-card">
+
+<div class="shed-head">
 
 
-// ===== وزن پایه دهانه =====
+<div class="shed-name">
 
-const baseWeight =
-spanBase(span);
+سوله `${fa(i + 1, 0)}
+
+</div>
 
 
-// ===== ضریب استان =====
+$`{
+shedData.length > 1
+
+?
+
+&lt;button type="button" class="shed-remove" onclick="removeShed(${s.id})"
+>
+حذف
+</button>
+`
+
+:
+
+""
+}
+
+</div>
+
+
+<div class="shed-row">
+
+
+<!-- دهانه -->
+
+<div class="field">
+
+<label>
+دهانه (متر)
+</label>
+
+<input
+
+type="number"
+min="10"
+max="50"
+step="1"
+value="
+ 
+{i},
+'span',
+this.value
+)
+"
+oninput="
+updateShed(
+$`{i},
+'span',
+this.value
+)
+"
+>
+
+<div class="small-hint">
+۱۰ تا ۵۰ متر
+</div>
+
+</div>
+
+
+<!-- طول -->
+
+<div class="field">
+
+<label>
+طول (متر)
+</label>
+
+<input
+type="number"
+min="6"
+step="1"
+value="${s.length}" onchange=" updateShed( ${i},
+
+'length',
+this.value
+)
+"
+oninput="
+updateShed(
+`${i},
+'length',
+this.value
+)
+"
+>
+
+<div class="small-hint">
+فاصله فریمها مبنا ۶ متر
+</div>
+
+</div>
+
+<!-- ارتفاع -->
+
+<div class="field">
+
+<label>
+ارتفاع (متر)
+</label>
+
+<input
+type="number"
+min="3"
+step=".5"
+value="
+ 
+{i},
+'height',
+this.value
+)
+"
+oninput="
+
+updateShed(
+$`{i},
+'height',
+this.value
+)
+"
+>
+
+</div>
+
+
+<!-- جرثقیل -->
+
+<div class="field">
+
+<label>
+جرثقیل سقفی
+</label>
+
+<select
+
+onchange="
+updateShed(
+`${i},
+'crane',
+this.value
+)
+"
+>
+
+$`{getCraneOptions(s.crane)}
+
+</select>
+
+</div>
+
+
+<div class="remove-cell"></div>
+
+</div>
+
+</div>
+
+`
+).join("");
+
+
+document
+.getElementById("addShedBtn")
+.classList
+.toggle(
+"hidden",
+shedData.length >= 3
+);
+
+}
+
+
+/* =========================================================
+
+بروزرسانی مشخصات سوله
+========================================================= */
+
+function updateShed(
+i,
+key,
+val
+) {
+
+if (!shedData[i]) {
+return;
+}
+
+shedData[i][key] =
+enNumber(val);
+
+updateChecklist();
+
+}
+
+
+
+/* =========================================================
+لیست استانها
+========================================================= */
+
+function populateProvinces() {
+
+const p =
+document.getElementById(
+"province"
+);
+
+
+p.innerHTML =
+Object.keys(provinces)
+
+.map(
+(x, i) => `
+
+<option
+value="${esc(x)}" ${i === 7 ? "selected" : ""}
+>
+`${esc(x)}
+</option>
+
+`
+)
+
+.join("");
+
+
+populateCities();
+
+}
+
+/* =========================================================
+لیست شهرها
+========================================================= */
+
+function populateCities() {
+
+const p =
+document.getElementById(
+"province"
+).value;
+
+
+const c =
+document.getElementById(
+"city"
+);
+
+
+c.innerHTML =
+(
+provinces[p]?.cities || []
+)
+
+.map(
+(x, i) => `
+
+<option
+value="
+ 
+{i === 0 ? "selected" : ""}
+>
+$`{esc(x)}
+</option>
+
+`
+)
+
+.join("");
+
+
+
+updateChecklist();
+
+}
+
+
+/* =========================================================
+چکلیست نهایی قبل از محاسبه
+========================================================= */
+
+function updateChecklist() {
+
+const province =
+document.getElementById(
+"province"
+)?.value || "—";
+
+
+
+const city =
+document.getElementById(
+"city"
+)?.value || "—";
+
+
+document.getElementById(
+"checklist"
+).innerHTML = [
+
+&lt;div class="check-item"&gt; استان: &lt;b&gt;${esc(province)}</b>
+</div>
+`,
+
+&lt;div class="check-item"&gt; شهر: &lt;b&gt;${esc(city)}</b>
+</div>
+
+`,
+
+...shedData.map(
+(s, i) => `
+
+<div class="check-item">
+
+سوله `${fa(i + 1, 0)}:
+
+<b>
+ 
+{fa(s.length, 1)}
+متر
+</b>
+
+|
+
+ارتفاع
+<b>
+$`{fa(s.height, 1)}
+
+</b>
+
+|
+
+جرثقیل
+<b>
+`${fa(s.crane, 0)}
+تن
+</b>
+
+</div>
+
+`
+)
+
+].join("");
+
+}
+/* ============================================
+
+=============
+PART 4 — GEOMETRY / STRUCTURAL ESTIMATION
+========================================================= */
+
+
+/* =========================================================
+تعداد فریم
+مبنا: هر ۶ متر یک فریم + فریم ابتدا
+مثال:
+48m → 9 فریم
+60m → 11 فریم
+120m → 21 فریم
+18m → 4 فریم
+========================================================= */
+
+function frameCount(length) {
+
+
+length = Number(length);
+
+if (!Number.isFinite(length) || length <= 0) {
+return 0;
+}
+
+return Math.floor(length / 6) + 1;
+
+}
+
+
+/* =========================================================
+لاین عرضی / مهاربندی
+تا ۳۰ متر = صفر
+بیشتر از ۳۰ تا ۶۰ = یک
+بیشتر از ۶۰ تا ۹۰ = دو
+بیشتر از ۹۰ تا ۱۲۰ = سه
+
+و به ازای هر ۳۰ متر اضافه، یک لاین بیشتر
+========================================================= */
+
+function braceLines(length) {
+
+length = Number(length);
+
+if (!Number.isFinite(length) || length <= 30) {
+return 0;
+}
+
+return Math.max(
+0,
+Math.ceil(length / 30) - 1
+);
+
+}
+
+/* =========================================================
+کمربند
+هر سوله به صورت مستقل محاسبه میشود.
+========================================================= */
+
+function beltEstimate(s) {
+
+return Number(s.length) * 2;
+
+}
+
+
+/* =========================================================
+برآورد اولیه وزن شناژ
+مبنای قبلی:
+
+شناژ با حدود ۵۰ تا ۶۰ کیلوگرم به ازای واحد طول
+این عدد فقط برای برآورد اولیه است.
+========================================================= */
+
+function shenageWeightEstimate(s) {
+
+const frames =
+frameCount(s.length);
+
+const sideCount = 2;
+
+const avgBase = 55;
+
+return (
+frames *
+sideCount *
+avgBase
+);
+
+}
+
+
+/* =========================================================
+محاسبه مستقل هر سوله
+========================================================= */
+
+function calcSingleShed(
+s,
+provinceRate
+) {
+
+const base =
+spanBase(s.span);
+
 
 const provinceAdjustment =
-provinces[province].rate - 32;
 
+Number(provinceRate) - 32;
 
-// ===== اثر ارتفاع =====
 
 const heightAdjustment =
-(height - 6) * 2;
+(Number(s.height) - 6) * 2;
 
-
-// ===== اثر جرثقیل =====
 
 const craneWeight =
-craneAddition[crane] || 0;
+craneAddition[s.crane] ?? 0;
 
 
-// ===== وزن هر مترمربع =====
-
-const kgPerSquareMeter =
-baseWeight +
+const kgm2 =
+base +
 provinceAdjustment +
 heightAdjustment +
 craneWeight;
 
 
-// ===== وزن کل =====
+/*
+•	مساحت محاسباتی سازه
+
+•	همان منطق قبلی برنامه
+*/
+
+const structuralArea =
+(Number(s.span) + 2) *
+(Number(s.length) + 2);
 
 
-const totalWeight =
-area *
-kgPerSquareMeter /
+const weightTon =
+structuralArea *
+kgm2 /
 1000;
 
 
-// ===== پوشش سقف =====
+/*
+•	مساحت تقریبی پوشش سقف
+*/
 
 const roofCover =
-(span + 3) *
-(length + 2) +
-(length / 2);
+
+(Number(s.span) + 3) *
+(Number(s.length) + 2)
++
+(Number(s.length) / 2);
 
 
-// ===== نمایش وزن =====
+const frames =
+frameCount(s.length);
 
-document.getElementById("totalWeight").textContent =
-toPersianNumber(
 
-totalWeight.toFixed(2)
+const lines =
+braceLines(s.length);
+
+
+const belt =
+beltEstimate(s);
+
+
+return {
+
+...s,
+
+
+base,
+
+provinceAdjustment,
+
+heightAdjustment,
+
+craneWeight,
+
+kgm2,
+
+structuralArea,
+
+weightTon,
+
+roofCover,
+
+frames,
+
+lines,
+
+
+belt
+
+};
+
+}
+
+
+/* =========================================================
+تعداد فریم مشترک بین دو سوله
+کوتاهترین طول، مبنای بخش مشترک است.
+========================================================= */
+
+function commonFrames(a, b) {
+
+return Math.min(
+
+frameCount(a.length),
+
+frameCount(b.length)
+
+);
+
+}
+
+
+/* =========================================================
+بیشترین تعداد فریم پروژه
+========================================================= */
+
+function totalUniqueFrames(data) {
+
+if (!data.length) {
+return 0;
+
+}
+
+return Math.max(
+...data.map(
+s => frameCount(s.length)
+)
+);
+
+}
+
+
+/* =========================================================
+تعداد فریمهای مشترک
+برای پروژه چندقلو
+========================================================= */
+
+function sharedColumnFrameCount(data) {
+
+
+if (data.length <= 1) {
+return 0;
+}
+
+/*
+•	بخش مشترک تا کوتاهترین سوله ادامه دارد.
+*/
+
+return Math.min(
+...data.map(
+s => frameCount(s.length)
+)
+);
+
+}
+
+
+/* 
+
+=========================================================
+تعداد ردیفهای فونداسیون
+تکقلو = ۲ ردیف
+دوقلو = ۳ ردیف
+سهقلو = ۴ ردیف
+========================================================= */
+
+function foundationRows(data) {
+
+return data.length + 1;
+
+}
+
+
+/* =========================================================
+تعداد ستونهای یکتا
+
+========================================================= */
+
+function columnCount(data) {
+
+if (!data.length) {
+return 0;
+}
+
+const rows =
+foundationRows(data);
+
+
+const maxFrames =
+Math.max(
+...data.map(
+s => frameCount(s.length)
+)
 );
 
 
-// ===== اطلاعات تکمیلی وزن =====
+/*
+•	در پروژه چندقلو، ستونهای روی خطوط مشترک
+•	یکبار شمارش میشوند.
+•	این تابع تعداد پایههای شبکهای پروژه را
+•	برای برآورد اولیه نشان میدهد.
+*/
 
-document.getElementById("weightInfo").innerHTML =
-
-"استان: " +
-province +
-"<br>" +
-
-"شهر: " +
-city +
-"<br>" +
-
-"دهانه: " +
-toPersianNumber(span) +
-" متر" +
-
-"<br>" +
-
-"طول: " +
-toPersianNumber(length) +
-" متر" +
-"<br>" +
-
-"ارتفاع: " +
-toPersianNumber(height) +
-" متر" +
-"<br>" +
-
-"وزن تقریبی هر مترمربع: " +
-toPersianNumber(
-kgPerSquareMeter.toFixed(2)
-) +
-" کیلوگرم";
+let total =
+rows * maxFrames;
 
 
-// ===== نمایش پوشش سقف =====
+/*
+•	برای طولهای متفاوت،
+•	فریمهای مازاد سولههای کوتاهتر
+•	به صورت مستقل بررسی میشوند.
+*/
+
+if (data.length > 1) {
+
+const maxLength =
+Math.max(
+...data.map(
+s => Number(s.length)
+)
+);
+
+const maxFrame =
+frameCount(maxLength);
 
 
-document.getElementById("roofCover").textContent =
-toPersianNumber(
-roofCover.toFixed(2)
+data.forEach(
+s => {
+
+const current =
+frameCount(s.length);
+
+if (current < maxFrame) {
+
+
+/*
+* تعداد پایههای اضافه در
+* بخش بلندتر به شبکه اضافه میشود.
+*/
+
+total +=
+maxFrame - current;
+
+}
+
+}
+);
+
+}
+
+return total;
+
+}
+
+
+/* =========================================================
+طول شناژهای طولی
+========================================================= */
+
+function longitudinalFoundationLengths(data) {
+
+if (!data.length) {
+return [];
+}
+
+
+/*
+•	تکقلو:
+•	دو طرف سوله
+*/
+
+
+if (data.length === 1) {
+
+return [
+
+Number(data[0].length),
+
+Number(data[0].length)
+
+];
+
+}
+
+
+const out = [];
+
+
+/*
+•	ضلع بیرونی اول
+
+*/
+
+out.push(
+Number(data[0].length)
 );
 
 
-// ===== اطلاعات تکمیلی پوشش =====
+/*
+•	ضلع بیرونی آخر
+*/
 
-document.getElementById("roofInfo").innerHTML =
-
-"مساحت تقریبی پوشش سقف و متعلقات: " +
-toPersianNumber(
-roofCover.toFixed(2)
-) +
-" مترمربع";
-
-// ===== نمایش نتایج =====
-
-document.getElementById("results").style.display =
-"block";
+out.push(
+Number(
+data[data.length - 1].length
+)
+);
 
 
-// ===== بازگشت به تب وزن =====
+/*
 
-showTab("weight");
+•	فصل مشترک سولهها
+•	فقط یک شناژ مشترک داریم.
+•	طول آن بر اساس بزرگترین
+•	طول دو سوله مجاور در نظر گرفته میشود.
+*/
 
-}
-// ===== مدیریت تبها =====
+for (
+let i = 0;
+i < data.length - 1;
+i++
+) {
 
-function showTab(tab) {
+out.push(
 
-const weightTab =
-document.getElementById("weightTab");
+Math.max(
 
-const roofTab =
+Number(data[i].length),
 
-document.getElementById("roofTab");
-
-const weightResult =
-document.getElementById("weightResult");
-
-const roofResult =
-document.getElementById("roofResult");
+Number(data[i + 1].length)
 
 
-if (tab === "weight") {
+)
 
-weightTab.classList.add("active");
-roofTab.classList.remove("active");
-
-weightResult.style.display = "block";
-roofResult.style.display = "none";
-
-}
-
-if (tab === "roof") {
-
-roofTab.classList.add("active");
-weightTab.classList.remove("active");
-
-roofResult.style.display = "block";
-weightResult.style.display = "none";
-
-}
+);
 
 }
 
 
-// ===== باز کردن پنجره تماس =====
+return out;
+
+}
+
+
+/* =========================================================
+تعداد والپست انتهای سوله
+مبنای توافقشده:
+تا ۲۱ متر = ۲ عدد
+بالاتر از ۲۱ متر = ۴ عدد
+
+========================================================= */
+
+function wallPostCount(span) {
+
+span = Number(span);
+
+if (span <= 21) {
+return 2;
+}
+
+return 4;
+
+}
+
+
+/* =========================================================
+اطلاعات دیوار انتهایی
+
+========================================================= */
+
+function endWallInfo(s) {
+
+const span =
+Number(s.span);
+
+const height =
+Number(s.height);
+
+
+/*
+•	مساحت ناخالص یک دیوار انتهایی
+*/
+
+const gross =
+span * height;
+
+
+/*
+•	یک درب ۶ متری
+•	برای برآورد اولیه:
+•	عرض ۶ متر × ارتفاع ۴ متر
+*/
+
+const door =
+6 * 4;
+
+
+/*
+•	پنجره طولی:
+•	عرض ۲ متر × ارتفاع ۶ متر
+*/
+
+const window =
+6 * 2;
+
+
+
+/*
+•	مساحت خالص
+*/
+
+const net =
+Math.max(
+0,
+gross - door - window
+);
+
+
+const posts =
+wallPostCount(span);
+
+
+/*
+•	فاصله تقریبی والپستها
+
+•	در دهانههای تا ۲۱ متر:
+•	باقیمانده بعد از درب بین دو طرف تقسیم میشود.
+•	بالاتر از ۲۱ متر:
+•	باقیمانده بین چهار بخش تقسیم میشود.
+*/
+
+const remainder =
+Math.max(
+0,
+span - 6
+);
+
+
+const spacing =
+posts === 2
+
+?
+
+remainder / 2
+
+:
+
+remainder / 4;
+
+
+return {
+
+gross,
+
+door,
+
+window,
+
+net,
+
+posts,
+
+remainder,
+
+spacing
+
+
+};
+
+}
+
+
+/* =========================================================
+دیوارهای طولی
+========================================================= */
+
+function longitudinalWallInfo(data) {
+
+const result = [];
+
+
+data.forEach(
+(s, i) => {
+
+
+/*
+* تکقلو:
+* دو ضلع خارجی
+*
+* دوقلو:
+* سوله اول یک ضلع خارجی
+* سوله دوم یک ضلع خارجی
+*
+* سهقلو:
+* سوله اول و آخر یک ضلع خارجی
+* سوله وسط هیچ ضلع طولی خارجی ندارد.
+*/
+
+let externalSides = 0;
+
+
+if (data.length === 1) {
+
+externalSides = 2;
+
+
+}
+
+else if (
+i === 0 ||
+i === data.length - 1
+) {
+
+externalSides = 1;
+
+}
+
+else {
+
+externalSides = 0;
+
+}
+
+
+const gross =
+
+Number(s.length) *
+Number(s.height) *
+externalSides;
+
+
+/*
+* در هر ضلع طولی خارجی:
+* پنجره طولی ۲ متر عرض دارد
+* و ارتفاع ۶ متر.
+*/
+
+const windows =
+Number(s.length) *
+2 *
+externalSides;
+
+
+const net =
+Math.max(
+0,
+
+gross - windows
+);
+
+
+result.push({
+
+gross,
+
+windows,
+
+net,
+
+externalSides
+
+});
+
+}
+);
+
+return result;
+
+}
+
+
+/* =========================================================
+مجموع مساحت دیوار بلوک / آجر
+========================================================= */
+
+function brickBlockArea(data) {
+
+let area = 0;
+
+
+const longitudinal =
+longitudinalWallInfo(data);
+
+
+data.forEach(
+(s, i) => {
+
+/*
+* دو دیوار انتهایی
+*/
+
+const end =
+2 *
+endWallInfo(s).net;
+
+
+/*
+* فقط دیوارهای طولی خارجی
+*/
+
+const long =
+longitudinal[i].net;
+
+
+area +=
+end + long;
+
+}
+);
+
+
+return area;
+
+}
+
+
+/* =========================================================
+برآورد فونداسیون
+
+نکته مهم:
+این قسمت «برآورد اولیه» است و طراحی فونداسیون محسوب
+نمیشود.
+
+مبنای فعلی:
+•	بتن اصلی: عیار ۴۰۰
+•	مگر: عیار ۱۵۰
+•	برای دهانه بالاتر از ۳۵ متر:
+حجم قطعی ارائه نمیشود.
+========================================================= */
+
+function foundationEstimate(data) {
+
+/*
+•	اگر حتی یکی از دهانهها بیشتر از ۳۵ متر باشد،
+•	حجم بتن باید طبق طراحی مهندس محاسب بررسی شود.
+*/
+
+
+if (
+data.some(
+s => Number(s.span) > 35
+)
+) {
+
+return {
+
+available: false,
+
+main: 0,
+
+lean: 0,
+
+baseArea: 0,
+
+footings: 0,
+
+rows:
+
+foundationRows(data)
+
+};
+
+}
+
+
+const rows =
+foundationRows(data);
+
+
+const maxFrames =
+Math.max(
+...data.map(
+s => frameCount(s.length)
+)
+);
+
+
+const footings =
+
+rows * maxFrames;
+
+
+let main = 0;
+
+let lean = 0;
+
+let baseArea = 0;
+
+
+/*
+•	هر ردیف فونداسیون به یکی از
+•	سولههای مجاور خود وابسته است.
+*/
+
+for (
+let r = 0;
+r < rows;
+r++
+
+) {
+
+let adjacent = [];
+
+
+/*
+* ردیف بیرونی اول
+*/
+
+if (r === 0) {
+
+adjacent = [
+data[0]
+];
+
+}
+
+
+/*
+* ردیف بیرونی آخر
+
+*/
+
+else if (
+r === rows - 1
+) {
+
+adjacent = [
+data[data.length - 1]
+];
+
+}
+
+
+/*
+* ردیف مشترک
+*/
+
+else {
+
+adjacent = [
+
+data[r - 1],
+data[r]
+].filter(Boolean);
+
+}
+
+
+const span =
+Math.max(
+...adjacent.map(
+x => Number(x.span)
+)
+);
+
+
+/*
+* برآورد اولیه عرض پایه
+*
+* این مقدار صرفاً برای برآورد اولیه
+* نرمافزار است و طراحی اجرایی نیست.
+
+*/
+
+const base =
+Math.max(
+1,
+span * 0.10
+);
+
+
+/*
+* ارتفاع فرضی پایه
+*/
+
+const height =
+0.60;
+
+
+/*
+* طول مبنا برای تعداد پایهها
+*/
+
+
+const frameLen =
+Math.max(
+...adjacent.map(
+x => Number(x.length)
+)
+);
+
+
+const count =
+Math.floor(
+frameLen / 6
+) + 1;
+
+
+/*
+* حجم بتن اصلی
+*/
+
+const v =
+
+count *
+base *
+base *
+height;
+
+
+/*
+* مساحت زیر پایه
+*/
+
+const a =
+count *
+base *
+base;
+
+
+/*
+* بتن مگر ۱۰ سانتیمتر
+*/
+
+const leanVolume =
+a * 0.10;
+
+
+main += v;
+
+baseArea += a;
+
+lean += leanVolume;
+
+}
+
+
+return {
+
+available: true,
+
+main,
+
+lean,
+
+
+baseArea,
+
+footings,
+
+rows
+
+};
+
+}
+/* =========================================================
+PART 5 — CALCULATION / RESULTS / RENDERING
+========================================================= */
+
+
+/* ============================================
+
+=============
+اجرای محاسبات کامل پروژه
+========================================================= */
+
+function calculateProject() {
+
+const province =
+document.getElementById("province").value;
+
+const city =
+document.getElementById("city").value;
+
+
+const rate =
+provinces[province]?.rate ?? 32;
+
+
+/* -----------------------------
+کنترل حداقل یک سوله
+
+----------------------------- */
+
+if (!shedData.length) {
+
+alert(
+"حداقل یک سوله وارد کنید."
+);
+
+return;
+
+}
+
+
+/* -----------------------------
+کنترل اطلاعات ورودی
+----------------------------- */
+
+for (const s of shedData) {
+
+if (
+
+Number(s.span) < 10 ||
+Number(s.span) > 50
+) {
+
+alert(
+"دهانه هر سوله باید بین ۱۰ تا ۵۰ متر باشد."
+);
+
+return;
+
+}
+
+
+if (
+Number(s.length) <= 0
+) {
+
+alert(
+"طول سوله باید بیشتر از صفر باشد."
+);
+
+
+return;
+
+}
+
+
+if (
+Number(s.height) < 3
+) {
+
+alert(
+"ارتفاع سوله باید حداقل ۳ متر باشد."
+);
+
+return;
+
+}
+
+}
+
+
+/* =====================================================
+محاسبه مستقل هر سوله
+===================================================== */
+
+const singles =
+shedData.map(
+s =>
+calcSingleShed(
+s,
+rate
+)
+);
+
+
+/* ============================================
+
+=========
+مجموع وزن مستقل
+===================================================== */
+
+const rawWeight =
+singles.reduce(
+(sum, s) =>
+sum + Number(s.weightTon),
+0
+);
+
+
+/* =====================================================
+ضریب اشتراک
+===================================================== */
+
+const factor =
+multiFactors[
+shedData.length
+ ] || 1;
+
+
+/* =====================================================
+وزن نهایی پروژه
+===================================================== */
+
+const finalWeight =
+rawWeight * factor;
+
+
+/* =====================================================
+
+میزان صرفهجویی
+===================================================== */
+
+const saving =
+rawWeight -
+finalWeight;
+
+
+const savingPercent =
+rawWeight
+? (
+saving /
+rawWeight
+) * 100
+: 0;
+
+
+/* ============================================
+
+=========
+پوشش سقف
+===================================================== */
+
+const totalRoof =
+singles.reduce(
+(sum, s) =>
+sum + Number(s.roofCover),
+0
+);
+
+
+/* =====================================================
+دیوارهای طولی
+===================================================== */
+
+const walls =
+longitudinalWallInfo(
+shedData
+);
+
+
+/* =====================================================
+دیوارهای انتهایی
+===================================================== */
+
+const endWalls =
+shedData.map(
+s =>
+endWallInfo(s)
+);
+
+/* =====================================================
+مجموع دیوار خارجی
+===================================================== */
+
+const outerWallArea =
+
+walls.reduce(
+(sum, x) =>
+sum + Number(x.net),
+0
+)
+
++
+
+endWalls.reduce(
+(sum, x) =>
+sum +
+
+Number(x.net) * 2,
+0
+);
+
+
+/* =====================================================
+تعداد تقریبی بلوک
+مبنا: ۱۲٫۵ عدد در مترمربع
+===================================================== */
+
+const blockCount =
+outerWallArea * 12.5;
+
+
+/* =====================================================
+
+تعداد تقریبی آجر
+مبنا: ۱۹۰ عدد در مترمربع
+===================================================== */
+
+const brickCount =
+outerWallArea * 190;
+
+
+/* =====================================================
+فونداسیون
+===================================================== */
+
+const foundation =
+foundationEstimate(
+shedData
+);
+
+
+
+/* =====================================================
+فریمها
+===================================================== */
+
+const framesMax =
+totalUniqueFrames(
+shedData
+);
+
+
+/* =====================================================
+ستونهای یکتا
+============================================
+
+========= */
+
+const uniqueColumns =
+columnCount(
+shedData
+);
+
+
+/* =====================================================
+فریمهای مشترک
+===================================================== */
+
+const sharedFrames =
+sharedColumnFrameCount(
+shedData
+);
+
+
+/* =====================================================
+لاینهای عرضی
+===================================================== */
+
+const totalLines =
+singles.reduce(
+(sum, s) =>
+sum + Number(s.lines),
+0
+);
+
+
+/* =====================================================
+کمربند
+
+===================================================== */
+
+const totalBelt =
+singles.reduce(
+(sum, s) =>
+sum + Number(s.belt),
+0
+);
+
+
+/* =====================================================
+شناژهای طولی
+===================================================== */
+
+const shenageLengths =
+longitudinalFoundationLengths(
+
+shedData
+);
+
+
+const shenageLengthTotal =
+shenageLengths.reduce(
+(sum, x) =>
+sum + Number(x),
+0
+);
+
+
+/* =====================================================
+برآورد وزن شناژ
+===================================================== */
+
+const shenageWeight =
+
+singles.reduce(
+(sum, s) =>
+sum +
+shenageWeightEstimate(s),
+0
+);
+
+
+/* =====================================================
+نمایش خروجیها
+===================================================== */
+
+renderWeight(
+singles,
+rawWeight,
+finalWeight,
+saving,
+
+savingPercent,
+factor,
+province,
+city
+);
+
+
+renderRoof(
+singles,
+totalRoof
+);
+
+
+renderWalls(
+shedData,
+walls,
+endWalls,
+outerWallArea,
+blockCount,
+brickCount
+
+);
+
+
+renderFoundation(
+foundation,
+shenageLengths,
+shenageLengthTotal
+);
+
+
+renderMembers(
+singles,
+framesMax,
+uniqueColumns,
+sharedFrames,
+totalLines,
+totalBelt,
+shenageLengthTotal,
+shenageWeight
+);
+
+
+
+/* =====================================================
+برچسب نوع پروژه
+===================================================== */
+
+document.getElementById(
+"resultModeBadge"
+).textContent =
+
+shedData.length === 1
+
+? "تکقلو"
+
+: shedData.length === 2
+
+? "دوقلو"
+
+
+: "سهقلو";
+
+
+/* =====================================================
+نمایش بخش نتایج
+===================================================== */
+
+document
+.getElementById("results")
+.classList
+.add("show");
+
+
+/* =====================================================
+
+رفتن خودکار به نتیجه
+===================================================== */
+
+document
+.getElementById("results")
+.scrollIntoView({
+behavior: "smooth",
+block: "start"
+});
+
+}
+
+
+/* =========================================================
+کارت آماری
+========================================================= */
+
+
+function metric(
+title,
+value,
+unit
+) {
+
+return `
+
+<div class="metric">
+
+<div class="k">
+$`{title}
+</div>
+
+<div class="v">
+`${value}
+</div>
+
+<div class="u">
+
+$`{unit || ""}
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+خروجی وزن سازه
+========================================================= */
+
+function renderWeight(
+singles,
+raw,
+
+final,
+saving,
+pct,
+factor,
+province,
+city
+) {
+
+
+document.getElementById(
+"weightMetrics"
+).innerHTML =
+
+metric(
+"وزن مستقل سولهها",
+fa(raw, 2),
+"تن"
+)
+
++
+
+
+metric(
+"وزن نهایی چندقلو",
+fa(final, 2),
+"تن"
+)
+
++
+
+metric(
+"صرفهجویی اشتراک سازه",
+fa(saving, 2),
+"تن"
+)
+
++
+
+metric(
+"درصد کاهش نسبت به مستقل",
+fa(pct, 2),
+
+"%"
+);
+
+
+document.getElementById(
+"weightDetails"
+).innerHTML = `
+
+<table class="detail-table">
+
+<thead>
+
+<tr>
+
+<th>
+سوله
+</th>
+
+<th>
+ابعاد
+
+</th>
+
+<th>
+وزن پایه
+</th>
+
+<th>
+جرثقیل
+</th>
+
+<th>
+kg/m²
+</th>
+
+<th>
+وزن مستقل
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+${singles.map( (s, i) =&gt;
+
+<tr>
+
+<td>
+$`{fa(i + 1, 0)}
+</td>
+
+<td>
+${fa(s.span, 1)} × ${fa(s.length, 1)}
+×
+`${fa(s.height, 1)}
+</td>
+
+<td>
+
+$`{fa(s.base, 2)}
+</td>
+
+<td>
+`${fa(s.crane, 0)}
+تن
+</td>
+
+<td>
+$`{fa(s.kgm2, 2)}
+</td>
+
+<td>
+`${fa(s.weightTon, 2)}
+تن
+</td>
+
+</tr>
+
+`
+
+).join("")}
+
+</tbody>
+
+</table>
+
+
+<div class="ok">
+
+استان:
+<b>$`{esc(province)}</b>
+
+|
+
+شهر:
+<b>`${esc(city)}</b>
+
+<br>
+
+ضریب اشتراک سازهای مورد استفاده برای
+
+
+$`{
+singles.length === 1
+? "تکقلو"
+: singles.length === 2
+? "دوقلو"
+: "سهقلو"
+}
+
+:
+
+<b>
+`${fa(factor * 100, 2)}٪
+</b>
+
+از مجموع وزن مستقل.
+
+</div>
+
+<div class="notice">
+
+وزن چندقلو بر اساس مدل برآورد اولیه و
+ضرایب کالیبرهشده پروژه محاسبه شده است؛
+وزن نهایی مقاطع باید پس از طراحی سازه تعیین شود.
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+خروجی پوشش سقف
+========================================================= */
+
+function renderRoof(
+singles,
+total
+) {
+
+const totalLength =
+singles.reduce(
+(sum, s) =>
+sum + Number(s.length),
+0
+);
+
+
+document.getElementById(
+"roofMetrics"
+).innerHTML =
+
+metric(
+"مساحت تقریبی پوشش سقف",
+fa(total, 2),
+
+"مترمربع"
+)
+
++
+
+metric(
+"تعداد سوله",
+fa(singles.length, 0),
+"سوله"
+)
+
++
+
+metric(
+"میانگین پوشش هر سوله",
+fa(
+total /
+singles.length,
+2
+),
+
+"مترمربع"
+)
+
++
+
+metric(
+"طول کل",
+fa(totalLength, 2),
+"متر"
+);
+
+
+document.getElementById(
+"roofDetails"
+).innerHTML = `
+
+<table class="detail-table">
+
+<thead>
+
+<tr>
+
+<th>
+سوله
+</th>
+
+<th>
+دهانه
+</th>
+
+<th>
+طول
+</th>
+
+<th>
+پوشش سقف
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+${singles.map( (s, i) =&gt;
+
+<tr>
+
+<td>
+`${fa(i + 1, 0)}
+</td>
+
+<td>
+$`{fa(s.span, 1)}
+</td>
+
+<td>
+`${fa(s.length, 1)}
+</td>
+
+
+<td>
+$`{fa(s.roofCover, 2)}
+m²
+</td>
+
+</tr>
+
+`
+).join("")}
+
+</tbody>
+
+</table>
+
+`;
+
+}
+
+/* =========================================================
+خروجی دیوارها
+========================================================= */
+
+function renderWalls(
+data,
+walls,
+ends,
+outerArea,
+blocks,
+bricks
+) {
+
+
+/*
+•	مجموع والپستهای دو انتهای
+
+•	تمام سولهها
+*/
+
+const posts =
+ends.reduce(
+(sum, x) =>
+sum +
+Number(x.posts) * 2,
+0
+);
+
+
+document.getElementById(
+"wallMetrics"
+).innerHTML =
+
+metric(
+"مساحت خالص دیوار خارجی",
+fa(outerArea, 2),
+"مترمربع"
+
+)
+
++
+
+metric(
+"تعداد تقریبی بلوک",
+fa(blocks, 0),
+"عدد | ۱۲٫۵ عدد/m²"
+)
+
++
+
+metric(
+"تعداد تقریبی آجر",
+fa(bricks, 0),
+"عدد | ۱۹۰ عدد/m²"
+)
+
++
+
+metric(
+"والپست انتهایی",
+fa(posts, 0),
+"عدد"
+);
+
+
+document.getElementById(
+"wallDetails"
+).innerHTML = `
+
+
+<!-- =================
+دیوارهای انتهایی
+================= -->
+
+<table class="detail-table">
+
+<thead>
+
+<tr>
+
+<th>
+سوله
+</th>
+
+<th>
+مساحت دو انتها
+</th>
+
+<th>
+کسر درب
+</th>
+
+<th>
+کسر پنجره
+</th>
+
+<th>
+خالص انتها
+
+</th>
+
+<th>
+والپست در هر انتها
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+${ends.map( (e, i) =&gt;
+
+<tr>
+
+<td>
+$`{fa(i + 1, 0)}
+</td>
+
+
+<td>
+`${fa(e.gross * 2, 2)}
+</td>
+
+<td>
+$`{fa(e.door * 2, 2)}
+</td>
+
+<td>
+`${fa(e.window * 2, 2)}
+</td>
+
+<td>
+$`{fa(e.net * 2, 2)}
+</td>
+
+<td>
+`${fa(e.posts, 0)}
+</td>
+
+
+</tr>
+
+`
+).join("")}
+
+</tbody>
+
+</table>
+
+
+<!-- =================
+دیوارهای طولی
+================= -->
+
+<table class="detail-table">
+
+<thead>
+
+<tr>
+
+
+<th>
+سوله
+</th>
+
+<th>
+تعداد سمت خارجی
+</th>
+
+<th>
+دیوار طولی ناخالص
+</th>
+
+<th>
+پنجره طولی
+</th>
+
+<th>
+دیوار طولی خالص
+</th>
+
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+${walls.map( (w, i) =&gt;
+
+<tr>
+
+<td>
+`${fa(i + 1, 0)}
+</td>
+
+<td>
+$`{fa(w.externalSides, 0)}
+</td>
+
+<td>
+`${fa(w.gross, 2)}
+</td>
+
+<td>
+$`{fa(w.windows, 2)}
+</td>
+
+<td>
+`${fa(w.net, 2)}
+</td>
+
+</tr>
+
+`
+).join("")}
+
+</tbody>
+
+</table>
+
+
+
+<div class="ok">
+
+در فصل مشترک سولههای چندقلو:
+
+<b>
+دیوار و پنجره طولی صفر
+</b>
+
+در نظر گرفته شده است.
+
+</div>
+
+`;
+
+}
+
+
+/* 
+
+=========================================================
+خروجی فونداسیون
+========================================================= */
+
+function renderFoundation(
+f,
+shenageLengths,
+total
+) {
+
+
+/*
+•	دهانه بالاتر از ۳۵ متر
+*/
+
+if (!f.available) {
+
+document.getElementById(
+"foundationMetrics"
+).innerHTML =
+
+metric(
+"بتن عیار ۴۰۰",
+"—",
+"بر اساس طراحی"
+)
+
++
+
+metric(
+"بتن مگر عیار ۱۵۰",
+"—",
+"بر اساس طراحی"
+)
+
++
+
+metric(
+"تعداد تقریبی پایه",
+fa(f.footings, 0),
+"عدد"
+)
+
++
+
+metric(
+"ردیف فونداسیون",
+fa(f.rows, 0),
+"ردیف"
+);
+
+
+document.getElementById(
+"foundationDetails"
+).innerHTML = `
+
+<div class="warn">
+
+
+حداقل یکی از سولهها دهانه بالاتر از ۳۵ متر دارد.
+
+برای این حالت حجم بتن اجرایی بهصورت عدد قطعی
+ارائه نمیشود و
+
+<b>
+بر اساس طراحی مهندس طراح قابل بررسی میباشد.
+</b>
+
+</div>
+
+
+<div class="notice">
+
+بتن اصلی با عنوان
+<b>عیار ۴۰۰</b>
+
+و بتن مگر با عنوان
+
+<b>عیار ۱۵۰</b>
+
+تفکیک شدهاند.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+/* =====================================================
+فونداسیون قابل برآورد اولیه
+===================================================== */
+
+document.getElementById(
+"foundationMetrics"
+).innerHTML =
+
+metric(
+"بتن اصلی",
+"عیار ۴۰۰ | " +
+fa(f.main, 2),
+"مترمکعب"
+)
+
++
+
+metric(
+"بتن مگر",
+"عیار ۱۵۰ | " +
+fa(f.lean, 2),
+"مترمکعب"
+)
+
++
+
+metric(
+"تعداد پایه تقریبی",
+fa(f.footings, 0),
+"عدد"
+)
+
++
+
+metric(
+"مساحت تقریبی زیرسازی",
+fa(f.baseArea, 2),
+"مترمربع"
+);
+
+
+document.getElementById(
+"foundationDetails"
+).innerHTML = `
+
+
+<table class="detail-table">
+
+<thead>
+
+<tr>
+
+<th>
+مورد
+</th>
+
+<th>
+مقدار
+</th>
+
+<th>
+توضیح
+</th>
+
+</tr>
+
+
+</thead>
+
+
+<tbody>
+
+<tr>
+
+<td>
+بتن اصلی
+</td>
+
+<td>
+$`{fa(f.main, 2)}
+m³
+</td>
+
+<td>
+عیار ۴۰۰
+</td>
+
+
+</tr>
+
+
+<tr>
+
+<td>
+بتن مگر
+</td>
+
+<td>
+`${fa(f.lean, 2)}
+m³
+</td>
+
+<td>
+عیار ۱۵۰
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+ردیفهای فونداسیون
+</td>
+
+<td>
+$`{fa(f.rows, 0)}
+</td>
+
+<td>
+با احتساب فصل مشترک
+</td>
+
+</tr>
+
+
+<tr>
+
+
+<td>
+پایههای تقریبی
+</td>
+
+<td>
+`${fa(f.footings, 0)}
+</td>
+
+<td>
+بر مبنای فریمبندی
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="warn">
+
+حجم بتن این بخش
+
+<b>
+برآورد اولیه
+</b>
+
+است و برای اجرا باید با نقشه فونداسیون،
+ظرفیت باربری خاک و طراحی مهندس محاسب کنترل شود.
+
+</div>
+
+`;
+
+}
+
+
+/* ============================================
+
+=============
+خروجی اعضای سازه
+========================================================= */
+
+function renderMembers(
+singles,
+frames,
+columns,
+sharedFrames,
+lines,
+belt,
+shenageLength,
+shenageWeight
+) {
+
+
+document.getElementById(
+"memberMetrics"
+).innerHTML =
+
+
+metric(
+"بیشترین تعداد فریم",
+fa(frames, 0),
+"فریم"
+)
+
++
+
+metric(
+"تعداد ستونهای یکتا",
+fa(columns, 0),
+"عدد تقریبی"
+)
+
++
+
+metric(
+"فریمهای مشترک",
+fa(sharedFrames, 0),
+
+"فریم"
+)
+
++
+
+metric(
+"طول کمربند",
+fa(belt, 2),
+"متر"
+);
+
+
+document.getElementById(
+"memberDetails"
+).innerHTML = `
+
+<table class="detail-table">
+
+<thead>
+
+<tr>
+
+<th>
+سوله
+</th>
+
+<th>
+فریم
+</th>
+
+<th>
+لاین
+</th>
+
+<th>
+کمربند
+</th>
+
+<th>
+طول
+
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+${singles.map( (s, i) =&gt;
+
+<tr>
+
+<td>
+`${fa(i + 1, 0)}
+</td>
+
+<td>
+$`{fa(s.frames, 0)}
+</td>
+
+
+<td>
+`${fa(s.lines, 0)}
+</td>
+
+<td>
+$`{fa(s.belt, 2)}
+m
+</td>
+
+<td>
+`${fa(s.length, 1)}
+m
+</td>
+
+</tr>
+
+`
+).join("")}
+
+</tbody>
+
+</table>
+
+
+<div class="ok">
+
+شناژهای طولی پروژه:
+
+<b>
+$`{fa(shenageLength, 2)}
+متر
+</b>
+
+<br>
+
+
+برآورد وزن شناژ با مبنای اولیه ۵۰/۶۰ کیلوگرم:
+
+<b>
+
+`${fa(shenageWeight / 1000, 2)}
+تن
+</b>
+
+<br>
+
+
+در فصل مشترک هر دو سوله فقط
+
+<b>
+یک ردیف شناژ مشترک
+</b>
+
+لحاظ شده است.
+
+</div>
+
+
+<div class="notice">
+
+تعداد فریمها بر مبنای فاصله ۶ متر محاسبه شده
+و برای پروژههای چندقلو، بخشهای مشترک
+دوباره شمرده نمیشوند.
+
+</div>
+
+`;
+
+}
+/* =========================================================
+PART 6 — TABS / MODAL / INITIALIZATION / END
+========================================================= */
+
+
+/* =========================================================
+
+تغییر تب نتایج
+========================================================= */
+
+function showTab(name, btn) {
+
+document
+.querySelectorAll(".result-section")
+.forEach(
+x =>
+x.classList.remove("active")
+);
+
+
+document
+.querySelectorAll(".tab")
+.forEach(
+x =>
+x.classList.remove("active")
+);
+
+
+
+const section =
+document.getElementById(
+"tab-" + name
+);
+
+
+if (section) {
+
+section.classList.add(
+"active"
+);
+
+}
+
+
+if (btn) {
+
+btn.classList.add(
+
+"active"
+);
+
+}
+
+}
+
+
+/* =========================================================
+باز کردن پنجره تماس
+========================================================= */
 
 function openModal() {
 
-document
-.getElementById("contactModal")
-.classList.add("show");
+const modal =
+document.getElementById(
+"phoneModal"
 
+);
+
+
+if (modal) {
+
+modal.classList.add(
+"show"
+);
+
+}
 
 }
 
 
-// ===== بستن پنجره تماس =====
+/* =========================================================
+بستن پنجره تماس
+========================================================= */
 
-function closeModal(event) {
+
+function closeModal(e) {
+
+const modal =
+document.getElementById(
+"phoneModal"
+);
+
+
+if (!modal) {
+return;
+}
+
+
+/*
+•	اگر روی پسزمینه کلیک شده باشد
+•	یا تابع بدون event فراخوانی شده باشد
+*/
 
 if (
-!event ||
-event.target ===
-document.getElementById("contactModal")
+!e ||
+e.target === modal
 ) {
 
-document
-.getElementById("contactModal")
-.classList.remove("show");
+modal.classList.remove(
+"show"
+);
 
 }
 
 }
 
 
-// ===== کلید ESC برای بستن پنجره =====
+/* =========================================================
+بستن Modal با کلید ESC
+========================================================= */
+
 
 document.addEventListener(
 "keydown",
-function(event) {
+function(e) {
 
-if (event.key === "Escape") {
+if (
+e.key === "Escape"
+) {
 
-document
-.getElementById("contactModal")
-.classList.remove("show");
+const modal =
+document.getElementById(
+"phoneModal"
+);
+
+
+if (modal) {
+
+modal.classList.remove(
+"show"
+);
+
+
+}
 
 }
 
 }
 );
 
+
+/* =========================================================
+مقداردهی اولیه برنامه
+========================================================= */
+
+
+/*
+•	ابتدا استانها
+*/
+
+
+populateProvinces();
+
+
+/*
+•	سپس اولین سوله
+*/
+
+shedData = [
+newShed(1)
+];
+
+
+/*
+•	نمایش سوله
+*/
+
+renderSheds();
+
+
+
+/*
+•	بروزرسانی چکلیست
+*/
+
+updateChecklist();
+
+
+/*
+•	اطمینان از حالت تکقلو
+*/
+
+document
+.getElementById("singleBtn")
+?.classList
+.add("active");
+
+document
+.getElementById("doubleBtn")
+?.classList
+.remove("active");
+
+
+document
+.getElementById("tripleBtn")
+?.classList
+.remove("active");
+
+
+/* =========================================================
+پایان JavaScript
+========================================================= */
+
 </script>
 
+
 </body>
+
 </html>
