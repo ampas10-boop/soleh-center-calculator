@@ -138,7 +138,27 @@ select{
     padding:10px 12px;
     outline:none;
     font-size:15px;
+}
+
+input{
     direction:rtl;
+}
+
+select{
+    /*
+       توجه: direction:rtl روی select
+       باعث می‌شود در کروم اندروید
+       لیست کشویی اصلاً باز نشود.
+       به‌جای آن از text-align استفاده می‌شود
+       تا هم راست‌چین بماند و هم باز شدن منو خراب نشود.
+    */
+    direction:ltr;
+    text-align:right;
+}
+
+select option{
+    direction:rtl;
+    text-align:right;
 }
 
 input:focus,
@@ -359,6 +379,56 @@ tr:last-child td{
     color:#ddd;
 }
 
+.contact-bar{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:12px 5px;
+}
+
+.contact-btn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    text-decoration:none;
+    border-radius:30px;
+    padding:10px 18px;
+    font-size:14px;
+    font-weight:900;
+    min-height:44px;
+}
+
+.contact-btn.call{
+    background:linear-gradient(135deg,#ffe45b,var(--gold2));
+    color:#111;
+}
+
+.contact-btn.whatsapp{
+    background:#25d366;
+    color:#0a0a0a;
+}
+
+.social-bar{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:10px;
+    padding-top:14px;
+    border-top:1px solid #333;
+}
+
+.social-link{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    text-decoration:none;
+    color:var(--gold);
+    font-size:13px;
+    font-weight:bold;
+}
+
 .small{
     color:#999;
     font-size:11px;
@@ -414,6 +484,20 @@ tr:last-child td{
 <body>
 
 <div class="container">
+
+    <div class="contact-bar">
+
+        <a class="contact-btn call" href="tel:+989125285841">
+            📞 تماس مستقیم
+        </a>
+
+        <a class="contact-btn whatsapp"
+           href="https://wa.me/989125285841"
+           target="_blank" rel="noopener">
+            💬 واتساپ
+        </a>
+
+    </div>
 
     <header class="header">
         <div class="brand">MOHAMMADI</div>
@@ -687,6 +771,22 @@ tr:last-child td{
         <br>
 
         Sooleh.Center
+
+        <div class="social-bar">
+
+            <a class="social-link"
+               href="https://t.me/poladsazeh"
+               target="_blank" rel="noopener">
+                📣 کانال تلگرام
+            </a>
+
+            <a class="social-link"
+               href="https://instagram.com/sooleh.senter"
+               target="_blank" rel="noopener">
+                📷 اینستاگرام
+            </a>
+
+        </div>
 
     </footer>
 
@@ -1571,9 +1671,29 @@ function calculateShed(
 
     /*
        دیوار:
-       چون ارتفاع حذف شده،
-       مقدار دقیق دیوار قابل محاسبه نیست.
+       مساحت تقریبی دیوار پیرامونی =
+       محیط سوله × ارتفاع.
+       این یک برآورد اولیه است و
+       بازشوها (در/پنجره) در آن کسر نشده.
     */
+
+    const wallPerimeter =
+        2 * (span + length);
+
+    const wallArea =
+        wallPerimeter *
+        height;
+
+    /*
+       مصرف آجر نما: ۱۹۰ عدد در هر مترمربع
+       مصرف بلوک: ۱۲.۵ عدد در هر مترمربع
+    */
+
+    const brickCount =
+        wallArea * 190;
+
+    const blockCount =
+        wallArea * 12.5;
 
     return {
 
@@ -1644,7 +1764,16 @@ function calculateShed(
             mainConcrete,
 
         leanConcrete:
-            leanConcrete
+            leanConcrete,
+
+        wallArea:
+            wallArea,
+
+        brickCount:
+            brickCount,
+
+        blockCount:
+            blockCount
 
     };
 
@@ -1985,6 +2114,24 @@ function renderResults(
             0
         );
 
+    const totalWallArea =
+        sheds.reduce(
+            (sum,s)=>sum+s.wallArea,
+            0
+        );
+
+    const totalBrickCount =
+        sheds.reduce(
+            (sum,s)=>sum+s.brickCount,
+            0
+        );
+
+    const totalBlockCount =
+        sheds.reduce(
+            (sum,s)=>sum+s.blockCount,
+            0
+        );
+
 
     /* =========================
        خلاصه
@@ -2092,6 +2239,28 @@ function renderResults(
 
         </div>
 
+
+        <div class="result-box">
+
+            <div class="result-label">
+                ${selectedMaterial === "brick"
+                    ? "مصرف آجر نما (برآوردی)"
+                    : "مصرف بلوک (برآوردی)"}
+            </div>
+
+            <div class="result-value">
+                ${formatNumber(
+                    selectedMaterial === "brick"
+                        ? totalBrickCount
+                        : totalBlockCount
+                )}
+                <span class="result-unit">
+                    عدد
+                </span>
+            </div>
+
+        </div>
+
     `;
 
 
@@ -2151,9 +2320,21 @@ function renderResults(
         </tr>
 
         <tr>
-            <td>مقدار دقیق آجر / بلوک</td>
-            <td>نیازمند طراحی</td>
-            <td>-</td>
+            <td>مساحت تقریبی دیوار پیرامونی</td>
+            <td>${formatNumber(totalWallArea,2)}</td>
+            <td>m²</td>
+        </tr>
+
+        <tr>
+            <td>${selectedMaterial === "brick"
+                ? "مقدار آجر نما مصرفی (برآوردی)"
+                : "مقدار بلوک مصرفی (برآوردی)"}</td>
+            <td>${formatNumber(
+                selectedMaterial === "brick"
+                    ? totalBrickCount
+                    : totalBlockCount
+            )}</td>
+            <td>عدد</td>
         </tr>
 
     `;
