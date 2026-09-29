@@ -485,6 +485,57 @@ tr:last-child td{
 .fig-box{border:1px solid #444;border-radius:12px;padding:10px;background:#101010}
 .fig-badge{text-align:center;color:#ddd;font-size:12px;margin-bottom:6px}
 @media(min-width:800px){.fig-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ===== نسخه جمع‌وجور ===== */
+.container{width:min(640px,94%);padding:8px 0 30px}
+.contact-bar{padding:4px 0;gap:8px}
+.contact-btn{padding:6px 14px;font-size:13px;min-height:34px}
+.header{padding:4px 5px 10px}
+.brand{font-size:20px}
+.subtitle{margin-top:2px;font-size:12px}
+.card{padding:11px;margin-bottom:10px;border-radius:14px}
+.card-title{font-size:15px;margin-bottom:9px;padding-right:8px}
+.grid{gap:8px}
+.field{gap:4px}
+label{font-size:12px}
+input,select{min-height:38px;padding:6px 10px;font-size:14px;border-radius:9px}
+.shed-list{gap:8px}
+.shed-card{padding:9px 10px;border-radius:12px}
+.shed-head{margin-bottom:7px}
+.shed-title{font-size:14px}
+.badge{display:none}
+.shed-card .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.shed-card .field.full{grid-column:auto}
+.shed-card label{font-size:11px}
+.shed-card .small{display:none}
+.material-btn{min-height:38px;font-size:13px}
+.materials{gap:8px}
+.btn{min-height:42px;font-size:14px;border-radius:11px}
+.actions{margin-top:0;gap:8px}
+details.mini{border:1px solid #6c5b00;background:rgba(255,210,28,.06);border-radius:11px;padding:7px 11px;margin-bottom:10px;font-size:12px;line-height:1.8}
+details.mini summary{color:var(--gold);font-weight:bold;cursor:pointer}
+.result-box{padding:10px}
+.result-value{font-size:17px}
+.notice{padding:9px;font-size:12px;line-height:1.7;margin-bottom:9px}
+.footer{padding:10px 0}
+@media(max-width:650px){
+  .grid{grid-template-columns:1fr 1fr}
+  .field.full{grid-column:1/-1}
+  .shed-card .grid{grid-template-columns:1fr 1fr}
+  .actions{grid-template-columns:1fr 1fr}
+  .result-summary{grid-template-columns:1fr 1fr}
+  .brand{font-size:18px}
+  .card{padding:10px}
+}
+
+/* ===== جدول‌ها بدون اسکرول افقی ===== */
+.table-wrap{overflow-x:visible}
+table{min-width:0;width:100%;table-layout:auto}
+th,td{padding:6px 5px;font-size:11.5px;line-height:1.5;word-break:break-word}
+#totalTable td:nth-child(2){white-space:nowrap;font-weight:bold;color:var(--gold)}
+#totalTable td:nth-child(3){white-space:nowrap;width:1%;color:#aaa}
+#regionalTable td:first-child{width:52%}
+@media(max-width:420px){th,td{padding:5px 3px;font-size:10.5px}}
 </style>
 </head>
 
@@ -517,21 +568,11 @@ tr:last-child td{
     </header>
 
 
-    <!-- توضیحات -->
-    <section class="card">
+    <details class="mini"><summary>⚠️ محدوده عملکرد محاسبه‌گر</summary>
+این سامانه برای برآورد اولیه وزن و برخی مقادیر سوله و اسکلت فلزی طراحی شده است.
+</details>
 
-        <div class="card-title">
-            ⚠️ محدوده عملکرد محاسبه‌گر
-        </div>
-
-        <div class="notice">
-            این سامانه برای برآورد اولیه وزن و برخی مقادیر سوله و اسکلت فلزی طراحی شده است.
-        </div>
-
-    </section>
-
-
-    <!-- اطلاعات پروژه -->
+<!-- اطلاعات پروژه -->
     <section class="card">
 
         <div class="card-title">
@@ -592,15 +633,9 @@ tr:last-child td{
             ۲ ـ مشخصات مستقل هر سوله
         </div>
 
-        <div class="notice">
-            برای هر سوله، <strong>دهانه، طول، ارتفاع و ظرفیت جرثقیل</strong>
-            به‌صورت مستقل وارد می‌شود.
-            بنابراین مثلاً می‌توان سوله اول را ۲۰ متر دهانه و
-            سوله دوم را ۱۴ متر دهانه تعریف کرد.
-            مقدار پیش‌فرض ارتفاع ۶ متر (مبنای محاسبه) است؛
-            در صورت تفاوت ارتفاع واقعی، آن را اصلاح کنید.
-            اعداد را می‌توانید با ارقام فارسی یا انگلیسی وارد کنید.
-        </div>
+        <details class="mini"><summary>راهنما</summary>
+برای هر سوله دهانه، طول، ارتفاع و ظرفیت جرثقیل مستقل وارد می‌شود. ارتفاع پیش‌فرض ۶ متر (مبنای محاسبه) است. ارقام فارسی و انگلیسی قابل قبول است.
+</details>
 
         <div id="shedList" class="shed-list"></div>
 
@@ -995,7 +1030,7 @@ function createShedCard(i){
             <div class="field">
 
                 <label>
-                    دهانه سوله ${i} ـ متر
+                    دهانه (m)
                 </label>
 
                 <input
@@ -1013,7 +1048,7 @@ function createShedCard(i){
             <div class="field">
 
                 <label>
-                    طول سوله ${i} ـ متر
+                    طول (m)
                 </label>
 
                 <input
@@ -1031,7 +1066,7 @@ function createShedCard(i){
             <div class="field">
 
                 <label>
-                    ارتفاع سوله ${i} ـ متر
+                    ارتفاع (m)
                 </label>
 
                 <input
@@ -1047,10 +1082,10 @@ function createShedCard(i){
             </div>
 
 
-            <div class="field full">
+            <div class="field">
 
                 <label>
-                    ظرفیت جرثقیل سوله ${i} ـ تن
+                    جرثقیل (تن)
                 </label>
 
                 <input
@@ -1059,7 +1094,7 @@ function createShedCard(i){
                     data-shed="${i}"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0 = بدون جرثقیل"
+                    placeholder="0 = ندارد"
                     value="0"
                 >
 
