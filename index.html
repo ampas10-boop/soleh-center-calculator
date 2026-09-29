@@ -478,6 +478,13 @@ tr:last-child td{
         font-size:17px;
     }
 }
+
+.fig{width:100%;height:auto;display:block}
+.fig-iso{background:linear-gradient(#23344f,#0b1220);border:1px solid #444;border-radius:14px;padding:8px}
+.fig-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+.fig-box{border:1px solid #444;border-radius:12px;padding:10px;background:#101010}
+.fig-badge{text-align:center;color:#ddd;font-size:12px;margin-bottom:6px}
+@media(min-width:800px){.fig-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 
@@ -676,6 +683,17 @@ tr:last-child td{
 
         </div>
 
+
+        <div class="card">
+            <div class="card-title">🏗️ تصویر سوله</div>
+            <div id="figIso" class="fig-iso"></div>
+            <div class="fig-grid">
+                <div class="fig-box"><div class="fig-badge">نمای جلو</div><div id="figFront"></div></div>
+                <div class="fig-box"><div class="fig-badge">نمای جانبی</div><div id="figSide"></div></div>
+                <div class="fig-box"><div class="fig-badge">نمای بالا</div><div id="figTop"></div></div>
+            </div>
+            <div class="small" style="margin-top:10px">تصویر شماتیک و با مقیاس واقعی ابعاد واردشده است؛ نقشه اجرایی نیست.</div>
+        </div>
 
         <!-- جمع کل -->
         <div class="card">
@@ -2230,6 +2248,8 @@ function renderResults(
        جمع کل
     ========================= */
 
+    drawFigures(sheds);
+
     const totalTable =
         document.getElementById(
             "totalTable"
@@ -2360,6 +2380,119 @@ function renderResults(
 
 }
 
+
+
+function drawFigures(sheds){
+    const GOLD="#ffd21c",STEEL="#3c4658",AMB="#ffb800";
+    const fa=n=>Number(n).toLocaleString("fa-IR",{maximumFractionDigits:1});
+    const f2=n=>n.toFixed(2);
+    const pl=(a,fill,st,sw)=>'<polygon points="'+a.map(p=>f2(p[0])+","+f2(p[1])).join(" ")+'" fill="'+fill+'" stroke="'+(st||"none")+'" stroke-width="'+(sw||0)+'" stroke-linejoin="round"/>';
+    const ln=(a,b,c,w,x)=>'<line x1="'+f2(a[0])+'" y1="'+f2(a[1])+'" x2="'+f2(b[0])+'" y2="'+f2(b[1])+'" stroke="'+c+'" stroke-width="'+w+'"'+(x||"")+'/>';
+    const dm=(a,b,u)=>ln(a,b,GOLD,1.6*u,' marker-start="url(#mk)" marker-end="url(#mk)"');
+    const tx=(p,s,u,anc,c)=>'<text x="'+f2(p[0])+'" y="'+f2(p[1])+'" font-size="'+f2(16*u)+'" fill="'+(c||GOLD)+'" text-anchor="'+(anc||"middle")+'" dominant-baseline="central" font-family="Tahoma,Arial,sans-serif" font-weight="bold">'+s+'</text>';
+    const Pv=(x,y,z)=>[x+y*0.42,-(z+y*0.24)];
+
+    const fig=function(build){
+        const pts=[];
+        build(function(p){pts.push(p);return p;},1);
+        const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+        const x0=Math.min.apply(null,xs),x1=Math.max.apply(null,xs);
+        const y0=Math.min.apply(null,ys),y1=Math.max.apply(null,ys);
+        const W=x1-x0,pad=W*0.06,vw=W+2*pad,u=vw/500;
+        const inner=build(function(p){return p;},u);
+        return '<svg class="fig" viewBox="'+[x0-pad,y0-pad,vw,(y1-y0)+2*pad].map(f2).join(" ")+'" xmlns="http://www.w3.org/2000/svg" role="img"><defs><marker id="mk" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="'+f2(11*u)+'" markerHeight="'+f2(11*u)+'" orient="auto-start-reverse"><path d="M1 1L9 5L1 9z" fill="'+GOLD+'"/></marker></defs>'+inner+'</svg>';
+    };
+
+    const crane=function(d,a,b,m,h,q,u,mk){
+        if(!(d.crane>0)) return "";
+        const zc=Math.max(2.5,h-1.6);
+        return ln(q(a,zc),q(b,zc),AMB,3.2*u)+ln(q(m,zc),q(m,zc-2.2),AMB,1.6*u)+
+            pl([q(m-.5,zc-2.2),q(m+.5,zc-2.2),q(m+.5,zc-3),q(m-.5,zc-3)],AMB)+
+            tx(mk(m,zc+1.1),"جرثقیل "+fa(d.crane)+" تن",u,"middle",AMB);
+    };
+
+    const iso=fig(function(R,u){
+        let s="",off=0;
+        const q=(x,y,z)=>R(Pv(x,y,z));
+        sheds.forEach(function(d){
+            const a=off,b=off+d.span,m=(a+b)/2,h=d.height,r=d.span*0.05,L=d.length;
+            off=b;
+            s+=pl([q(a,0,0),q(b,0,0),q(b,0,h),q(m,0,h+r),q(a,0,h)],"#0d1420","#2a3448",u);
+            s+=pl([q(b,0,0),q(b,L,0),q(b,L,h),q(b,0,h)],"#1f57c9","#0e3a8f",u);
+            for(let k=1.5;k<L;k+=1.5) s+=ln(Pv(b,k,0),Pv(b,k,h),"#17469f",.8*u);
+            s+=pl([q(m,0,h+r),q(m,L,h+r),q(b,L,h),q(b,0,h)],"#2f74f5","#0e3a8f",u);
+            s+=pl([q(a,0,h),q(a,L,h),q(m,L,h+r),q(m,0,h+r)],"#2564d8","#0e3a8f",u);
+            s+=ln(Pv(a,0,0),Pv(a,0,h),STEEL,3.2*u)+ln(Pv(b,0,0),Pv(b,0,h),STEEL,3.2*u);
+            s+=ln(Pv(a,0,h),Pv(m,0,h+r),STEEL,3.2*u)+ln(Pv(m,0,h+r),Pv(b,0,h),STEEL,3.2*u);
+            s+=crane(d,a,b,m,h,(x,z)=>q(x,1.2,z),u,(x,z)=>Pv(x,1.2,z));
+        });
+        let o2=0;
+        sheds.forEach(function(d){
+            const a=o2,b=o2+d.span;o2=b;
+            s+=dm(q(a+.3,0,-1.8),q(b-.3,0,-1.8),u)+tx(Pv((a+b)/2,0,-4),"دهانه "+fa(d.span)+" m",u);
+        });
+        const h0=sheds[0].height,last=sheds[sheds.length-1];
+        s+=dm(q(-1.8,0,0),q(-1.8,0,h0),u)+tx(Pv(-2.6,0,h0/2),"ارتفاع "+fa(h0)+" m",u,"end");
+        R([Pv(-2.6,0,0)[0]-12,Pv(-2.6,0,0)[1]]);
+        s+=dm(q(off+1.8,0,0),q(off+1.8,last.length,0),u)+tx(Pv(off+2.6,last.length/2,0),"طول "+fa(last.length)+" m",u,"start");
+        R([Pv(off+2.6,last.length/2,0)[0]+12,Pv(off+2.6,last.length/2,0)[1]]);
+        return s;
+    });
+
+    const front=fig(function(R,u){
+        let s="",off=0;
+        sheds.forEach(function(d){
+            const a=off,b=off+d.span,m=(a+b)/2,h=d.height,r=d.span*0.05;
+            off=b;
+            const q=(x,z)=>R([x,-z]);
+            s+=pl([q(a,0),q(b,0),q(b,h),q(m,h+r),q(a,h)],"#0d1420","#1f57c9",1.6*u);
+            s+=ln(q(a,0),q(a,h),STEEL,3*u)+ln(q(b,0),q(b,h),STEEL,3*u);
+            s+=ln(q(a,h),q(m,h+r),STEEL,3*u)+ln(q(m,h+r),q(b,h),STEEL,3*u);
+            s+=crane(d,a,b,m,h,q,u,(x,z)=>[x,-z]);
+            s+=dm(q(a+.3,-1.8),q(b-.3,-1.8),u)+tx(q((a+b)/2,-3.8),"دهانه "+fa(d.span)+" m",u);
+            s+=dm(q(a+1.5,0),q(a+1.5,h),u)+tx(q(a+2.3,h/2),fa(h)+" m",u,"start");
+        });
+        s+=ln(R([-1,0]),R([off+1,0]),"#6b7688",2*u);
+        return s;
+    });
+
+    const hm=Math.max.apply(null,sheds.map(d=>d.height));
+    const side=fig(function(R,u){
+        let s="";
+        sheds.forEach(function(d,i){
+            const g=i*(hm+8)+hm,h=d.height,L=d.length;
+            const q=(x,z)=>R([x,g-z]);
+            s+=pl([q(0,0),q(L,0),q(L,h),q(0,h)],"#1f57c9","#0e3a8f",u);
+            for(let k=6;k<L;k+=6) s+=ln(q(k,0),q(k,h),"#17469f",u);
+            s+=pl([q(-.5,h),q(L+.5,h),q(L+.5,h+.6),q(-.5,h+.6)],"#2f74f5");
+            s+=pl([q(0,0),q(L,0),q(L,.5),q(0,.5)],"#8b93a1");
+            s+=dm(q(.3,-1.8),q(L-.3,-1.8),u)+tx(q(L/2,-3.8),(sheds.length>1?"سوله "+fa(d.index)+" · ":"")+"طول "+fa(L)+" m",u);
+            s+=dm(q(-1.8,0),q(-1.8,h),u)+tx(q(-2.6,h/2),fa(h)+" m",u,"end");
+            R([-13,g-h/2]);
+        });
+        return s;
+    });
+
+    const Lm=Math.max.apply(null,sheds.map(d=>d.length));
+    const top=fig(function(R,u){
+        let s="",off=0;
+        sheds.forEach(function(d){
+            const a=off,b=off+d.span,m=(a+b)/2,L=d.length;
+            off=b;
+            const q=(x,y)=>R([x,y]);
+            s+=pl([q(a,0),q(b,0),q(b,L),q(a,L)],"#2564d8","#0e3a8f",u);
+            s+=ln(q(m,0),q(m,L),"#17469f",u);
+            s+=tx(q(m,L/2),"طول "+fa(L)+" m",u,"middle","#ffffff");
+            s+=dm(q(a+.3,Lm+1.8),q(b-.3,Lm+1.8),u)+tx(q(m,Lm+3.8),fa(d.span)+" m",u);
+        });
+        return s;
+    });
+
+    document.getElementById("figIso").innerHTML=iso;
+    document.getElementById("figFront").innerHTML=front;
+    document.getElementById("figSide").innerHTML=side;
+    document.getElementById("figTop").innerHTML=top;
+}
 
 /* =========================================================
    پاک کردن
