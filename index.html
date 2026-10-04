@@ -1517,11 +1517,12 @@ function footingInfo(span){
    مبنا: ارتفاع ۶ متر
    هر متر بیشتر از ۶ متر: +۲ کیلوگرم بر مترمربع
    هر متر کمتر از ۶ متر: -۱٫۵ کیلوگرم بر مترمربع
-   کف مطلق: ۲۵ کیلوگرم بر مترمربع (هیچ‌گاه کمتر نمی‌شود)
+   کف مطلق: در هیچ حالتی وزن اسکلت کمتر از ۲۳ کیلوگرم بر مترمربع نمی‌شود
+   (هم وزن پایه و هم وزن نهایی بعد از ضرایب منطقه‌ای/جرثقیل)
 ========================================================= */
 
 const BASE_HEIGHT = 6;
-const MIN_STEEL_KGM2 = 25;
+const MIN_STEEL_KGM2 = 23;
 
 function heightAdjustedBase(baseAt6m,height){
 
@@ -1575,10 +1576,14 @@ function calculateShed(
     const regional =
         getRegionalFactor(province, city);
 
+    /* کف نهایی: در هیچ حالتی زیر ۲۳ kg/m² نمی‌شود */
     const steelKgM2 =
-        base *
-        craneCoef *
-        regional;
+        Math.max(
+            MIN_STEEL_KGM2,
+            base *
+            craneCoef *
+            regional
+        );
 
     const steelWeight =
         area *
