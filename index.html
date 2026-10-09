@@ -1545,6 +1545,10 @@ function footingInfo(span){
 const BASE_HEIGHT = 6;
 const MIN_STEEL_KGM2 = 23;
 
+/* ضریب کاهش وزن برای سوله دوقلو و سه‌قلو (حذف وزن ستون‌های ردیف میانی)
+   تک‌قلو ≈ ۳۳ → دوقلو/سه‌قلو ≈ ۲۸ kg/m²  ⇒ حدود ۰٫۸۵ */
+const MULTI_SHED_FACTOR = 0.85;
+
 function heightAdjustedBase(baseAt6m,height){
 
     const diff =
@@ -1576,7 +1580,8 @@ function calculateShed(
     height,
     crane,
     province,
-    city
+    city,
+    shedCount
 ){
 
     const area =
@@ -1597,13 +1602,18 @@ function calculateShed(
     const regional =
         getRegionalFactor(province, city);
 
+    /* دوقلو / سه‌قلو: ستون‌های ردیف میانی مشترک‌اند، پس وزن هر مترمربع کمتر می‌شود */
+    const multiFactor =
+        shedCount >= 2 ? MULTI_SHED_FACTOR : 1;
+
     /* کف نهایی: در هیچ حالتی زیر ۲۳ kg/m² نمی‌شود */
     const steelKgM2 =
         Math.max(
             MIN_STEEL_KGM2,
             base *
             craneCoef *
-            regional
+            regional *
+            multiFactor
         );
 
     const steelWeight =
@@ -2055,7 +2065,8 @@ function calculate(){
                         height,
                         crane,
                         province,
-                        city
+                        city,
+                        count
                     )
                 );
 
